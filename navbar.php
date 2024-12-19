@@ -78,9 +78,8 @@
       <li><a href="#"><i>&#127860;</i> Home</a></li>
       <li><a href="#"><i>&#127860;</i> Recipes</a></li>
       <li><a href="#"><i>&#127860;</i> Tips</a></li>
-      <li><a href="#"></a></li>
       <li><a href="#"><i>&#127860;</i> Community</a></li>
-      <li><a href="#"><i>&#127860;</i> Contact</a></li>
+      <li><a href="#"><i>&#127860;</i> Join Us</a></li>
   </ul>
   <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
 </nav>
