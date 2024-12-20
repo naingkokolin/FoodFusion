@@ -1,3 +1,18 @@
 .home-first-photo {
-  
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+}
+
+.blog-image {
+  width: 100%;
+}
+
+.blog-username {
+  display: inline-block;
 }
