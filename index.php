@@ -5,20 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Food Fusion</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./styles/index.css">
   <link rel="icon" href="./icons/search-icon.svg" type="image/x-icon">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
   <?php include('navbar.php'); ?>
-  <h3>Delicious Recipes</h3>
-  <img src="./img/chorizo_gnocchi_48255_16x9.jpg" alt="Delicious Recipe" class="home-first-photo">
-  <p>
-    To inspire and empower individuals to embrace home cooking and culinary
-    creativity by providing a vibrant platform for sharing recipes, culinary tips,
-    and fostering a supportive community of food enthusiasts worldwide.
-  </p>
+  <div class="header-part">
+    <h3>Delicious Recipes</h3>
+    <img class="home-first-photo" src="./img/chorizo_gnocchi_48255_16x9.jpg" alt="Delicious Recipe" width="100%">
+    <p>
+      To inspire and empower individuals to embrace home cooking and culinary
+      creativity by providing a vibrant platform for sharing recipes, culinary tips,
+      and fostering a supportive community of food enthusiasts worldwide.
+    </p>
+  </div>
 
   <h2>Our Blog</h2>
   <hr>

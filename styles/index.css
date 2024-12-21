@@ -1,6 +1,11 @@
-.home-first-photo {
-  display: grid;
-  grid-template-columns: 1fr;
+.header-part {
+  display: flex;
+  flex-direction: row;
+}
+
+#home-first-photo {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .blog-grid {
