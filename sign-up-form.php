@@ -18,7 +18,7 @@
 
     <div class="button-container">
       <button class="sign-up-button">Sign Up</button>
-      <button class="reset-button">Reset</button>
+       <button class="reset-button">Reset</button>
     </div>
 
   </div>
