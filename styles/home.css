@@ -1,0 +1,77 @@
+body {
+  font-family: "Roboto", serif;
+}
+
+.main-section {
+  margin-top: 50px;
+}
+
+.image-text {
+  display: flex;
+}
+
+.image-inside-main {
+  max-height: 500px;
+  flex: 1;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text p {
+  flex: 1;
+  padding: 10px 30px;
+  font-family: "Playwrite AU VIC Guides", serif;
+  font-weight: 700;
+}
+
+.join-us-button {
+  flex: 1;
+  justify-content: center;
+}
+
+.join-us-button a button {
+  text-decoration: none;
+  width: 150px;
+  height: 30px;
+  border: 1px solid red;
+  color: red;
+  background-color: rgb(139, 190, 235);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+
+
+/* Style for the cookie consent bar */
+#cookie-consent-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px 20px;
+  z-index: 1000;
+  display: none;
+  /* Hidden by default */
+}
+
+#cookie-consent-bar button {
+  margin: 0 10px;
+  padding: 8px 15px;
+  background-color: #007BFF;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#cookie-consent-bar button:hover {
+  background-color: #0056b3;
+}

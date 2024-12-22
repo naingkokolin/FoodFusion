@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <?php include('navbar.php'); ?>
+  
   <div class="header-part">
     <h3>Delicious Recipes</h3>
     <img class="home-first-photo" src="./img/chorizo_gnocchi_48255_16x9.jpg" alt="Delicious Recipe" width="100%">

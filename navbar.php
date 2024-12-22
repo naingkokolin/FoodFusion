@@ -16,11 +16,24 @@
     padding: 10px 20px;
     background-color: #fff8ce;
     color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
   }
 
   .navbar .logo {
     font-size: 24px;
     font-weight: bold;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .navbar .logo img {
+    height: 30px;
   }
 
   .navbar ul {
@@ -58,7 +71,7 @@
     .navbar ul {
       display: none;
       flex-direction: column;
-      background-color: #333;
+      background-color: #fff8ce;
       position: absolute;
       top: 60px;
       right: 20px;
@@ -78,13 +91,15 @@
 </style>
 
 <nav class="navbar">
-  <div class="logo">Food Fusion</div>
+  <div class="logo">
+    <img src="/img/logo.png" alt="Logo">
+    Food Fusion
+  </div>
   <ul>
     <li><a href="#"><i>&#127860;</i> Home</a></li>
     <li><a href="#"><i>&#127860;</i> Recipes</a></li>
     <li><a href="#"><i>&#127860;</i> Tips</a></li>
     <li><a href="#"><i>&#127860;</i> Community</a></li>
-    <li><a href="#"><i>&#127860;</i> Join Us</a></li>
   </ul>
   <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
 </nav>
