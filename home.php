@@ -63,16 +63,6 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 Food Fusion | <a href="#">Privacy Policy</a></p>
-    <div class="social-links">
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-      <a href="#">Twitter</a>
-    </div>
-  </footer>
-
   <!-- Modal (Sign Up and Login Form) -->
   <div class="modal" id="joinModal">
     <div class="modal-content">
@@ -118,6 +108,16 @@
     </div>
   </div>
 
+  <!-- Footer -->
+  <!-- <footer>
+    <p>&copy; 2024 Food Fusion | <a href="#">Privacy Policy</a></p>
+    <div class="social-links">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+    </div>
+  </footer> -->
+  <?php include("footer.php"); ?>
 
   <script src="./scripts/home.js"></script>
 </body>

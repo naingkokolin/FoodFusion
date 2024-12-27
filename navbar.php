@@ -96,12 +96,11 @@
     Food Fusion
   </div>
   <ul>
-    <li><a href="./home.php
-    "><i>&#127860;</i> Home</a></li>
+    <li><a href="./home.php"><i>&#127860;</i> Home</a></li>
     <li><a href="./about-us.php"><i>&#127860;</i> About Us</a></li>
     <li><a href="./recipes.php"><i>&#127860;</i> Recipes</a></li>
     <li><a href="./community.php"><i>&#127860;</i> Community</a></li>
-    <li><a href="./culinary-resource.php"><i>&#127860;</i> Culinary-Resource</a></li>
+    <li><a href="./culinary-resource.php"><i>&#127860;</i> Culinary Resource</a></li>
     <li><a href="./contact-us.php"><i>&#127860;</i> Contact Us</a></li>
   </ul>
   <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
