@@ -4,93 +4,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="/styles/home.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+VIC+Guides&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
-  <title>Home Page</title>
+  <title>FoodFusion</title>
+  <link rel="stylesheet" href="./styles/home.css">
+  <link rel="stylesheet" href="./styles/general.css">
 </head>
 
 <body>
-
-  <!-- <div class="header-section">
-    
-    <div class="logo-container">
-      <img src="/img/logo.png" alt="Logo">
-      <h3>Food Fusion</h3>
-    </div>
-
-     <div class="navigation-container">
-      
-     </div>
-
-  </div> -->
-  <?php include("navbar.php") ?>
-
-  <div class="main-section">
-    <div class="image-text">
-      <div class="image-inside-main">
-        <img src="./img/70bc81c8-b277-407d-8c3a-5c1a3e501732-4-hamburger.jpg" alt="">
-      </div>
-      <div class="text">
-        <p>
-          "To inspire and empower individuals to embrace home cooking and culinary creativity by providing a vibrant platform for sharing recipes, culinary tips, and fostering a supportive community of food enthusiasts worldwide."
-        </p>
-
-        <div class="join-us-button">
-          <a href="./login-form.php">
-            <button>
-              Join Us
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Cookie consent bar -->
-  <div id="cookie-consent-bar">
-    <span>This website uses cookies to ensure you get the best experience. Do you accept?</span>
+  <!-- Cookie Consent -->
+  <div id="cookie-consent">
+    <p>We use cookies to improve your experience. <a href="#">Learn more</a>.</p>
     <button id="accept-cookies">Accept</button>
-    <button id="decline-cookies">Decline</button>
   </div>
 
-  <script>
-    // Show cookie consent bar if no consent cookie exists
-    window.onload = function() {
-      if (!document.cookie.includes('cookie_consent')) {
-        document.getElementById('cookie-consent-bar').style.display = 'block';
-      }
-    };
+  <!-- Header and Navigation -->
+  <header>
+    <!-- <nav>
+      <div class="logo">FoodFusion</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#about-us">About Us</a></li>
+        <li><a href="#recipes">Recipes</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+      <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav> -->
 
-    // Handle cookie acceptance
-    document.getElementById('accept-cookies').addEventListener('click', function() {
-      document.cookie = "cookie_consent=accepted; path=/; max-age=" + (60 * 60 * 24 * 30); // 30 days
-      document.getElementById('cookie-consent-bar').style.display = 'none';
-    });
+    <?php include("navbar.php"); ?>
 
-    // Handle cookie rejection
-    document.getElementById('decline-cookies').addEventListener('click', function() {
-      document.cookie = "cookie_consent=declined; path=/; max-age=" + (60 * 60 * 24 * 30); // 30 days
-      document.getElementById('cookie-consent-bar').style.display = 'none';
-    });
-  </script>
+  </header>
 
-  <?php
-  if (isset($_COOKIE['cookie_consent'])) {
-    $consent = $_COOKIE['cookie_consent'];
-    if ($consent === 'accepted') {
-      // Load analytics or other features requiring cookies
-      echo "<!-- User accepted cookies. Load additional scripts here. -->";
-    } else {
-      // Do not load any cookies or tracking scripts
-      echo "<!-- User declined cookies. -->";
-    }
-  }
-  ?>
+  <!-- Main Content -->
+  <main>
+    <section id="intro">
+      <h1>Welcome to FoodFusion</h1>
+      <p>Explore, cook, and share your culinary journey with our vibrant community!</p>
+      <button id="join-btn">Join Us</button>
+    </section>
+
+    <!-- Carousel -->
+    <section id="carousel">
+      <h2>Upcoming Events</h2>
+      <div class="carousel-container">
+        <!-- Add carousel items here -->
+      </div>
+    </section>
+
+    <!-- News Feed -->
+    <section id="news-feed">
+      <h2>Featured Recipes & Trends</h2>
+      <div class="news-grid">
+        <!-- Add recipe cards dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Food Fusion | <a href="#">Privacy Policy</a></p>
+    <div class="social-links">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+    </div>
+  </footer>
+
+  <!-- Modal (Sign Up and Login Form) -->
+  <div class="modal" id="joinModal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeBtn">&times;</span>
+      <h2>Join FoodFusion</h2>
+      <!-- Tabs for Sign Up and Login -->
+      <div class="form-tabs">
+        <button class="tab-link active" id="signUpTab">Sign Up</button>
+        <button class="tab-link" id="loginTab">Login</button>
+      </div>
+
+      <!-- Sign Up Form -->
+      <div class="form-container" id="signUpForm">
+        <form action="#" method="POST" id="signUp">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" name="firstName" required>
+
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" name="lastName" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+
+      <!-- Login Form -->
+      <div class="form-container" id="loginForm" style="display:none;">
+        <form action="#" method="POST" id="login">
+          <label for="loginEmail">Email:</label>
+          <input type="email" id="loginEmail" name="loginEmail" required>
+
+          <label for="loginPassword">Password:</label>
+          <input type="password" id="loginPassword" name="loginPassword" required>
+
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
 
+  <script src="./scripts/home.js"></script>
 </body>
 
 </html>
