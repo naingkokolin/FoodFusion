@@ -7,26 +7,35 @@
 // });
 
 
-// Cookie Consent
-const cookieConsent = document.getElementById('cookie-consent');
-const acceptCookiesBtn = document.getElementById('accept-cookies');
 
-acceptCookiesBtn.addEventListener('click', () => {
-  cookieConsent.style.display = 'none';
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Cookie Consent
+  const cookieConsent = document.getElementById('cookie-consent');
+  const acceptCookiesBtn = document.getElementById('accept-cookies');
+
+  const ls = localStorage.getItem('first-visit');
+
+  acceptCookiesBtn.addEventListener('click', () => {
+    localStorage.setItem('first-visit', false);
+    cookieConsent.style.display = 'none';
+  });
+
+  if(ls) cookieConsent.style.display = 'none';
 });
 
 // "Join Us" Popup
-const joinUsBtn = document.getElementById('join-us-btn');
+const joinUsBtn = document.getElementById('join-btn');
 const joinPopup = document.getElementById('join-popup');
 const closePopupBtn = document.getElementById('close-popup');
 
-// joinUsBtn.addEventListener('click', () => {
-//   joinPopup.classList.remove('hidden');
-// });
+joinUsBtn.addEventListener('click', () => {
+  joinPopup.classList.remove('hidden');
+});
 
-// closePopupBtn.addEventListener('click', () => {
-//   joinPopup.classList.add('hidden');
-// });
+closePopupBtn.addEventListener('click', () => {
+  joinPopup.classList.add('hidden');
+});
 
 // Carousel Navigation
 const carouselContainer = document.querySelector('.carousel-container');
@@ -51,14 +60,14 @@ const signUpForm = document.getElementById('signUpForm');
 const loginForm = document.getElementById('loginForm');
 
 // Open modal when "Join Us" is clicked
-// joinBtn.addEventListener('click', () => {
-//   modal.style.display = 'block';
-// });
+joinBtn.addEventListener('click', () => {
+  modal.style.display = 'block';
+});
 
 // Close modal when "X" is clicked
-// closeBtn.addEventListener('click', () => {
-//   modal.style.display = 'none';
-// });
+closeBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
 
 // Close modal if clicked outside of the modal content
 window.addEventListener('click', (e) => {

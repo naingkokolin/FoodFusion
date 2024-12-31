@@ -12,31 +12,13 @@
 <body>
   <!-- Cookie Consent -->
   <div id="cookie-consent">
-    <p>We use cookies to improve your experience. <a href="#">Learn more</a>.</p>
+    <p>We use cookies to improve your experience. <a href="#" id="learn-more-text">Learn more</a>.</p>
     <button id="accept-cookies">Accept</button>
+    <button id="accpt-cookies">Reject</button>
   </div>
 
-  <!-- Header and Navigation -->
-  <header>
-    <!-- <nav>
-      <div class="logo">FoodFusion</div>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#about-us">About Us</a></li>
-        <li><a href="#recipes">Recipes</a></li>
-        <li><a href="#community">Community</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-      </ul>
-      <div class="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </nav> -->
-
-    <?php include("navbar.php"); ?>
-
-  </header>
+  <!-- navigation bar -->
+   <?php include("navbar.php"); ?>
 
   <!-- Main Content -->
   <main>
@@ -45,7 +27,7 @@
       <p>
         Explore, cook, and share your culinary journey with our vibrant community!
       </p>
-      <button id="join-btn">Join Us Now</button>
+      <button id="join-btn">Join Us</button>
     </section>
 
     <!-- Carousel -->
@@ -119,7 +101,8 @@
       <a href="#">Twitter</a>
     </div>
   </footer> -->
-  <?php include("footer.php"); ?>
+
+  <?php include('footer.php'); ?>  
 
   <script src="./scripts/home.js"></script>
 </body>

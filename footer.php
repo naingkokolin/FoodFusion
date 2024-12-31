@@ -4,10 +4,11 @@
     bottom: 0;
     right: 0;
     left: 0;
-    height: 80px;
+    height: 70px;
     background-color: rgb(51, 51, 51);
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   .upper-text {

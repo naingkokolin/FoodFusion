@@ -56,7 +56,7 @@
   .navbar ul li a:hover {
     color: #ff6347;
     /* transform: rotate(360deg); */
-    transform: translate(0px, 2px);
+    transform: translate(0px, 1px);
   }
 
   .navbar ul li a i {
