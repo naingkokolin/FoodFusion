@@ -17,8 +17,11 @@
     justify-content: center;
   }
 
-  .social-accounts ul {
+  .social-accounts {
     flex: 1;
+  }
+
+  .social-accounts ul {
     display: flex;
     column-gap: 12px;
     flex-direction: row;
@@ -28,6 +31,7 @@
 
   .social-accounts a {
     color: white;
+    text-decoration: none;
     transition: color 0.15s;
   }
 
@@ -42,13 +46,12 @@
   .yt:hover {
     color: red;
   }
-  
 </style>
 
 <footer class="footer-container">
   <div class="upper-text">
     <p>
-      &copy; 2024 - 2025 Food Fusion
+      &copy; 2025 Food Fusion All Right Reserved.
     </p>
   </div>
 

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Culinary Resources - FoodFusion</title>
+  <title class="page-title">Culinary Resources</title>
   <link rel="stylesheet" href="./styles/culinary-resource.css">
 </head>
 

@@ -51,6 +51,18 @@ nav {
   align-items: center;
 }
 
+#join-btn {
+  color: black;
+  background-color: white;
+  transition: all 0.15s;
+  border-radius: 4px;
+}
+
+#join-btn:hover {
+  color: white;
+  background-color: red;
+}
+
 .nav-links {
   list-style: none;
   display: flex;

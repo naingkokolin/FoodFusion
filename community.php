@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Community Cookbook - FoodFusion</title>
+  <title class="page-title">Community Cookbook</title>
   <link rel="stylesheet" href="./styles/community.css">
 </head>
 
@@ -71,12 +71,13 @@
   </section>
 
   <!-- Footer -->
-  <footer>
+  <!-- <footer>
     <div class="social-links">
       <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
     </div>
     <p>&copy; 2024 FoodFusion. All rights reserved.</p>
-  </footer>
+  </footer> -->
+  <?php include("footer.php"); ?>
 
   <script src="./scripts/community.js"></script>
 </body>
