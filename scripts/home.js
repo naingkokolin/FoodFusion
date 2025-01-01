@@ -25,30 +25,30 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // "Join Us" Popup
-const joinUsBtn = document.getElementById('join-btn');
+const joinUsBtn = document.getElementById('join-us-btn');
 const joinPopup = document.getElementById('join-popup');
 const closePopupBtn = document.getElementById('close-popup');
 
-joinUsBtn.addEventListener('click', () => {
-  joinPopup.classList.remove('hidden');
-});
+// joinUsBtn.addEventListener('click', () => {
+//   joinPopup.classList.remove('hidden');
+// });
 
-closePopupBtn.addEventListener('click', () => {
-  joinPopup.classList.add('hidden');
-});
+// closePopupBtn.addEventListener('click', () => {
+//   joinPopup.classList.add('hidden');
+// });
 
 // Carousel Navigation
 const carouselContainer = document.querySelector('.carousel-container');
 
 // Auto scroll carousel
-let carouselIndex = 0;
-setInterval(() => {
-  const items = carouselContainer.children;
-  if (items.length > 0) {
-    carouselIndex = (carouselIndex + 1) % items.length;
-    items[carouselIndex].scrollIntoView({ behavior: 'smooth', inline: 'center' });
-  }
-}, 3000);
+// let carouselIndex = 0;
+// setInterval(() => {
+//   const items = carouselContainer.children;
+//   if (items.length > 0) {
+//     carouselIndex = (carouselIndex + 1) % items.length;
+//     items[carouselIndex].scrollIntoView({ behavior: 'smooth', inline: 'center' });
+//   }
+// }, 3000);
 
 // Get modal elements
 const modal = document.getElementById('joinModal');
@@ -60,7 +60,7 @@ const signUpForm = document.getElementById('signUpForm');
 const loginForm = document.getElementById('loginForm');
 
 // Open modal when "Join Us" is clicked
-joinBtn.addEventListener('click', () => {
+joinUsBtn.addEventListener('click', () => {
   modal.style.display = 'block';
 });
 

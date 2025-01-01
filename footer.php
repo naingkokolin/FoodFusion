@@ -4,7 +4,7 @@
     bottom: 0;
     right: 0;
     left: 0;
-    height: 70px;
+    height: 80px;
     background-color: rgb(51, 51, 51);
     display: flex;
     flex-direction: column;

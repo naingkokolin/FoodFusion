@@ -58,14 +58,14 @@ nav {
   align-items: center;
 }
 
-#join-btn {
+#join-us-btn {
   color: black;
   background-color: white;
   transition: all 0.15s;
   border-radius: 4px;
 }
 
-#join-btn:hover {
+#join-us-btn:hover {
   color: white;
   background-color: red;
 }
@@ -150,18 +150,45 @@ nav {
 /* Carousel */
 .carousel-container {
   display: flex;
+  flex-wrap: wrap;
+  margin: 10px 10px;
+  flex-direction: row;
+  column-gap: 10px;
   overflow: auto;
   scroll-snap-type: x mandatory;
+  justify-content: space-around;
 }
 
-.carousel-container div {
-  flex: none;
-  width: 80%;
-  margin: 20px auto;
-  background: #fff;
-  padding: 20px;
+.carousel-container .carousel-item {
+  flex: 1;
+  margin: 10px auto;
+  background: #858080;
+  height: 400px;
+  padding: 10px;
   border-radius: 5px;
   scroll-snap-align: center;
+}
+
+.carousel-container .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-container .carousel-text {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    flex-wrap: wrap;
+  }
+
+  .carousel-container .carousel-item {
+    flex: 1;
+    height: 300px;
+    background-color: #e55347;
+  }
 }
 
 /* Footer */
@@ -189,7 +216,7 @@ footer .social-links a {
   display: none;
 }
 
-#join-popup.hidden {
+#join-popup .hidden {
   display: none;
 }
 

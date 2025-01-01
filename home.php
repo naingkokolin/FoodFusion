@@ -18,7 +18,7 @@
   </div>
 
   <!-- navigation bar -->
-   <?php include("navbar.php"); ?>
+  <?php include("navbar.php"); ?>
 
   <!-- Main Content -->
   <main>
@@ -27,14 +27,33 @@
       <p>
         Explore, cook, and share your culinary journey with our vibrant community!
       </p>
-      <button id="join-btn">Join Us</button>
+      <button id="join-us-btn">Join Us</button>
     </section>
 
     <!-- Carousel -->
     <section id="carousel">
       <h2>Upcoming Events</h2>
       <div class="carousel-container">
-        <!-- Add carousel items here -->
+        <!-- Carousel items -->
+        <div class="carousel-item">
+          <img src="" alt="carousel image">
+          <div class="carousel-text">
+            <h3>Event Title</h3>
+            <p>Event Description</p>
+            <button>Learn More</button>
+        </div>
+
+        <div class="carousel-item">
+          <img src="" alt="carousel image">
+          <div class="carousel-text">
+            <h3>Event Title</h3>
+            <p>Event Description</p>
+            <button>Learn More</button>
+        </div>
+
+        <div class="carousel-item">
+          carousel 3
+        </div>
       </div>
     </section>
 
@@ -92,17 +111,7 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <!-- <footer>
-    <p>&copy; 2024 Food Fusion | <a href="#">Privacy Policy</a></p>
-    <div class="social-links">
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-      <a href="#">Twitter</a>
-    </div>
-  </footer> -->
-
-  <?php include('footer.php'); ?>  
+  <?php include('footer.php'); ?>
 
   <script src="./scripts/home.js"></script>
 </body>
