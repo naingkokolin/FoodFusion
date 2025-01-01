@@ -23,7 +23,7 @@
   <!-- Main Content -->
   <main>
     <section id="intro">
-      <h1>Welcome to FoodFusion</h1>
+      <h1 class="welcome-text">Welcome to FoodFusion</h1>
       <p>
         Explore, cook, and share your culinary journey with our vibrant community!
       </p>
@@ -36,24 +36,24 @@
       <div class="carousel-container">
         <!-- Carousel items -->
         <div class="carousel-item">
-          <img src="" alt="carousel image">
+          <div class="carousel-image">
+            <img src="./img/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg" alt="carousel-image">
+          </div>
           <div class="carousel-text">
-            <h3>Event Title</h3>
-            <p>Event Description</p>
-            <button>Learn More</button>
+            carousel 1
+          </div>
         </div>
 
         <div class="carousel-item">
-          <img src="" alt="carousel image">
           <div class="carousel-text">
-            <h3>Event Title</h3>
-            <p>Event Description</p>
-            <button>Learn More</button>
+            carousel 2
+          </div>
         </div>
 
         <div class="carousel-item">
           carousel 3
         </div>
+
       </div>
     </section>
 
