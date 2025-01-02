@@ -25,7 +25,9 @@
     <section id="intro">
       <h1 class="welcome-text">Welcome to FoodFusion</h1>
       <p>
-        Explore, cook, and share your culinary journey with our vibrant community!
+        To inspire and empower individuals to embrace home cooking and culinary
+        creativity by providing a vibrant platform for sharing recipes, culinary tips,
+        and fostering a supportive community of food enthusiasts worldwide.
       </p>
       <button id="join-us-btn">Join Us</button>
     </section>
