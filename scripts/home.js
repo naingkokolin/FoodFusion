@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cookieConsent.style.display = 'none';
   });
 
-  if(ls) cookieConsent.style.display = 'none';
+  if (ls) cookieConsent.style.display = 'none';
 });
 
 // "Join Us" Popup

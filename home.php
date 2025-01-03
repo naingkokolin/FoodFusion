@@ -14,7 +14,7 @@
   <div id="cookie-consent">
     <p>We use cookies to improve your experience. <a href="#" id="learn-more-text">Learn more</a>.</p>
     <button id="accept-cookies">Accept</button>
-    <button id="accpt-cookies">Reject</button>
+    <button id="accept-cookies">Reject</button>
   </div>
 
   <!-- navigation bar -->
@@ -33,38 +33,19 @@
     </section>
 
     <!-- Carousel -->
-    <section id="carousel">
+    <section>
       <h2>Upcoming Events</h2>
       <div class="carousel-container">
-        <!-- Carousel items -->
-        <div class="carousel-item">
-          <div class="carousel-image">
-            <img src="./img/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg" alt="carousel-image">
-          </div>
-          <div class="carousel-text">
-            carousel 1
-          </div>
+        <div class="carousel">
+          <img src="./img/itilian-pizza-2.jpg" alt="Image 1">
+          <img src="https://via.placeholder.com/800x400?text=Image+2" alt="Image 2">
+          <img src="https://via.placeholder.com/800x400?text=Image+3" alt="Image 3">
+          <img src="https://via.placeholder.com/800x400?text=Image+4" alt="Image 4">
+          <img src="https://via.placeholder.com/800x400?text=Image+5" alt="Image 5">
+          <img src="https://via.placeholder.com/800x400?text=Image+6" alt="Image 6">
         </div>
-
-        <div class="carousel-item">
-          <div class="carousel-text">
-            carousel 2
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          carousel 3
-        </div>
-
       </div>
-    </section>
 
-    <!-- News Feed -->
-    <section id="news-feed">
-      <h2>Featured Recipes & Trends</h2>
-      <div class="news-grid">
-        <!-- Add recipe cards dynamically -->
-      </div>
     </section>
   </main>
 
@@ -113,7 +94,7 @@
     </div>
   </div>
 
-  <?php include('footer.php'); ?>
+  <?php include("footer.php"); ?>
 
   <script src="./scripts/home.js"></script>
 </body>
