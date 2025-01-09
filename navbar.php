@@ -26,7 +26,6 @@
   .navbar .logo {
     font-size: 24px;
     font-weight: bold;
-    flex: 1;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
