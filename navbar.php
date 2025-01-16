@@ -30,7 +30,7 @@
 
     <!-- Sign Up Form -->
     <div class="form-container" id="signUpForm">
-      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" id="signUp">
+      <form action="./index.php" method="POST" id="signUp">
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName" required>
 
@@ -49,7 +49,7 @@
 
     <!-- Login Form -->
     <div class="form-container" id="loginForm" style="display:none;">
-      <form action="#" method="POST" id="login">
+      <form action="./index.php" method="POST" id="login">
         <label for="loginEmail">Email:</label>
         <input type="email" id="loginEmail" name="loginEmail" required>
 
