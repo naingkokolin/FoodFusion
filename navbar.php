@@ -63,106 +63,105 @@
 </div>
 
 <script>
-
-function toggleMenu() {
-  const menu = document.querySelector('.navbar ul');
-  menu.classList.toggle('show');
-}
-
-let pages = {
-  "Food Fusion": "home",
-  "About Us": "about-us",
-  "Recipe Collection": "recipe",
-  "Community Cookbook": "community",
-  "Culinary Resources": "culinary",
-  "Contact Us": "contact"
-};
-
-const pageTitle = document.querySelector('.page-title');
-const home = document.querySelector('.home');
-
-let titles = Object.entries(pages);
-
-titles.forEach(([key, value]) => {
-
-  if (pageTitle.textContent === key) {
-    let navElement = document.querySelector(`.${value}`);
-    navElement.style.color = "red";
-    navElement.style.fontWeight = 700;
+  function toggleMenu() {
+    const menu = document.querySelector('.navbar ul');
+    menu.classList.toggle('show');
   }
-});
 
-<?php
+  let pages = {
+    "Food Fusion": "home",
+    "About Us": "about-us",
+    "Recipe Collection": "recipe",
+    "Community Cookbook": "community",
+    "Culinary Resources": "culinary",
+    "Contact Us": "contact"
+  };
+
+  const pageTitle = document.querySelector('.page-title');
+  const home = document.querySelector('.home');
+
+  let titles = Object.entries(pages);
+
+  titles.forEach(([key, value]) => {
+
+    if (pageTitle.textContent === key) {
+      let navElement = document.querySelector(`.${value}`);
+      navElement.style.color = "red";
+      navElement.style.fontWeight = 700;
+    }
+  });
+
+  <?php
   if (isset($_SESSION['user'])) {
     echo "document.getElementById('js-join-btn').textContent = '$user';";
   } else {
     echo "document.getElementById('js-join-btn').textContent = 'Join';";
   }
-?>
+  ?>
 
-const jsJoinBtn = document.getElementById("js-join-btn");
-const joinUsBtn = document.getElementById('join-us-btn');
-const joinPopup = document.getElementById('join-popup');
-const closePopupBtn = document.getElementById('close-popup');
+  const jsJoinBtn = document.getElementById("js-join-btn");
+  const joinUsBtn = document.getElementById('join-us-btn'); // don't need till now
+  const joinPopup = document.getElementById('join-popup');
+  const closePopupBtn = document.getElementById('close-popup');
 
-const modal = document.getElementById('joinModal');
-// const joinBtn = document.getElementById('joinBtn');
-const closeBtn = document.getElementById('closeBtn');
-const signUpTab = document.getElementById('signUpTab');
-const loginTab = document.getElementById('loginTab');
-const signUpForm = document.getElementById('signUpForm');
-const loginForm = document.getElementById('loginForm');
+  const modal = document.getElementById('joinModal');
+  // const joinBtn = document.getElementById('joinBtn');
+  const closeBtn = document.getElementById('closeBtn');
+  const signUpTab = document.getElementById('signUpTab');
+  const loginTab = document.getElementById('loginTab');
+  const signUpForm = document.getElementById('signUpForm');
+  const loginForm = document.getElementById('loginForm');
 
-// Open modal when "Join Us" is clicked
-joinUsBtn.addEventListener('click', () => {
-  modal.style.display = 'block';
-});
+  // Open modal when "Join Us" is clicked
+  jsJoinBtn.addEventListener('click', () => {
+    modal.style.display = 'block';
+  });
 
-// Close modal when "X" is clicked
-closeBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
-
-// Close modal if clicked outside of the modal content
-window.addEventListener('click', (e) => {
-  if (e.target == modal) {
+  // Close modal when "X" is clicked
+  closeBtn.addEventListener('click', () => {
     modal.style.display = 'none';
-  }
-});
+  });
 
-window.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    alert("Hi");
-  }
-});
+  // Close modal if clicked outside of the modal content
+  window.addEventListener('click', (e) => {
+    if (e.target == modal) {
+      modal.style.display = 'none';
+    }
+  });
 
-// Switch to Sign Up form
-signUpTab.addEventListener('click', () => {
-  signUpForm.style.display = 'block';
-  loginForm.style.display = 'none';
-  signUpTab.classList.add('active');
-  loginTab.classList.remove('active');
-});
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      alert("Hi");
+    }
+  });
 
-// Switch to Login form
-loginTab.addEventListener('click', () => {
-  signUpForm.style.display = 'none';
-  loginForm.style.display = 'block';
-  loginTab.classList.add('active');
-  signUpTab.classList.remove('active');
-});
+  // Switch to Sign Up form
+  signUpTab.addEventListener('click', () => {
+    signUpForm.style.display = 'block';
+    loginForm.style.display = 'none';
+    signUpTab.classList.add('active');
+    loginTab.classList.remove('active');
+  });
 
-joinBtn.addEventListener('click', () => {
-  if (joinBtn.textContent === 'Join') {
-    // window.location.href = './login.php';
-    document.querySelector('.js-joinModal').style.display = 'block';
-    alert('Please login to join the community!');
-  } else {
-    window.location.href = './profile.php';
-  }
-});
+  // Switch to Login form
+  loginTab.addEventListener('click', () => {
+    signUpForm.style.display = 'none';
+    loginForm.style.display = 'block';
+    loginTab.classList.add('active');
+    signUpTab.classList.remove('active');
+  });
 
-jsJoinBtn.addEventListener('click', () => {
-  console.log("HIIIIIIIIIII");
-});
+  joinBtn.addEventListener('click', () => {
+    if (joinBtn.textContent === 'Join') {
+      // window.location.href = './login.php';
+      document.querySelector('.js-joinModal').style.display = 'block';
+      alert('Please login to join the community!');
+    } else {
+      window.location.href = './profile.php';
+    }
+  });
+
+  jsJoinBtn.addEventListener('click', () => {
+    console.log("HIIIIIIIIIII");
+  });
 </script>
