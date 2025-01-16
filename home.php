@@ -62,7 +62,7 @@
 
       <!-- Sign Up Form -->
       <div class="form-container" id="signUpForm">
-        <form action="#" method="POST" id="signUp">
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" id="signUp">
           <label for="firstName">First Name:</label>
           <input type="text" id="firstName" name="firstName" required>
 
@@ -95,6 +95,35 @@
   </div>
 
   <?php include("footer.php"); ?>
+
+  <?php
+   
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+      $firstName = htmlspecialchars($_POST["firstName"]);
+      $lastName =htmlspecialchars($_POST["lastName"]);
+      $email =htmlspecialchars($_POST["email"]);
+      $password =htmlspecialchars($_POST["password"]);
+
+      // echo "<script>alert('First Name: $firstName, Last Name: $lastName, Email: $email, Password: $password');</script>";
+
+      $conn = new mysqli("localhost", "root", "", "foodfusion");
+
+      // check connection
+      if($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+      }
+      
+      $sql = "INSERT INTO user (firstname, lastname, email, password) VALUES ('$firstName', '$lastName', '$email', '$password')";
+
+      if($conn->query($sql) === TRUE) {
+        echo "<script>alert('New record created successfully');</script>";
+      } else {
+        echo "<script>alert('Error: " . $sql . "<br>" . $conn->error . "');</script>";
+      }
+
+      $conn->close();
+    }
+  ?>
 
   <script src="./scripts/home.js"></script>
 </body>
