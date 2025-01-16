@@ -1,0 +1,23 @@
+.main-container {
+  margin-top: 60px;
+  /* display: flex; */
+}
+
+.main-container .container {
+  position: relative;
+  text-align: center;
+}
+
+.main-container .container img {
+  width: 100%;
+  height: auto;
+}
+
+.centered-text {
+  position: absolute;
+  color: black;
+  font-size: 3rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
