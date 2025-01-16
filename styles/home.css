@@ -177,8 +177,8 @@ nav {
 
 /* Carousel */
 .carousel-container {
-  height: 350px;
-  width: 80%;
+  height: 50%;
+  width: 50%;
   overflow: hidden;
   margin: 20px auto;
   position: relative;
