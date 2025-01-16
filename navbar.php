@@ -49,7 +49,7 @@
 
     <!-- Login Form -->
     <div class="form-container" id="loginForm" style="display:none;">
-      <form action="./index.php" method="POST" id="login">
+      <form action="./login-check.php" method="POST" id="login">
         <label for="loginEmail">Email:</label>
         <input type="email" id="loginEmail" name="loginEmail" required>
 
@@ -92,7 +92,7 @@
   });
 
   <?php
-  if (isset($_SESSION['user'])) {
+  if (isset($_SESSION['user_name'])) {
     echo "document.getElementById('js-join-btn').textContent = '$user';";
   } else {
     echo "document.getElementById('js-join-btn').textContent = 'Join';";

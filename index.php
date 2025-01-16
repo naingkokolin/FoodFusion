@@ -28,6 +28,42 @@
 
   <?php include 'footer.php'; ?>
 
+  <?php
+
+  if (isset($_POST["signUp"])) {
+
+    $firstName = htmlspecialchars($_POST["firstName"]);
+    $lastName = htmlspecialchars($_POST["lastName"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $password = htmlspecialchars($_POST["password"]);
+
+    $conn = new mysqli("localhost", "root", "", "foodfusion");
+
+    // check connection
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+
+    $checkEmail = "SELECT * FROM user WHERE email = '$email'";
+    $result = $conn->query($checkEmail);
+
+    if ($result->num_rows > 0) {
+      echo "This email is already registered!";
+    } else {
+      $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+      $sql = "INSERT INTO user (firstname, lastname, email, password) VALUES ('$firstName', '$lastName', '$email', '$hashedPassword')";
+
+      if ($conn->query($sql) === TRUE) {
+        echo "<script>alert('New record created successfully');</script>";
+      } else {
+        echo "<script>alert('Error: " . $sql . "<br>" . $conn->error . "');</script>";
+      }
+    }
+
+    $conn->close();
+  }
+  ?>
+
 </body>
 
 </html>
