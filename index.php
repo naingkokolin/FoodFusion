@@ -30,8 +30,12 @@
 
   <?php
 
-  if (isset($_POST["signUp"])) {
+  // $servername = "localhost";
+  // $username = "root";
+  // $password = "";
+  // $dbname = "foodfusion";
 
+  if (isset($_POST["signUp"])) {
     $firstName = htmlspecialchars($_POST["firstName"]);
     $lastName = htmlspecialchars($_POST["lastName"]);
     $email = htmlspecialchars($_POST["email"]);
@@ -50,7 +54,7 @@
     if ($result->num_rows > 0) {
       echo "This email is already registered!";
     } else {
-      $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+      $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
       $sql = "INSERT INTO user (firstname, lastname, email, password) VALUES ('$firstName', '$lastName', '$email', '$hashedPassword')";
 
       if ($conn->query($sql) === TRUE) {
@@ -62,6 +66,7 @@
 
     $conn->close();
   }
+
   ?>
 
 </body>
@@ -72,4 +77,9 @@
 To inspire and empower individuals to embrace home cooking and culinary
 creativity by providing a vibrant platform for sharing recipes, culinary tips,
 and fostering a supportive community of food enthusiasts worldwide.      
+-->
+
+<!-- 
+ပုံကို blur လုပ်။
+
 -->

@@ -243,3 +243,11 @@ form button {
 form button:hover {
   background-color: #e55347;
 }
+
+.fail-attempt {
+  display: none;
+  color: red;
+  font-size: 12px;
+  margin-left: auto;
+  margin-right: auto;
+}

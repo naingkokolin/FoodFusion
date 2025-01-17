@@ -1,9 +1,13 @@
 <?
-  session_start();
+  // session_start();
   $servername = "localhost";
   $username = "root";
   $password = "";
   $dbname = "foodfusion";
+
+  if (isset($_SESSION['fail_attempts'])) {
+    $_SESSION['fail_attempts'] = 0;
+  }
 
   if (isset($_POST["login"])) {
     $email = htmlspecialchars($_POST["loginEmail"]);
@@ -26,8 +30,16 @@
         $_SESSION['user_email'] = $user['email'];
 
         echo "<script>alert('Login Successful.');</script>";
+        $_SESSION['fail_attempts'] = 0;
       } else {
         echo "<script>alert('Login Failed! Please Try Again!');</script>";
+        $_SESSION['fail_attempts']++;
+
+        if ($_SESSION['fail_attempts'] >= 3) {
+          
+        } else if ($_SESSION['fail_attempts'] >= 5) {
+          echo "<script>alert('You have been locked out.');</script>";
+        }
       }
     }
   }

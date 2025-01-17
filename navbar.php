@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <link rel="stylesheet" href="./styles/navbar.css">
 
 <nav class="navbar">
@@ -43,7 +44,7 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
 
-        <button type="submit">Sign Up</button>
+        <button type="submit" name="signUp">Sign Up</button>
       </form>
     </div>
 
@@ -55,8 +56,9 @@
 
         <label for="loginPassword">Password:</label>
         <input type="password" id="loginPassword" name="loginPassword" required>
+        <p class="fail-attempt" id="js-fail-attempt">aldkfj</p>
 
-        <button type="submit">Login</button>
+        <button type="submit" name="login">Login</button>
       </form>
     </div>
   </div>
