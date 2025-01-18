@@ -12,18 +12,40 @@
 
 <body>
   <?php include 'navbar.php'; ?>
+  <div class="page-container">
 
+    <div class="main-container">
+      <!-- overlay text inside image -->
+      <div class="text-image-container">
+        <img src="./img/ice-cream-01.webp" alt="Food Fusion">
+        <div class="centered-text">
+          Discover the joy of cooking and sharing your culinary creations with the world.
+        </div>
+      </div>
 
-  <div class="main-container">
-    <!-- overlay text inside image -->
-    <div class="container">
-      <img src="./img/itilian-pizza-2.jpg" alt="Food Fusion">
-      <div class="centered-text">
-        Discover the joy of cooking and sharing your culinary creations with the world!
+      <div class="text-button-container">
+        <img src="./img/a-05.jpg" alt="food fusion photo">
+        <div class="paragraph">
+          To inspire and empower individuals to embrace home cooking and culinary creativity by providing a vibrant platform for sharing recipes, culinary tips,and fostering a supportive community of food enthusiasts worldwide.
+        </div>
+        <button class="get-start-btn" name="getStart" id="js-get-start-btn">Get Start</button>
+      </div>
+    </div> <!-- end of main container -->
+
+    <div class="news-container">
+      <div class="news">
+        hi 1
+      </div>
+
+      <div class="news">
+        hi 2
+      </div>
+
+      <div class="news">
+        hi 3
       </div>
     </div>
 
-    <!--  -->
   </div>
 
   <?php include 'footer.php'; ?>

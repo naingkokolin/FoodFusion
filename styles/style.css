@@ -1,23 +1,133 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
 .main-container {
-  margin-top: 60px;
-  /* display: flex; */
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  column-gap: 10px;
+  align-items: baseline;
 }
 
-.main-container .container {
+.main-container .text-image-container {
   position: relative;
-  text-align: center;
+  flex: 1;
 }
 
-.main-container .container img {
+.main-container .text-image-container img {
   width: 100%;
+  position: relative;
   height: auto;
 }
 
 .centered-text {
   position: absolute;
-  color: black;
-  font-size: 3rem;
+  color: rgb(0, 0, 0);
+  animation: centered-text-animation 5s ease-in-out 0s infinite alternate;
+  font-size: 18px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.text-button-container {
+  flex: 1;
+  /* background-image: url('../img/a-05.jpg');
+  background-position: center;
+  object-fit: fill; */
+  position: relative;
+}
+
+.text-button-container img {
+  width: 100%;
+  height: auto;
+  z-index: -1;
+  filter: blur(4px);
+}
+
+.text-button-container .paragraph {
+  color: black;
+  position: absolute;
+  animation: centered-text-animation 5s linear 0s infinite alternate;
+  top: 20%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.text-button-container .get-start-btn {
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  font-size: 20px;
+  background-color: rgb(255, 248, 206);
+  border: solid 0.5px rgb(255, 248, 206);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 6px;
+  transition: all 0.15s;
+  box-shadow: 0 0 10px rgba(255, 248, 206, 0.6);
+}
+
+.text-button-container .get-start-btn:hover {
+  box-shadow: 0 0 20px rgba(255, 248, 206, 0.8),
+    0 0 30px rgba(255, 248, 206, 0.6),
+    0 0 40px rgba(255, 248, 206, 0.4);
+  transform: scale(1.05);
+}
+
+.news-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  align-content: space-evenly;
+}
+
+.news-container .news {
+  flex: 1;
+  background-color: rgb(93, 206, 76);
+  height: 100px;
+  width: 80%;
+  padding: 10px;
+}
+
+/* Media Query */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  .main-container .text-image-container img {
+    width: 100%;
+    height: auto;
+  }
+
+  .news-container {
+    flex-wrap: wrap;
+  }
+}
+
+
+/* Animations */
+@keyframes centered-text-animation {
+  0% {
+    color: rgb(0, 0, 0);
+  }
+
+  25% {
+    color: rgba(85, 23, 34, 0.214);
+  }
+
+  50% {
+    color: rgb(174, 17, 17);
+  }
+
+  100% {
+    color: rgb(255, 0, 0);
+  }
 }

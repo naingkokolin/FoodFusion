@@ -153,17 +153,13 @@
     signUpTab.classList.remove('active');
   });
 
-  joinBtn.addEventListener('click', () => {
-    if (joinBtn.textContent === 'Join') {
-      // window.location.href = './login.php';
-      document.querySelector('.js-joinModal').style.display = 'block';
-      alert('Please login to join the community!');
-    } else {
-      window.location.href = './profile.php';
-    }
-  });
-
-  jsJoinBtn.addEventListener('click', () => {
-    console.log("HIIIIIIIIIII");
-  });
+  // joinBtn.addEventListener('click', () => {
+  //   if (joinBtn.textContent === 'Join') {
+  //     // window.location.href = './login.php';
+  //     document.querySelector('.js-joinModal').style.display = 'block';
+  //     alert('Please login to join the community!');
+  //   } else {
+  //     window.location.href = './profile.php';
+  //   }
+  // });
 </script>
