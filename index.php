@@ -33,8 +33,8 @@
     </div> <!-- end of main container -->
 
     <!-- Integrated News Section -->
+    <h2 class="news-feed-text">* Integrated News Feed Section *</h2>
     <div class="news-container">
-      <h2>* Integrated News Feed Section *</h2>
       <div class="news-card">
         <img src="./img/news-01.jpeg" alt="News Images">
         <h4>Mastering the Art of French Pastry</h4>
@@ -56,11 +56,37 @@
         <h4>Mastering the Art of French Pastry</h4>
         <p>
           Discover the secrets to perfecting classic French pastries with our step-by-step guide. From flaky croissants to rich éclairs, elevate your baking skills with these recipes
+        </p>
+      </div>
+
+      <div class="news-card">
+        <img src="./img/news-01.jpeg" alt="News Images">
+        <h4>Mastering the Art of French Pastry</h4>
+        <p>
+          Discover the secrets to perfecting classic French pastries with our step-by-step guide. From flaky croissants to rich éclairs, elevate your baking skills with these recipes
+        </p>
+      </div>
+
+      <div class="news-card">
+        <img src="./img/news-01.jpeg" alt="News Images">
+        <h4>Mastering the Art of French Pastry</h4>
+        <p>
+          Discover the secrets to perfecting classic French pastries with our step-by-step guide. From flaky croissants to rich éclairs, elevate your baking skills with these recipes
+        </p>
+      </div>
+
+      <div class="news-card">
+        <img src="./img/news-01.jpeg" alt="News Images">
+        <h4>Mastering the Art of French Pastry</h4>
+        <p>
+          Discover the secrets to perfecting classic French pastries with our step-by-step guide. From flaky croissants to rich éclairs, elevate your baking skills with these recipes.
         </p>
       </div>
     </div> <!-- End of Integrated News Section -->
 
     <!-- Carousel Section -->
+    <h2 class="cooking-events-text">* Upcoming Cooking Events *</h2>
+
     <div class="carousel-container">
       
     </div> <!-- End of Carousel Section -->
@@ -70,7 +96,8 @@
   <!-- TODO: add footer -->
 
   <?php
-  include('footer.php');
+  // TODO: ADD footer 
+  // include('footer.php');
 
   // $servername = "localhost";
   // $username = "root";

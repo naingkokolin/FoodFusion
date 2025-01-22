@@ -26,7 +26,7 @@
 
 .centered-text {
   position: absolute;
-  color: rgb(0, 0, 0);
+  color: rgb(9, 255, 0);
   animation: centered-text-animation 5s ease-in-out 0s infinite alternate;
   font-size: 18px;
   top: 50%;
@@ -63,7 +63,8 @@
   bottom: 50%;
   right: 50%;
   font-size: 20px;
-  background-color: rgb(255, 248, 206);
+  /* background-color: rgb(255, 248, 206); */
+  background-color: transparent;
   border: solid 0.5px rgb(255, 248, 206);
   border-radius: 10px;
   cursor: pointer;
@@ -80,6 +81,11 @@
   transform: scale(1.05);
 }
 
+.news-feed-text,
+.cooking-events-text {
+  text-align: center;
+}
+
 .news-container {
   display: flex;
   flex-direction: row;
@@ -91,9 +97,10 @@
   align-items: center;
 }
 
-.news-container .news-card {
+.news-card {
   max-height: 500px;
-  max-width: 300px;
+  /* max-width: 300px; */
+  width: 30%;
   padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -101,7 +108,7 @@
   flex-direction: column;
   justify-content: center;
   align-content: space-evenly;
-  
+  /* flex: 1 1 1 calc(33.33% - 10px); */
 }
 
 .news-container .news-card:hover {
@@ -112,6 +119,14 @@
   aspect-ratio: 16 / 9;
   width: 100%;
   object-fit: cover;
+}
+
+.carousel-container {
+  
+}
+
+.carousel-slide {
+  
 }
 
 /* Media Query */
