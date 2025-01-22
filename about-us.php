@@ -36,7 +36,8 @@
       <h1>About FoodFusion</h1>
       <p>FoodFusion is a culinary platform that inspires home cooking and celebrates culinary creativity.
         Our mission is to bring food enthusiasts together to explore diverse cuisines, share cooking tips,
-        and foster a vibrant community.</p>
+        and foster a vibrant community.
+      </p>
 
       <h2>Our Philosophy</h2>
       <p>We believe cooking is an art that unites people, transcends cultural boundaries,
@@ -46,7 +47,7 @@
       <div class="team-section">
         <div class="team-member">
           <img src="https://via.placeholder.com/150" alt="Team Member">
-          <h3>John Doe</h3>
+          <h3>Naing Ko Ko Lin</h3>
           <p>Founder & Head Chef</p>
         </div>
         <div class="team-member">
