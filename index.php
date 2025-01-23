@@ -93,107 +93,92 @@
 
   </div>
 
-  <!-- TODO: add footer -->
+  // TODO: ADD FOOTER
 
   <?php
-  // TODO: ADD footer 
-  // include('footer.php');
-
-  // $servername = "localhost";
-  // $username = "root";
-  // $password = "";
-  // $dbname = "foodfusion";
-
-  if (isset($_POST["signUp"])) {
-    $firstName = htmlspecialchars($_POST["firstName"]);
-    $lastName = htmlspecialchars($_POST["lastName"]);
-    $email = htmlspecialchars($_POST["email"]);
-    $password = htmlspecialchars($_POST["password"]);
-
-    $conn = new mysqli("localhost", "root", "", "foodfusion");
-
-    // check connection
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
-
-    $checkEmail = "SELECT * FROM user WHERE email = '$email'";
-    $result = $conn->query($checkEmail);
-
-    if ($result->num_rows > 0) {
-      echo "This email is already registered!";
-    } else {
-      $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-      $sql = "INSERT INTO user (firstname, lastname, email, password) VALUES ('$firstName', '$lastName', '$email', '$hashedPassword')";
-
-      if ($conn->query($sql) === TRUE) {
-        echo "<script>alert('New record created successfully');</script>";
-      } else {
-        echo "<script>alert('Error: " . $sql . "<br>" . $conn->error . "');</script>";
-      }
-    }
-
-
-
-    $conn->close();
-  }
-
-  ?>
-
-  <?
-  session_start();
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "foodfusion";
-
-  if (isset($_POST["login"])) {
-    $email = htmlspecialchars($_POST["loginEmail"]);
-    $password = htmlspecialchars($_POST["loginPassword"]);
-
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conn = new mysqli("localhost", "root", "", "foodfusion");
 
     // Check connection
     if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
+      die("Database connection failed: " . $conn->connect_error);
     }
 
-    // Check login attempts
-    $checkAttempts = "SELECT * FROM login_attempts WHERE email = '$email'";
-    $attemptsResult = $conn->query($checkAttempts);
+    $showLgoinForm = false;
 
-    if ($attemptsResult->num_rows > 0) {
-      $attemptsRow = $attemptsResult->fetch_assoc();
-      if ($attemptsRow['attempts'] >= 5) {
-        echo "<script>alert('Too many failed login attempts. Try again later.');</script>";
-        exit();
-      }
-    } else {
-      $conn->query("INSERT INTO login_attempts (email, attempts) VALUES ('$email', 0)");
-    }
+    // For Sign Up
+    if (isset($_POST["signUp"])) {
+      $firstName = htmlspecialchars($_POST["firstName"]);
+      $lastName = htmlspecialchars($_POST["lastName"]);
+      $email = htmlspecialchars($_POST["email"]);
+      $password = htmlspecialchars($_POST["password"]);
 
-    $sql = "SELECT * FROM user WHERE email = '$email'";
-    $result = $conn->query($sql);
+      $checkEmail = "SELECT * FROM user WHERE email = '$email'";
+      $result = $conn->query($checkEmail);
 
-    if ($result->num_rows > 0) {
-      $row = $result->fetch_assoc();
-      if (password_verify($password, $row['password'])) {
-        // Reset attempts on successful login
-        $conn->query("UPDATE login_attempts SET attempts = 0 WHERE email = '$email'");
-        echo "<script>alert('Login successful');</script>";
+      if ($result->num_rows > 0) {
+        echo "<script>alert('This email is already registered!');</script>";
       } else {
-        // Increment attempts on failed login
-        $conn->query("UPDATE login_attempts SET attempts = attempts + 1 WHERE email = '$email'");
-        echo "<script>alert('Incorrect password');</script>";
-      }
-    } else {
-      echo "<script>alert('Email not registered');</script>";
-    }
-  }
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+        $sql = "INSERT INTO user (firstname, lastname, email, password) VALUES ('$firstName', '$lastName', '$email', '$hashedPassword')";
 
+        if ($conn->query($sql) === TRUE) {
+          echo "<script>alert('New record created successfully');</script>";
+        } else {
+          echo "<script>alert('Error: " . $sql . "<br>" . $conn->error . "');</script>";
+        }
+      }
+    }
+
+    // For Login
+    if (isset($_POST["login"])) {
+      $email = htmlspecialchars($_POST["loginEmail"]);
+      $password = htmlspecialchars($_POST["loginPassword"]);
+
+      $checkAttempts = "SELECT * FROM login_attempts WHERE email = '$email'";
+      $attemptsResult = $conn->query($checkAttempts);
+
+      if ($attemptsResult->num_rows > 0) {
+        $attemptsRow = $attemptsResult->fetch_assoc();
+        if ($attemptsRow['attempts'] >= 5) {
+          echo "<script>alert('Too many failed login attempts. Try again later.');</script>";
+          exit();
+        }
+      } else {
+        $conn->query("INSERT INTO login_attempts (email, attempts) VALUES ('$email', 0)");
+      }
+
+      $sql = "SELECT * FROM user WHERE email = '$email'";
+      $result = $conn->query($sql);
+
+      if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (password_verify($password, $row['password'])) {
+          $conn->query("UPDATE login_attempts SET attempts = 0 WHERE email = '$email'");
+          echo "<script>alert('Login successful');</script>";
+        } else {
+          $conn->query("UPDATE login_attempts SET attempts = attempts + 1 WHERE email = '$email'");
+          echo "<script>alert('Incorrect password');</script>";
+          $showLgoinForm = true;
+        }
+      } else {
+        echo "<script>alert('Email not registered');</script>";
+        $showLgoinForm = true;
+      }
+    }
+    $conn->close();
+  }
   ?>
 
+  <script>
+    <?php
+    if ($showLoginForm): ?>
+      document.getElementById('signUpForm').style.display = 'none';
+      document.getElementById('loginForm').style.display = 'block';
+    <?php endif; ?>
+  </script>
 </body>
+<script src="./scripts/home.js"></script>
 
 </html>
 
