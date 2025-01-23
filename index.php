@@ -88,7 +88,7 @@
     <h2 class="cooking-events-text">* Upcoming Cooking Events *</h2>
 
     <div class="carousel-container">
-      
+
     </div> <!-- End of Carousel Section -->
 
   </div>
@@ -133,7 +133,62 @@
       }
     }
 
+
+
     $conn->close();
+  }
+
+  ?>
+
+  <?
+  session_start();
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "foodfusion";
+
+  if (isset($_POST["login"])) {
+    $email = htmlspecialchars($_POST["loginEmail"]);
+    $password = htmlspecialchars($_POST["loginPassword"]);
+
+    $conn = new mysqli("localhost", "root", "", "foodfusion");
+
+    // Check connection
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Check login attempts
+    $checkAttempts = "SELECT * FROM login_attempts WHERE email = '$email'";
+    $attemptsResult = $conn->query($checkAttempts);
+
+    if ($attemptsResult->num_rows > 0) {
+      $attemptsRow = $attemptsResult->fetch_assoc();
+      if ($attemptsRow['attempts'] >= 5) {
+        echo "<script>alert('Too many failed login attempts. Try again later.');</script>";
+        exit();
+      }
+    } else {
+      $conn->query("INSERT INTO login_attempts (email, attempts) VALUES ('$email', 0)");
+    }
+
+    $sql = "SELECT * FROM user WHERE email = '$email'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      if (password_verify($password, $row['password'])) {
+        // Reset attempts on successful login
+        $conn->query("UPDATE login_attempts SET attempts = 0 WHERE email = '$email'");
+        echo "<script>alert('Login successful');</script>";
+      } else {
+        // Increment attempts on failed login
+        $conn->query("UPDATE login_attempts SET attempts = attempts + 1 WHERE email = '$email'");
+        echo "<script>alert('Incorrect password');</script>";
+      }
+    } else {
+      echo "<script>alert('Email not registered');</script>";
+    }
   }
 
   ?>

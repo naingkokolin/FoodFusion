@@ -3,7 +3,7 @@
 
 <nav class="navbar">
   <div class="logo">
-    <img src="./img/logo.png" alt="Logo">
+    <img src="./img/logo1.png" alt="Logo">
     Food Fusion
   </div>
   <ul>
@@ -50,7 +50,7 @@
 
     <!-- Login Form -->
     <div class="form-container" id="loginForm" style="display:none;">
-      <form action="./login-check.php" method="POST" id="login">
+      <form action="./index.php" method="POST" id="login">
         <label for="loginEmail">Email:</label>
         <input type="email" id="loginEmail" name="loginEmail" required>
 
