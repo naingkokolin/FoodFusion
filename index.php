@@ -91,105 +91,65 @@
 
     </div> <!-- End of Carousel Section -->
 
+    <!-- Modal (Sign Up and Login Form) -->
+    <div class="modal" id="joinModal">
+      <div class="modal-content">
+        <span class="close-btn" id="closeBtn">&times;</span>
+        <h2>Join FoodFusion</h2>
+        <!-- Tabs for Sign Up and Login -->
+        <div class="form-tabs">
+          <button class="tab-link active" id="signUpTab">Sign Up</button>
+          <button class="tab-link" id="loginTab">Login</button>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div class="form-container" id="signUpForm">
+          <form action="./index.php" method="POST" id="signUp">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" name="signUp">Sign Up</button>
+          </form>
+        </div>
+
+        <!-- Login Form -->
+        <div class="form-container" id="loginForm" style="display:none;">
+          <form action="./index.php" method="POST" id="login">
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" name="loginEmail" required>
+
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" name="loginPassword" required>
+            <p class="fail-attempt" id="js-fail-attempt"></p>
+
+            <button type="submit" name="login">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  // TODO: ADD FOOTER
-
-  <?php
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $conn = new mysqli("localhost", "root", "", "foodfusion");
-
-    // Check connection
-    if ($conn->connect_error) {
-      die("Database connection failed: " . $conn->connect_error);
-    }
-
-    $showLgoinForm = false;
-    $lockoutMessage = "";
-
-    // For Sign Up
-    if (isset($_POST["signUp"])) {
-      $firstName = htmlspecialchars($_POST["firstName"]);
-      $lastName = htmlspecialchars($_POST["lastName"]);
-      $email = htmlspecialchars($_POST["email"]);
-      $password = htmlspecialchars($_POST["password"]);
-
-      $checkEmail = "SELECT * FROM user WHERE email = '$email'";
-      $result = $conn->query($checkEmail);
-
-      if ($result->num_rows > 0) {
-        echo "<script>alert('This email is already registered!');</script>";
-      } else {
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-        $sql = "INSERT INTO user (firstname, lastname, email, password) VALUES ('$firstName', '$lastName', '$email', '$hashedPassword')";
-
-        if ($conn->query($sql) === TRUE) {
-          echo "<script>alert('New record created successfully');</script>";
-        } else {
-          echo "<script>alert('Error: " . $sql . "<br>" . $conn->error . "');</script>";
-        }
-      }
-    }
-
-    // For Login
-    if (isset($_POST["login"])) {
-      $email = htmlspecialchars($_POST["loginEmail"]);
-      $password = htmlspecialchars($_POST["loginPassword"]);
-
-      $checkAttempts = "SELECT * FROM login_attempts WHERE email = '$email'";
-      $attemptsResult = $conn->query($checkAttempts);
-
-      $query = $conn->prepare("SELECT attempts, last_attempt FROM fail_login_attempts WHERE email = ?");
-      $query->bind_param("s", $loginEmail);
-      $query->execute();
-      $result = $query->get_result();
-
-      $lockoutDuration = 180;
-      $currentTime = time();
-
-      if ($attemptsResult->num_rows > 0) {
-        $attemptsRow = $attemptsResult->fetch_assoc();
-        
-        if ($attemptsRow['attempts'] >= 5) {
-          echo "<script>alert('Too many failed login attempts. Try again later.');</script>";
-          exit();
-        }
-      } else {
-        $conn->query("INSERT INTO login_attempts (email, attempts) VALUES ('$email', 0)");
-      }
-
-      $sql = "SELECT * FROM user WHERE email = '$email'";
-      $result = $conn->query($sql);
-
-      if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $failAttempts = $row['fail_attempts'];
-        if (password_verify($password, $row['password'])) {
-          $conn->query("UPDATE login_attempts SET attempts = 0 WHERE email = '$email'");
-          echo "<script>alert('Login successful');</script>";
-        } else {
-          $conn->query("UPDATE login_attempts SET attempts = attempts + 1 WHERE email = '$email'");
-          echo "<script>alert('Incorrect password');</script>";
-          $showLgoinForm = true;
-        }
-      } else {
-        echo "<script>alert('Email not registered');</script>";
-        $showLgoinForm = true;
-      }
-    }
-    $conn->close();
-  }
-  ?>
-
-  <script>
-    <?php
-    if ($showLoginForm): ?>
-      document.getElementById('signUpForm').style.display = 'none';
-      document.getElementById('loginForm').style.display = 'block';
-    <?php endif; ?>
-  </script>
+  <!-- // TODO: ADD FOOTER -->
+  <script src="./scripts/home.js"></script>
 </body>
-<script src="./scripts/home.js"></script>
+
+
+<script>
+  // let getStartBtn = document.getElementById('js-get-start-btn');
+  // getStartBtn.addEventListener('click', () => {
+  //   alert('Get Started');
+  // });
+</script>
 
 </html>
 

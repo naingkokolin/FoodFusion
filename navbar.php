@@ -13,56 +13,11 @@
     <li><a href="./community.php" class="community">Community</a></li>
     <li><a href="./culinary-resource.php" class="culinary">Culinary Resource</a></li>
     <li><a href="./contact-us.php" class="contact">Contact Us</a></li>
-    <button id="js-join-btn"></button>
+    <!-- <button id="js-join-btn"></button> -->
+    <!-- // TODO: add username with SESSION in nav bar -->
   </ul>
   <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
 </nav>
-
-<!-- Modal (Sign Up and Login Form) -->
-<div class="modal" id="joinModal">
-  <div class="modal-content">
-    <span class="close-btn" id="closeBtn">&times;</span>
-    <h2>Join FoodFusion</h2>
-    <!-- Tabs for Sign Up and Login -->
-    <div class="form-tabs">
-      <button class="tab-link active" id="signUpTab">Sign Up</button>
-      <button class="tab-link" id="loginTab">Login</button>
-    </div>
-
-    <!-- Sign Up Form -->
-    <div class="form-container" id="signUpForm">
-      <form action="./index.php" method="POST" id="signUp">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" required>
-
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-
-        <button type="submit" name="signUp">Sign Up</button>
-      </form>
-    </div>
-
-    <!-- Login Form -->
-    <div class="form-container" id="loginForm" style="display:none;">
-      <form action="./index.php" method="POST" id="login">
-        <label for="loginEmail">Email:</label>
-        <input type="email" id="loginEmail" name="loginEmail" required>
-
-        <label for="loginPassword">Password:</label>
-        <input type="password" id="loginPassword" name="loginPassword" required>
-        <p class="fail-attempt" id="js-fail-attempt"></p>
-
-        <button type="submit" name="login">Login</button>
-      </form>
-    </div>
-  </div>
-</div>
 
 <script>
   function toggleMenu() {
@@ -102,51 +57,7 @@
   }
   ?>
 
-  const jsJoinBtn = document.getElementById("js-join-btn");
-  const joinUsBtn = document.getElementById('join-us-btn'); // don't need till now
-  const joinPopup = document.getElementById('join-popup');
-  const closePopupBtn = document.getElementById('close-popup');
-
-  const modal = document.getElementById('joinModal');
-  // const joinBtn = document.getElementById('joinBtn');
-  const closeBtn = document.getElementById('closeBtn');
-  const signUpTab = document.getElementById('signUpTab');
-  const loginTab = document.getElementById('loginTab');
-  const signUpForm = document.getElementById('signUpForm');
-  const loginForm = document.getElementById('loginForm');
-
-  // Open modal when "Join Us" is clicked
-  jsJoinBtn.addEventListener('click', () => {
-    modal.style.display = 'block';
-  });
-
-  // Close modal when "X" is clicked
-  closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
-
-  // Close modal if clicked outside of the modal content
-  window.addEventListener('click', (e) => {
-    if (e.target == modal) {
-      modal.style.display = 'none';
-    }
-  });
-
-  // Switch to Sign Up form
-  signUpTab.addEventListener('click', () => {
-    signUpForm.style.display = 'block';
-    loginForm.style.display = 'none';
-    signUpTab.classList.add('active');
-    loginTab.classList.remove('active');
-  });
-
-  // Switch to Login form
-  loginTab.addEventListener('click', () => {
-    signUpForm.style.display = 'none';
-    loginForm.style.display = 'block';
-    loginTab.classList.add('active');
-    signUpTab.classList.remove('active');
-  });
+  
 
   // joinBtn.addEventListener('click', () => {
   //   if (joinBtn.textContent === 'Join') {
