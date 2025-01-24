@@ -12,21 +12,6 @@
 <body>
   <!-- Header -->
   <header>
-    <!-- <nav>
-      <div class="logo">FoodFusion</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About Us</a></li>
-        <li><a href="recipes.html">Recipes</a></li>
-        <li><a href="community.html">Community</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-      <div class="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </nav> -->
     <?php include("navbar.php"); ?>
   </header>
 
@@ -46,20 +31,20 @@
       <h2>Our Team</h2>
       <div class="team-section">
         <div class="team-member">
-          <img src="https://via.placeholder.com/150" alt="Team Member">
+          <img src="./img/nkkl.jpg" alt="Team Member">
           <h3>Naing Ko Ko Lin</h3>
           <p>Founder & Head Chef</p>
         </div>
         <div class="team-member">
-          <img src="https://via.placeholder.com/150" alt="Team Member">
-          <h3>Jane Smith</h3>
+          <img src="https://cdn.shoutoutcolorado.com/wp-content/uploads/2023/04/c-PersonalShelbyCohen__Shelby_1679009280255.jpg" alt="Team Member">
+          <h3>Shelby Cohen</h3>
           <p>Content Creator & Food Enthusiast</p>
         </div>
-        <div class="team-member">
+        <!-- <div class="team-member">
           <img src="https://via.placeholder.com/150" alt="Team Member">
           <h3>Emily Brown</h3>
           <p>Recipe Developer & Blogger</p>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
