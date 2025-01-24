@@ -105,6 +105,7 @@
     }
 
     $showLgoinForm = false;
+    $lockoutMessage = "";
 
     // For Sign Up
     if (isset($_POST["signUp"])) {
@@ -138,8 +139,17 @@
       $checkAttempts = "SELECT * FROM login_attempts WHERE email = '$email'";
       $attemptsResult = $conn->query($checkAttempts);
 
+      $query = $conn->prepare("SELECT attempts, last_attempt FROM fail_login_attempts WHERE email = ?");
+      $query->bind_param("s", $loginEmail);
+      $query->execute();
+      $result = $query->get_result();
+
+      $lockoutDuration = 180;
+      $currentTime = time();
+
       if ($attemptsResult->num_rows > 0) {
         $attemptsRow = $attemptsResult->fetch_assoc();
+        
         if ($attemptsRow['attempts'] >= 5) {
           echo "<script>alert('Too many failed login attempts. Try again later.');</script>";
           exit();
@@ -153,6 +163,7 @@
 
       if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
+        $failAttempts = $row['fail_attempts'];
         if (password_verify($password, $row['password'])) {
           $conn->query("UPDATE login_attempts SET attempts = 0 WHERE email = '$email'");
           echo "<script>alert('Login successful');</script>";

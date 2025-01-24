@@ -95,6 +95,11 @@ body {
   }
 }
 
+.join-btn {
+  border: 1px solid red;
+  padding: 10px 20px;
+}
+
 #js-join-btn {
   color: black;
   background-color: transparent;

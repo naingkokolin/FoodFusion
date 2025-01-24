@@ -56,7 +56,7 @@
 
         <label for="loginPassword">Password:</label>
         <input type="password" id="loginPassword" name="loginPassword" required>
-        <p class="fail-attempt" id="js-fail-attempt">aldkfj</p>
+        <p class="fail-attempt" id="js-fail-attempt"></p>
 
         <button type="submit" name="login">Login</button>
       </form>
@@ -98,6 +98,7 @@
     echo "document.getElementById('js-join-btn').textContent = '$user';";
   } else {
     echo "document.getElementById('js-join-btn').textContent = 'Join';";
+    echo "document.getElementById('js-join-btn').classList.add('join-btn');";
   }
   ?>
 
@@ -128,12 +129,6 @@
   window.addEventListener('click', (e) => {
     if (e.target == modal) {
       modal.style.display = 'none';
-    }
-  });
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      alert("Hi");
     }
   });
 
