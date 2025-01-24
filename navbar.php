@@ -48,14 +48,14 @@
     }
   });
 
-  <?php
-  if (isset($_SESSION['user_name'])) {
-    echo "document.getElementById('js-join-btn').textContent = '$user';";
-  } else {
-    echo "document.getElementById('js-join-btn').textContent = 'Join';";
-    echo "document.getElementById('js-join-btn').classList.add('join-btn');";
-  }
-  ?>
+  // <?php
+  // if (isset($_SESSION['user_name'])) {
+  //   echo "document.getElementById('js-join-btn').textContent = '$user';";
+  // } else {
+  //   echo "document.getElementById('js-join-btn').textContent = 'Join';";
+  //   echo "document.getElementById('js-join-btn').classList.add('join-btn');";
+  // }
+  // ?>
 
   
 

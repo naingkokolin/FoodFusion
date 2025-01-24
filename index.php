@@ -28,7 +28,7 @@
         <div class="paragraph">
           To inspire and empower individuals to embrace home cooking and culinary creativity by providing a vibrant platform for sharing recipes, culinary tips,and fostering a supportive community of food enthusiasts worldwide.
         </div>
-        <button class="get-start-btn" name="getStart" id="js-get-start-btn">Get Start</button>
+        <button class="get-start-btn" name="getStart" id="js-join-btn">Get Started!</button>
       </div>
     </div> <!-- end of main container -->
 
@@ -145,10 +145,9 @@
 
 
 <script>
-  // let getStartBtn = document.getElementById('js-get-start-btn');
-  // getStartBtn.addEventListener('click', () => {
-  //   alert('Get Started');
-  // });
+  document.getElementById("js-join-btn").addEventListener("click", function() {
+    console.log("on click get start");
+  });
 </script>
 
 </html>
