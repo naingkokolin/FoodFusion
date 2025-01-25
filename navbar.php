@@ -12,6 +12,7 @@
     <li><a href="./recipes.php" class="recipe">Recipes</a></li>
     <li><a href="./community.php" class="community">Community</a></li>
     <li><a href="./culinary-resource.php" class="culinary">Culinary Resource</a></li>
+    <li><a href="./educational-resource.php" class="education">Educational Resource</a></li>
     <li><a href="./contact-us.php" class="contact">Contact Us</a></li>
     <!-- <button id="js-join-btn"></button> -->
     <!-- // TODO: add username with SESSION in nav bar -->
@@ -31,6 +32,7 @@
     "Recipe Collection": "recipe",
     "Community Cookbook": "community",
     "Culinary Resources": "culinary",
+    "Educational Resources": "education",
     "Contact Us": "contact"
   };
 
@@ -49,15 +51,16 @@
   });
 
   // <?php
-  // if (isset($_SESSION['user_name'])) {
-  //   echo "document.getElementById('js-join-btn').textContent = '$user';";
-  // } else {
-  //   echo "document.getElementById('js-join-btn').textContent = 'Join';";
-  //   echo "document.getElementById('js-join-btn').classList.add('join-btn');";
-  // }
-  // ?>
+      // if (isset($_SESSION['user_name'])) {
+      //   echo "document.getElementById('js-join-btn').textContent = '$user';";
+      // } else {
+      //   echo "document.getElementById('js-join-btn').textContent = 'Join';";
+      //   echo "document.getElementById('js-join-btn').classList.add('join-btn');";
+      // }
+      // 
+      ?>
 
-  
+
 
   // joinBtn.addEventListener('click', () => {
   //   if (joinBtn.textContent === 'Join') {

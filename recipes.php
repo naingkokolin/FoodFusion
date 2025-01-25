@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title class="page-title">Recipe Collection</title>
+  <link rel="shortcut icon" href="./icons/icons8-recipe-16 (1).png" type="image/x-icon">
   <link rel="stylesheet" href="./styles/recipes.css">
 </head>
 

@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title class="page-title">Culinary Resources</title>
+  <link rel="shortcut icon" href="./icons/icons8-cooking-16.png" type="image/x-icon">
   <link rel="stylesheet" href="./styles/culinary-resource.css">
 </head>
 
