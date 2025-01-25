@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ls = localStorage.getItem('first-visit');
 
   if (acceptCookiesBtn && cookieConsent) {
-    acceptCookiesBtn.addEventListener("click", function () {
+    acceptCookiesBtn.addEventListener('click', () => {
       localStorage.setItem('first-visit', false);
       cookieConsent.style.display = 'none';
     });
@@ -32,12 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Open modal when "Join Us" is clicked
 
-  jsJoinBtn.addEventListener("click", function() {
+  jsJoinBtn.addEventListener('click', () => {
     modal.style.display = 'block';
   });
 
   // Close modal when "X" is clicked
-  closeBtn.addEventListener("click", function () {
+  closeBtn.addEventListener('click', () => {
     modal.style.display = 'none';
   });
 

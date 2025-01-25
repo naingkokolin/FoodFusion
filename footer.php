@@ -3,22 +3,12 @@
     /* position: fixed; */
     bottom: 0;
     width: 100%;
-    height: 80px;
-    background-color: rgb(51, 51, 51);
+    height: 60px;
+    background-color: rgb(255, 248, 206);
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-  }
-
-  .upper-text {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .social-accounts {
-    flex: 1;
   }
 
   .social-accounts ul {
@@ -30,7 +20,7 @@
   }
 
   .social-accounts a {
-    color: white;
+    color: black;
     text-decoration: none;
     transition: color 0.15s;
   }
@@ -49,17 +39,14 @@
 </style>
 
 <footer class="footer-container">
-  <div class="upper-text">
-    <p>
-      &copy; 2025 Food Fusion All Right Reserved.
-    </p>
-  </div>
+  <div class="upper-text">&copy; 2025 Food Fusion. All Right Reserved.</div>
 
   <div class="social-accounts">
     <ul>
       <li><a href="https://facebook.com" class="fb">Facebook</a></li>
       <li><a href="https://intagram.com" class="is">Instagram</a></li>
       <li><a href="https://youtube.com" class="yt">Youtube</a></li>
+      <!-- // TODO: add related icons for social media links -->
     </ul>
   </div>
 </footer>

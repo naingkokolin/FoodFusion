@@ -28,7 +28,7 @@
         <div class="paragraph">
           To inspire and empower individuals to embrace home cooking and culinary creativity by providing a vibrant platform for sharing recipes, culinary tips,and fostering a supportive community of food enthusiasts worldwide.
         </div>
-        <button class="get-start-btn" name="getStart" id="js-join-btn">Get Started!</button>
+        <button class="get-start-btn" name="getStart" id="js-join-btn">Join Us</button>
       </div>
     </div> <!-- end of main container -->
 
@@ -137,9 +137,10 @@
       </div>
     </div>
 
-  </div>
+  </div> <!-- end of page container -->
 
   <!-- // TODO: ADD FOOTER -->
+  <?php include('footer.php'); ?>
   <script src="./scripts/home.js"></script>
 </body>
 
