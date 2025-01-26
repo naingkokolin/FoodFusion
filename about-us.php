@@ -37,9 +37,9 @@
           <p>Founder & Head Chef</p>
         </div>
         <div class="team-member">
-          <img src="https://cdn.shoutoutcolorado.com/wp-content/uploads/2023/04/c-PersonalShelbyCohen__Shelby_1679009280255.jpg" alt="Team Member">
-          <h3>Shelby Cohen</h3>
-          <p>Content Creator & Food Enthusiast</p>
+          <img src="./img/julia2.jpg" alt="Team Member">
+          <h3>Julia</h3>
+          <p>Content Creator & Page Designer</p>
         </div>
         <!-- <div class="team-member">
           <img src="https://via.placeholder.com/150" alt="Team Member">
