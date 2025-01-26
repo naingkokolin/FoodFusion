@@ -50,17 +50,16 @@
   </main>
 
   <!-- Modal (Sign Up and Login Form) -->
-  <div class="modal" id="joinModal">
+  <!-- <div class="modal" id="joinModal">
     <div class="modal-content">
       <span class="close-btn" id="closeBtn">&times;</span>
       <h2>Join FoodFusion</h2>
-      <!-- Tabs for Sign Up and Login -->
       <div class="form-tabs">
         <button class="tab-link active" id="signUpTab">Sign Up</button>
         <button class="tab-link" id="loginTab">Login</button>
       </div>
 
-      <!-- Sign Up Form -->
+      
       <div class="form-container" id="signUpForm">
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" id="signUp">
           <label for="firstName">First Name:</label>
@@ -79,7 +78,7 @@
         </form>
       </div>
 
-      <!-- Login Form -->
+      
       <div class="form-container" id="loginForm" style="display:none;">
         <form action="#" method="POST" id="login">
           <label for="loginEmail">Email:</label>
@@ -92,7 +91,7 @@
         </form>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <?php include("footer.php"); ?>
 

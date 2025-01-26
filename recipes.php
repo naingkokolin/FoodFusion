@@ -5,27 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title class="page-title">Recipe Collection</title>
+  <link rel="shortcut icon" href="./icons/icons8-recipe-16 (1).png" type="image/x-icon">
   <link rel="stylesheet" href="./styles/recipes.css">
 </head>
 
 <body>
   <!-- Header -->
   <header>
-    <!-- <nav>
-      <div class="logo">FoodFusion</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="recipes.html" class="active">Recipes</a></li>
-        <li><a href="community.html">Community</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-      <div class="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </nav> -->
     <?php include("navbar.php"); ?>
   </header>
 
