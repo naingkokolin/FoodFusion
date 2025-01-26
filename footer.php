@@ -25,16 +25,13 @@
     transition: color 0.15s;
   }
 
-  .fb:hover {
-    color: rgb(36, 69, 255);
+  .social-accounts img {
+    width: 24px;
+    height: 24px;
   }
 
-  .is:hover {
-    color: rgb(255, 128, 64);
-  }
-
-  .yt:hover {
-    color: red;
+  .social-accounts img:hover {
+    transform: scale(1.2);
   }
 </style>
 
@@ -43,9 +40,8 @@
 
   <div class="social-accounts">
     <ul>
-      <li><a href="https://facebook.com" class="fb">Facebook</a></li>
-      <li><a href="https://intagram.com" class="is">Instagram</a></li>
-      <li><a href="https://youtube.com" class="yt">Youtube</a></li>
+      <li><a href="https://facebook.com" class="fb"><img src="./icons/icons8-facebook-24.png" alt="Facebook"></a></li>
+      <li><a href="https://youtube.com" class="yt"><img src="./icons/icons8-youtube-48.png" alt="Youtube"></a></li>
       <!-- // TODO: add related icons for social media links -->
     </ul>
   </div>

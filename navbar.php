@@ -3,7 +3,7 @@
 
 <nav class="navbar">
   <div class="logo">
-    <img src="./img/logo1.png" alt="Logo">
+    <img src="./img/logo1.png" alt="Logo" id="js-logo">
     Food Fusion
   </div>
   <ul>
@@ -21,6 +21,12 @@
 </nav>
 
 <script>
+
+  const logoBtn = document.getElementById('js-logo');
+  logoBtn.addEventListener('click', () => {
+    window.location.href = 'index.php';
+  });
+
   function toggleMenu() {
     const menu = document.querySelector('.navbar ul');
     menu.classList.toggle('show');
