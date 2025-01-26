@@ -1,0 +1,39 @@
+.page-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.join-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 50px;
+  height: 40px;
+  background-color: rgb(192, 192, 192);
+}
+
+.join-btn {
+  background-color: rgb(255, 180, 42);
+  color: white;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 2px;
+}
+
+.join-text {
+  color: orange;
+}
+
+.login-text {
+  font-size: 12px;
+}
+
+.login-btn {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  text-decoration: none;
+}

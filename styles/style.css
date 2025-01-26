@@ -147,7 +147,7 @@
 }
 
 /* For Pop-up modal */
-#js-join-btn {
+/* #js-join-btn {
   color: black;
   background-color: transparent;
   transition: all 0.15s;
@@ -171,7 +171,7 @@
 
 #js-join-btn:hover::after {
   width: 100%;
-}
+} */
 
 .js-joinModal {
   display: none;

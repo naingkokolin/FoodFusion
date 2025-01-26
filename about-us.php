@@ -34,12 +34,12 @@
         <div class="team-member">
           <img src="./img/nkkl.jpg" alt="Team Member">
           <h3>Naing Ko Ko Lin</h3>
-          <p>Founder & Head Chef</p>
+          <p>Founder & Content Creater</p>
         </div>
         <div class="team-member">
           <img src="./img/julia2.jpg" alt="Team Member">
           <h3>Julia</h3>
-          <p>Content Creator & Page Designer</p>
+          <p>Head Chef & Page Designer</p>
         </div>
         <!-- <div class="team-member">
           <img src="https://via.placeholder.com/150" alt="Team Member">

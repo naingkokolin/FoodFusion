@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title class="page-title">Food Fusion</title>
+  <link rel="stylesheet" href="./styles/design.css">
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="icon" href="./icons/icons8-home-16.png" type="image/x-icon">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -14,82 +15,15 @@
   <?php include 'navbar.php'; ?>
   <div class="page-container">
 
-    <div class="main-container">
-      <!-- overlay text inside image -->
-      <div class="text-image-container">
-        <img src="./img/ice-cream-01.webp" alt="Food Fusion">
-        <div class="centered-text">
-          Discover the joy of cooking and sharing your culinary creations with the world.
-        </div>
+    <!-- Join now Line -->
+      <div class="join-container">
+        <button class="join-btn" id="js-join-btn">Join Now</button>
+        <div class="join-text">Join our Foodies Community Today!</div>
+        <div class="login-text">Already a member? <span class="login-btn" id="js-login-btn">Log in</span></div>
       </div>
+    <!-- End of Join now -->
 
-      <div class="text-button-container">
-        <img src="./img/a-05.jpg" alt="food fusion photo">
-        <div class="paragraph">
-          To inspire and empower individuals to embrace home cooking and culinary creativity by providing a vibrant platform for sharing recipes, culinary tips,and fostering a supportive community of food enthusiasts worldwide.
-        </div>
-        <button class="get-start-btn" name="getStart" id="js-join-btn">Join Us</button>
-      </div>
-    </div> <!-- end of main container -->
-
-    <!-- Integrated News Section -->
-    <h2 class="news-feed-text">* Integrated News Feed Section *</h2>
-    <div class="news-container">
-      <div class="news-card">
-        <img src="./img/news-01.jpeg" alt="News Images">
-        <h4>Mastering the Art of French Pastry</h4>
-        <p>
-          Discover the secrets to perfecting classic French pastries with our step-by-step guide. From flaky croissants to rich éclairs, elevate your baking skills with these recipes
-        </p>
-      </div>
-
-      <div class="news-card">
-        <img src="./img/news-01.jpeg" alt="News Images">
-        <h4>Mastering the Art of French Pastry</h4>
-        <p>
-          Discover the secrets to perfecting classic French pastries with our step-by-step guide. From flaky croissants to rich éclairs, elevate your baking skills with these recipes
-        </p>
-      </div>
-
-      <div class="news-card">
-        <img src="./img/news-01.jpeg" alt="News Images">
-        <h4>Mastering the Art of French Pastry</h4>
-        <p>
-          Discover the secrets to perfecting classic French pastries with our step-by-step guide. From flaky croissants to rich éclairs, elevate your baking skills with these recipes
-        </p>
-      </div>
-
-      <div class="news-card">
-        <img src="./img/news-01.jpeg" alt="News Images">
-        <h4>Mastering the Art of French Pastry</h4>
-        <p>
-          Discover the secrets to perfecting classic French pastries with our step-by-step guide. From flaky croissants to rich éclairs, elevate your baking skills with these recipes
-        </p>
-      </div>
-
-      <div class="news-card">
-        <img src="./img/news-01.jpeg" alt="News Images">
-        <h4>Mastering the Art of French Pastry</h4>
-        <p>
-          Discover the secrets to perfecting classic French pastries with our step-by-step guide. From flaky croissants to rich éclairs, elevate your baking skills with these recipes
-        </p>
-      </div>
-
-      <div class="news-card">
-        <img src="./img/news-01.jpeg" alt="News Images">
-        <h4>Mastering the Art of French Pastry</h4>
-        <p>
-          Discover the secrets to perfecting classic French pastries with our step-by-step guide. From flaky croissants to rich éclairs, elevate your baking skills with these recipes.
-        </p>
-      </div>
-    </div> <!-- End of Integrated News Section -->
-
-    <!-- Carousel Section -->
-    <h2 class="cooking-events-text">* Upcoming Cooking Events *</h2>
-
-    <div class="carousel-container">
-
-    </div> <!-- End of Carousel Section -->
+    <!--  -->
 
     <!-- Modal (Sign Up and Login Form) -->
     <div class="modal" id="joinModal">
@@ -140,16 +74,8 @@
   </div> <!-- end of page container -->
 
   <!-- // TODO: ADD FOOTER -->
-  <?php include('footer.php'); ?>
   <script src="./scripts/home.js"></script>
 </body>
-
-
-<script>
-  document.getElementById("js-join-btn").addEventListener("click", function() {
-    console.log("on click get start");
-  });
-</script>
 
 </html>
 
@@ -157,9 +83,4 @@
 To inspire and empower individuals to embrace home cooking and culinary
 creativity by providing a vibrant platform for sharing recipes, culinary tips,
 and fostering a supportive community of food enthusiasts worldwide.      
--->
-
-<!-- 
-ပုံကို blur လုပ်။
-
 -->

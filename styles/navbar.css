@@ -13,7 +13,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #fff8ce;
+  /* background-color: #fff8ce; */
+  background-color: white;
   color: black;
   position: fixed;
   top: 0;
