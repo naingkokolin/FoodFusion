@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <?php include 'navbar.php'; ?>
+  <?php include 'nav.php'; ?>
   <div class="page-container">
 
     <!-- Join now Line -->
