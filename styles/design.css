@@ -19,6 +19,11 @@
   padding: 4px 10px;
   border: none;
   border-radius: 2px;
+  transition: filter 0.15s;
+}
+
+.join-btn:hover {
+  filter: brightness(1.1);
 }
 
 .join-text {
@@ -36,4 +41,116 @@
 
 .login-btn:hover {
   text-decoration: none;
+}
+
+.recipe-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0 10px;
+}
+
+.recipe-image-first {
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.recipe-image-first img {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.recipe-latest-cards {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/* Modal Background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Form Tabs */
+.form-tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.tab-link {
+  background-color: #f1f1f1;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.5s;
+  border-radius: 20px;
+}
+
+.tab-link.active {
+  background-color: #ff6347;
+  color: white;
+  transition: all 0.15s;
+}
+
+/* Form Containers */
+.form-container {
+  display: block;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #e55347;
 }

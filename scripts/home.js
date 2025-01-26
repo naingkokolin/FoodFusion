@@ -20,21 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const jsJoinBtn = document.getElementById('js-join-btn');
   const loginBtn = document.getElementById('js-login-btn'); 
 
-  const joinPopup = document.getElementById('join-popup');
-  const closePopupBtn = document.getElementById('close-popup');
-
   const modal = document.getElementById('joinModal');
-  // const joinBtn = document.getElementById('joinBtn');
   const closeBtn = document.getElementById('closeBtn');
   const signUpTab = document.getElementById('signUpTab');
   const loginTab = document.getElementById('loginTab');
-  const signUpForm = document.getElementById('signUpForm');
-  const loginForm = document.getElementById('loginForm');
-
-  // Open modal when "Join Us" is clicked
 
   jsJoinBtn.addEventListener('click', () => {
     modal.style.display = 'block';
+    signUp();
   });
 
   loginBtn.addEventListener('click', () => {
@@ -50,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Close modal if clicked outside of the modal content
   window.addEventListener('click', (e) => {
     if (e.target == modal) {
-      modal.style.display = 'none';
+      modal.style.display = 'none'; 
     }
   });
 

@@ -23,7 +23,27 @@
     </div>
     <!-- End of Join now -->
 
-    <!--  -->
+    <!-- // TODO: need to add News Feed -->
+
+    <!-- Recipe Section -->
+    <div class="recipe-container">
+      <div class="recipe-image-first">
+        <img src="./img/01.jpg" alt="image">
+      </div>
+      <div class="recipe-latest-cards">
+        <div class="recipe-small-card">
+          
+        </div>
+        <div class="recipe-small-card">
+
+        </div>
+        <div class="recipe-small-card">
+
+        </div>
+      </div>
+    </div>
+
+    <!-- End of Recipe Section -->
 
     <!-- Modal (Sign Up and Login Form) -->
     <div class="modal" id="joinModal">
