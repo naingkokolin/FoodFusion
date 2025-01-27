@@ -7,7 +7,6 @@
   <title class="page-title">About Us</title>
   <link rel="shortcut icon" href="./icons/icons8-about-us-16.png" type="image/x-icon">
   <link rel="stylesheet" href="styles/about-us.css">
-  <link rel="stylesheet" href="/styles/general.css">
 </head>
 
 <body>

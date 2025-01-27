@@ -30,15 +30,32 @@
       <div class="recipe-image-first">
         <img src="./img/01.jpg" alt="image">
       </div>
+
       <div class="recipe-latest-cards">
+        
+        <div>The Lastest Recipe Cards</div>
         <div class="recipe-small-card">
-          
+          <div><img src="./img/01.jpg" alt=""></div>
+          <div class="card-detail">
+            <div>Title</div>
+            <div>Description</div>
+          </div>
         </div>
-        <div class="recipe-small-card">
 
+        <div class="recipe-small-card">
+          <div><img src="./img/01.jpg" alt=""></div>
+          <div class="card-detail">
+            <div>Title</div>
+            <div>Description</div>
+          </div>
         </div>
-        <div class="recipe-small-card">
 
+        <div class="recipe-small-card">
+          <div><img src="./img/01.jpg" alt=""></div>
+          <div class="card-detail">
+            <div>Title</div>
+            <div>Description</div>
+          </div>
         </div>
       </div>
     </div>
