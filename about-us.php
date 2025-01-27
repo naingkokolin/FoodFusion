@@ -13,7 +13,7 @@
 <body>
   <!-- Header -->
   <header>
-    <?php include("navbar.php"); ?>
+    <?php include("nav.php"); ?>
   </header>
 
   <!-- About Us Section -->

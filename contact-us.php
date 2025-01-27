@@ -12,22 +12,7 @@
 <body>
   <!-- Header -->
   <header>
-    <!-- <nav>
-      <div class="logo">FoodFusion</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="recipes.html">Recipes</a></li>
-        <li><a href="community.html">Community</a></li>
-        <li><a href="contact.html" class="active">Contact Us</a></li>
-      </ul>
-      <div class="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </nav> -->
-    <?php include("navbar.php"); ?>
+    <?php include("nav.php"); ?>
   </header>
 
   <!-- Contact Us Section -->

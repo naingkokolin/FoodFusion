@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <?php include('navbar.php'); ?>
+  <?php include('nav.php'); ?>
   This is Educational Resource Page
 </body>
 

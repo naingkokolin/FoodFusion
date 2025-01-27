@@ -3,30 +3,25 @@
 
 <div class="nav-header-container">
   <div class="header-text">Food Fusion</div>
-  <div class="right-part">
-    <div class="social-links">
-
-    </div>
-    <div class="account-status">
-
-    </div>
-  </div>
+  <img src="./img/logo1.png" alt="Logo" class="logo-img">
 </div>
 
 <div class="navbar">
   <div class="logo">
     <img src="./img/logo1.png" alt="Logo" id="js-logo">
-
   </div>
-  <ul>
-    <li><a href="./index.php" class="home">Home</a></li>
-
-    <li><a href="./recipes.php" class="recipe">Recipes</a></li>
-    <li><a href="./educational-resource.php" class="videos">Recipes</a></li>
-    <li><a href="./community.php" class="community">Community</a></li>
-    <li><a href="./about-us.php" class="about">About Us</a></li>
-    <!-- // TODO: add username with SESSION in nav bar -->
-  </ul>
+  <div>
+    <ul>
+      <li><a href="./index.php" class="home">Home</a></li>
+      <li><a href="./about-us.php" class="about-us">About Us</a></li>
+      <li><a href="./recipes.php" class="recipe">Recipes</a></li>
+      <li><a href="./community.php" class="community">Community</a></li>
+      <li><a href="./culinary-resource.php" class="culinary">Culinary Resource</a></li>
+      <li><a href="./educational-resource.php" class="education">Educational Resource</a></li>
+      <li><a href="./contact-us.php" class="contact">Contact Us</a></li>
+      <!-- // TODO: add username with SESSION in nav bar -->
+    </ul>
+  </div>
   <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
 </div>
 
@@ -43,10 +38,12 @@
 
   let pages = {
     "Food Fusion": "home",
-    "Recipes": "recipes",
-    "Videos": "videos",
-    "Community": "community",
-    "About": "about"
+    "About Us": "about-us",
+    "Recipe Collection": "recipe",
+    "Community Cookbook": "community",
+    "Culinary Resources": "culinary",
+    "Educational Resources": "education",
+    "Contact Us": "contact"
   };
 
   const pageTitle = document.querySelector('.page-title');
