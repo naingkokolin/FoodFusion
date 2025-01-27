@@ -3,6 +3,7 @@
   flex-direction: column;
 }
 
+/* Join Now Line */
 .join-container {
   display: flex;
   justify-content: center;
@@ -41,7 +42,9 @@
 .login-btn:hover {
   text-decoration: none;
 }
+/* End of Join Now Line */
 
+/* Recipe Section */
 .recipe-container {
   display: flex;
   flex-direction: row;
@@ -87,6 +90,79 @@
   justify-content: space-evenly;
 }
 
+.recipe-show-everything {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipe-show-everything-btn {
+  background-color: transparent;
+  color: black;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.15s;
+}
+
+.recipe-show-everything-btn:hover {
+  transform: scale(1.1);
+}
+/* End of recipe */
+
+/* Pick of the week */
+.pick-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  /* column-gap: 30px; */
+  height: 400px;
+}
+
+.pick-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(229 89 54);
+  padding: 10px;
+  color: white;
+  width: 40%;
+  height: 100%;
+}
+
+.pick-card button {
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.15s;
+}
+
+.pick-card button:hover {
+  transform: scale(1.1);
+}
+
+.pick-image {
+  width: 30%;
+  height: 100%;
+}
+
+.pick-image img {
+  width: 400px;
+  height: 100%;
+  object-fit: cover;
+  border: 20px solid #cccccc;
+  padding: 8px;
+}
+
+/* End of pick of the week */
 
 /* Modal Background */
 .modal {

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title class="page-title">Food Fusion</title>
   <link rel="stylesheet" href="./styles/design.css">
-  <link rel="stylesheet" href="./styles/style.css">
+  <!-- <link rel="stylesheet" href="./styles/style.css"> -->
   <link rel="icon" href="./icons/icons8-home-16.png" type="image/x-icon">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
@@ -59,8 +59,25 @@
         </div>
       </div>
     </div>
+    <div class="recipe-show-everything">
+      <button id="js-recipe-show-everything" class="recipe-show-everything-btn">Show Me Everything</button>
+    </div> <!-- End of Recipe Section -->
 
-    <!-- End of Recipe Section -->
+    <!-- Pick of the week -->
+    <div class="pick-container">
+      <div class="pick-card">
+        <h3>PICK OF THE WEEK</h3>
+        <h2>Cozy White Bean Mushroom Stew</h2>
+        <p>Cozy, creamy white bean and mushroom stew with potatoes and herbs. An easy 1 pot entry perfect for cooler weather, Vegan, gluten-free and SO delicious.</p>
+        <h5>By Sara Dickerman and Marissa Lippert</h5>
+        <button>VIEW RECIPE</button>
+      </div>
+
+      <div class="pick-image">
+        <img src="./img/01.jpg" alt="image">
+      </div>
+
+    </div> <!-- End of pick of the week -->
 
     <!-- Modal (Sign Up and Login Form) -->
     <div class="modal" id="joinModal">
