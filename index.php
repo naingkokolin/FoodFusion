@@ -26,13 +26,14 @@
     <!-- // TODO: need to add News Feed -->
 
     <!-- Recipe Section -->
+    <h2 class="title-texts">Integrated News Feed</h2>
     <div class="recipe-container">
       <div class="recipe-image-first">
         <img src="./img/01.jpg" alt="image">
       </div>
 
       <div class="recipe-latest-cards">
-        
+
         <div>The Lastest Recipe Cards</div>
         <div class="recipe-small-card">
           <div><img src="./img/01.jpg" alt=""></div>
@@ -78,6 +79,54 @@
       </div>
 
     </div> <!-- End of pick of the week -->
+
+    <!-- Culinary Trend Section -->
+    <div class="culinary-container">
+      <div class="culinary-card">
+        <div class="culinary-image">
+          <img src="./img/a-02.png" alt="Culinary">
+        </div>
+        <div class="culinary-detail">
+          <div class="culinary-type">Soup</div>
+          <div class="culinary-name">Tomato Soup</div>
+          <button>See Detail</button>
+        </div>
+      </div>
+
+      <div class="culinary-card">
+        <div class="culinary-image">
+          <img src="./img/a-02.png" alt="Culinary">
+        </div>
+        <div class="culinary-detail">
+          <div class="culinary-type">Soup</div>
+          <div class="culinary-name">Tomato Soup</div>
+          <button>See Detail</button>
+        </div>
+      </div>
+
+      <div class="culinary-card">
+        <div class="culinary-image">
+          <img src="./img/a-02.png" alt="Culinary">
+        </div>
+        <div class="culinary-detail">
+          <div class="culinary-type">Soup</div>
+          <div class="culinary-name">Tomato Soup</div>
+          <button>See Detail</button>
+        </div>
+      </div>
+
+      <div class="culinary-card">
+        <div class="culinary-image">
+          <img src="./img/a-02.png" alt="Culinary">
+        </div>
+        <div class="culinary-detail">
+          <div class="culinary-type">Soup</div>
+          <div class="culinary-name">Tomato Soup</div>
+          <button>See Detail</button>
+        </div>
+      </div>
+
+    </div> <!-- End of Culinary Trend Section -->
 
     <!-- Modal (Sign Up and Login Form) -->
     <div class="modal" id="joinModal">
