@@ -128,6 +128,53 @@
 
     </div> <!-- End of Culinary Trend Section -->
 
+    <!-- Brief Indroduction Section -->
+    <div class="intro-container">
+      <h3>WHO WE ARE?</h3>
+      <div class="big-logo">
+        <img src="./img/logo1.png" alt="Logo">
+        <p>
+          FoodFusion is a culinary platform dedicated to promoting home cooking and culinary creativity among food enthusiasts. We provide a central hub for sharing recipes, culinary tips, and fostering a vibrant food community.
+        </p>
+      </div>
+      <div class="brief-intro-container">
+        <div class="intro-header">
+          <div>
+            <h4>A Brief Introduction</h4>
+          </div>
+          <div><button class="see-more-btn" onclick="location.href='./about-us.php'">See More>>></button></div>
+        </div>
+        <div class="team-member">
+          <div class="member-card">
+            <div class="member-image">
+              <img src="./img/nkkl.jpg" alt="Team Member">
+            </div>
+            <div class="member-brief">Founder & Content Creator</div>
+          </div>
+          <div class="member-card">
+            <div class="member-image"><img src="./img/julia2.jpg" alt="Team Member"></div>
+            <div class="member-brief">Head Chef & Page Designer</div>
+          </div>
+        </div>
+        <div class="cross-line">FoodFusion by the Numbers</div>
+        <div class="intro-body">
+          <div class="intro-fact">
+            <div class="intro-h">Founded in 2020</div>
+            <div class="intro-t">Publishing food & nutrition advice for 4+ years</div>
+          </div>
+          <div class="intro-fact">
+            <div class="intro-h">Healthy Recipes</div>
+            <div class="intro-t">Providing healthy recipes for the customers</div>
+          </div>
+          <div class="intro-fact">
+            <div class="intro-h">Culinary Trends</div>
+            <div class="intro-t">Supporting the culinary trends from all over the world</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Brief Indroduction Section -->
+
     <!-- Modal (Sign Up and Login Form) -->
     <div class="modal" id="joinModal">
       <div class="modal-content">
