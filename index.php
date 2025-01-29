@@ -13,8 +13,11 @@
 
 <body>
   <?php include 'nav.php'; ?>
-  <div class="page-container">
+  <div id="loading-spinner">
+    <div class="spinner"></div>
+  </div>
 
+  <div class="page-container">
     <!-- Join now Line -->
     <div class="join-container">
       <button class="join-btn" id="js-join-btn">Join Now</button>
@@ -126,7 +129,8 @@
         </div>
       </div>
 
-    </div> <!-- End of Culinary Trend Section -->
+    </div>
+    <!-- End of Culinary Trend Section -->
 
     <!-- Brief Indroduction Section -->
     <div class="intro-container">
@@ -157,7 +161,9 @@
           </div>
         </div>
 
-        <div class="cross-line">FoodFusion by the Numbers</div>
+        <div class="cross-line-container">
+          <div class="cross-line">FoodFusion by the Numbers</div>
+        </div>
 
         <div class="intro-body">
           <div class="intro-fact">

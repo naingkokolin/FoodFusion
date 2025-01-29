@@ -78,8 +78,9 @@ function moveCarousel(step) {
   index += step;
   if (index < 0) index = 0;
   if (index > cards.length - 2) index = cards.length - 2;
-  carousel.style.transform = `translateX(${-index * cardWidth}px)`;
-
-  console.log("left or right");
-  
+  carousel.style.transform = `translateX(${-index * cardWidth}px)`; 
 }
+
+window.addEventListener('load', () => {
+  document.getElementById('loading-spinner').style.display = 'none';
+});

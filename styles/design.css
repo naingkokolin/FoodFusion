@@ -1,8 +1,51 @@
+:root {
+  --primary-color: #ff6347;
+  --secondary-color: #001f3f;
+  --background-color: #f4f4f4;
+  --text-color: #333;
+}
+
 .body {
   width: 100%;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  line-height: 1.6;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  box-sizing: border-box;
+}
+
+#loading-spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #ff6347;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .page-container {
@@ -20,22 +63,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: 50px;
+  gap: 16px;
   height: 40px;
   background-color: rgb(192, 192, 192);
 }
 
 .join-btn {
-  background-color: rgb(255, 180, 42);
+  background-color: var(--primary-color);
   color: white;
   padding: 4px 10px;
   border: none;
   border-radius: 2px;
-  transition: filter 0.15s;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .join-btn:hover {
-  filter: brightness(1.1);
+  background-color: #ff8c42;
+  transform: scale(1.05);
 }
 
 .join-text {
@@ -58,13 +102,19 @@
 /* End of Join Now Line */
 
 /* Recipe Section */
-.recipe-container {
+/* .recipe-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 30px;
   justify-content: center;
   column-gap: 50px;
+} */
+
+.recipe-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
 .recipe-image-first {
@@ -119,11 +169,13 @@
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
-  transition: transform 0.15s;
+  transition: all 0.15s;
 }
 
 .recipe-show-everything-btn:hover {
-  transform: scale(1.1);
+  background-color: #ff6347;
+  color: white;
+  border-color: #ff6347;
 }
 
 /* End of recipe */
@@ -134,9 +186,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* column-gap: 30px; */
   height: 400px;
-  /* flex-wrap: wrap; */
+  /* max-height: 400px; */
 }
 
 .pick-card {
@@ -198,7 +249,8 @@
   flex-direction: row;
   justify-content: space-between;
   gap: 20px;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   height: 200px;
   border: 8px solid #ccc;
 }
@@ -230,9 +282,10 @@
   justify-content: center;
   gap: 40px;
   align-items: center;
-  /* flex-wrap: wrap; */
-  height: 400px;
-  width: 100%;
+  height: auto;
+  max-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .intro-container h3 {
@@ -263,12 +316,16 @@
 }
 
 .brief-intro-container {
-  width: 500px;
-  height: 100%;
+  width: 100%;
+  max-width: 500px;
+  height: 400px;
+  max-height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .intro-header {
@@ -285,10 +342,40 @@
   background-color: transparent;
   cursor: pointer;
   transition: transform 0.15s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .see-more-btn:hover {
   transform: scale(1.1);
+}
+
+.cross-line-container {
+  display: flex;
+  display: flex;
+  align-items: center;
+}
+
+.cross-line {
+  border: 2px solid black;
+  padding: 0.3em 0.8em;
+  display: inline-block;
+  margin: 0 1em;
+  text-align: center !important;
+}
+
+.cross-line-container::before,
+.cross-line-container::after {
+  content: '';
+  flex: 1;
+  border-top: 1px solid black;
+  display: block;
+  height: 1px;
+  width: 100%;
+  top: 1.2em;
+  opacity: 0.1;
 }
 
 .team-member {
@@ -512,7 +599,6 @@ form button:hover {
   }
 
   .intro-container {
-    margin-top: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -540,14 +626,31 @@ form button:hover {
     flex-wrap: wrap;
   }
 
+  .big-logo {
+    width: 100%;
+    height: auto;
+  }
 
-  /* .culinary-card {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 20px;
-    width: 300px;
-    height: 100px;
-    border: 8px solid #ccc;
-  } */
+  .brief-intro-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .intro-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .see-more-btn {
+    margin-top: 10px;
+  }
+
+  .recipe-container {
+    gap: 10px;
+  }
+
+  .join-container {
+    flex-direction: column;
+    gap: 10px;
+  }
 }

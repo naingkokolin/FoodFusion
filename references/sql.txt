@@ -1,0 +1,124 @@
+-- Table for storing recipe data
+CREATE TABLE recipes (
+    recipe_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    ingredients TEXT,
+    instructions TEXT,
+    cuisine_type VARCHAR(100),
+    dietary_preferences VARCHAR(100),
+    cooking_difficulty ENUM('Easy', 'Medium', 'Hard'),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Example query to insert a new recipe
+INSERT INTO recipes (title, description, ingredients, instructions, cuisine_type, dietary_preferences, cooking_difficulty)
+VALUES (
+    'Spaghetti Carbonara',
+    'A classic Italian pasta dish.',
+    'Spaghetti, eggs, Parmesan cheese, pancetta, garlic, black pepper',
+    'Cook spaghetti, mix with eggs and cheese, add cooked pancetta and garlic, season with pepper.',
+    'Italian',
+    'Non-Vegetarian',
+    'Medium'
+);
+
+/////////////////////////////////////////////////////
+
+-- Table for storing downloadable culinary resources
+CREATE TABLE culinary_resources (
+    resource_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    file_path VARCHAR(255) NOT NULL,
+    resource_type ENUM('Recipe Card', 'Cooking Tutorial', 'Instructional Video'),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Example query to insert a new culinary resource
+INSERT INTO culinary_resources (title, description, file_path, resource_type)
+VALUES (
+    'How to Make Perfect Pancakes',
+    'A step-by-step guide to making fluffy pancakes.',
+    '/downloads/pancakes.pdf',
+    'Recipe Card'
+);
+
+/////////////////////////////////////////////////////
+
+-- Table for storing cooking tutorials and instructional videos
+CREATE TABLE cooking_tutorials (
+    tutorial_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    video_url VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Example query to insert a new cooking tutorial
+INSERT INTO cooking_tutorials (title, description, video_url)
+VALUES (
+    'Knife Skills 101',
+    'Learn the basics of knife skills for efficient cooking.',
+    'https://www.youtube.com/watch?v=example'
+);
+
+/////////////////////////////////////////////////////
+
+-- Table for storing educational resources
+CREATE TABLE educational_resources (
+    resource_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    file_path VARCHAR(255) NOT NULL,
+    resource_type ENUM('Infographic', 'Video', 'Document'),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Example query to insert a new educational resource
+INSERT INTO educational_resources (title, description, file_path, resource_type)
+VALUES (
+    'Introduction to Renewable Energy',
+    'An infographic explaining the basics of renewable energy sources.',
+    '/downloads/renewable_energy_infographic.pdf',
+    'Infographic'
+);
+
+/////////////////////////////////////////////////////
+
+<?php
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "foodfusion";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Insert a new recipe
+$title = "Spaghetti Carbonara";
+$description = "A classic Italian pasta dish.";
+$ingredients = "Spaghetti, eggs, Parmesan cheese, pancetta, garlic, black pepper";
+$instructions = "Cook spaghetti, mix with eggs and cheese, add cooked pancetta and garlic, season with pepper.";
+$cuisine_type = "Italian";
+$dietary_preferences = "Non-Vegetarian";
+$cooking_difficulty = "Medium";
+
+$stmt = $conn->prepare("INSERT INTO recipes (title, description, ingredients, instructions, cuisine_type, dietary_preferences, cooking_difficulty) VALUES (?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssss", $title, $description, $ingredients, $instructions, $cuisine_type, $dietary_preferences, $cooking_difficulty);
+
+if ($stmt->execute()) {
+    echo "New recipe inserted successfully";
+} else {
+    echo "Error: " . $stmt->error;
+}
+
+$stmt->close();
+$conn->close();
+?>
