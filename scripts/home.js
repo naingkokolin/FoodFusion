@@ -67,3 +67,19 @@ function login() {
   loginTab.classList.add('active');
   signUpTab.classList.remove('active');
 }
+// End of login/sign up
+
+// for carousel (Upcoming Cooking Events)
+let index = 0;
+function moveCarousel(step) {
+  const carousel = document.getElementById("carousel");
+  const cards = document.querySelectorAll(".card");
+  const cardWidth = cards[0].offsetWidth + 20;
+  index += step;
+  if (index < 0) index = 0;
+  if (index > cards.length - 2) index = cards.length - 2;
+  carousel.style.transform = `translateX(${-index * cardWidth}px)`;
+
+  console.log("left or right");
+  
+}

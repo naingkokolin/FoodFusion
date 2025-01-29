@@ -156,7 +156,9 @@
             <div class="member-brief">Head Chef & Page Designer</div>
           </div>
         </div>
+
         <div class="cross-line">FoodFusion by the Numbers</div>
+
         <div class="intro-body">
           <div class="intro-fact">
             <div class="intro-h">Founded in 2020</div>
@@ -175,7 +177,50 @@
     </div>
     <!-- End of Brief Indroduction Section -->
 
-    
+    <!-- Upcoming Cooking Events Section  -->
+    <h2 class="cooking-event-header">Upcoming Cooking Events</h2>
+    <div class="cooking-event-container">
+      <button class="carousel-btn-prev" onclick="moveCarousel(-1)"><img src="./icons/icons8-less-than-50.png" alt="Left Arrow"></button>
+      <div class="carousel" id="carousel">
+        <div class="card">
+          <img src="https://via.placeholder.com/250x150" alt="">
+          <div class="info">
+            <h4>The Goof-Proof Way to Proof Yeast</h4>
+            <p>By Julia Yang</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/250x150" alt="">
+          <div class="info">
+            <h4>How to Mince Garlic 6 Ways</h4>
+            <p>By Julia Yang</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/250x150" alt="">
+          <div class="info">
+            <h4>How to Make Buttermilk</h4>
+            <p>By Julia Yang</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/250x150" alt="">
+          <div class="info">
+            <h4>How to Measure Flour Correctly</h4>
+            <p>By Julia Yang</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/250x150" alt="">
+          <div class="info">
+            <h4>How to Measure Flour Correctly</h4>
+            <p>By Julia Yang</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn-next" onclick="moveCarousel(1)"><img src="./icons/icons8-greater-than-50.png" alt="Right Arrow"></button>
+    </div>
+    <!-- End of Cooking Events Section -->
 
     <!-- Modal (Sign Up and Login Form) -->
     <div class="modal" id="joinModal">
