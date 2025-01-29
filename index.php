@@ -130,8 +130,8 @@
 
     <!-- Brief Indroduction Section -->
     <div class="intro-container">
-      <h3>WHO WE ARE?</h3>
       <div class="big-logo">
+        <h3>WHO WE ARE?</h3>
         <img src="./img/logo1.png" alt="Logo">
         <p>
           FoodFusion is a culinary platform dedicated to promoting home cooking and culinary creativity among food enthusiasts. We provide a central hub for sharing recipes, culinary tips, and fostering a vibrant food community.
@@ -174,6 +174,8 @@
       </div>
     </div>
     <!-- End of Brief Indroduction Section -->
+
+    
 
     <!-- Modal (Sign Up and Login Form) -->
     <div class="modal" id="joinModal">

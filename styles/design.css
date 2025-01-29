@@ -224,39 +224,43 @@
   gap: 40px;
   align-items: center;
   flex-wrap: wrap;
+  height: 400px;
+  width: 100%;
 }
 
 .intro-container h3 {
-  text-orientation: mixed;
-  transform: rotate(-90deg);
+  position: absolute;
+  left: 0;
+  top: -20px;
 }
 
 .big-logo {
   width: 400px;
-  height: 400px;
+  height: 100%;
   position: relative;
   text-align: center;
 }
 
 .big-logo img {
-  width: 300px;
+  width: 400px;
   height: auto;
   border: 10px solid #cccccc;
 }
 
 .big-logo p {
   position: absolute;
-  bottom: 100px;
+  bottom: 10px;
   left: 10px;
-  background-color: #eccfcf;
+  width: 95%;
+  background-color: #cccccc;
 }
 
 .brief-intro-container {
   width: 500px;
-  height: 400px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
