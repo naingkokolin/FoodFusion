@@ -32,7 +32,11 @@
     <h2 class="title-texts">Integrated News Feed</h2>
     <div class="recipe-container">
       <div class="recipe-image-first">
-        <img src="./img/01.jpg" alt="image">
+        <img src="https://stefaniaskitchenette.com/wp-content/uploads/2024/07/Carbonara-5.webp" alt="image">
+        <div class="recipe-detail">
+          <div class="recipe-title">Ultimate spaghetti carbonara recipe</div>
+          <div class="recipe-description">Discover how to make traditional spaghetti carbonara. This classic Italian pasta dish combines a silky cheese sauce with crisp pancetta and black pepper.</div>
+        </div>
       </div>
 
       <div class="recipe-latest-cards">
@@ -63,7 +67,7 @@
         </div>
       </div>
     </div>
-    <div class="recipe-show-everything">
+    <div class="recipe-show-everything" onclick="location.href='./recipes.php'">
       <button id="js-recipe-show-everything" class="recipe-show-everything-btn">Show Me Everything</button>
     </div> <!-- End of Recipe Section -->
 
@@ -277,8 +281,11 @@
   </div> <!-- end of page container -->
 
   <!-- // TODO: ADD FOOTER -->
+  <?php include 'footer.php'; ?>
 
   <?php
+  include('db.php');
+
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conn = new mysqli("localhost", "root", "", "foodfusion");
 

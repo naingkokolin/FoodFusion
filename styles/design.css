@@ -74,6 +74,7 @@
   padding: 4px 10px;
   border: none;
   border-radius: 2px;
+  cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -102,30 +103,50 @@
 /* End of Join Now Line */
 
 /* Recipe Section */
-/* .recipe-container {
+.recipe-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 30px;
   justify-content: center;
   column-gap: 50px;
-} */
+}
 
-.recipe-container {
+/* .recipe-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-}
+} */
 
 .recipe-image-first {
   padding: 10px;
   border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
 }
 
 .recipe-image-first img {
-  width: 300px;
+  max-width: 300px;
+  width: 50%;
   height: auto;
   border-radius: 8px;
+}
+
+.recipe-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipe-title {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
 }
 
 .recipe-latest-cards {
@@ -177,7 +198,6 @@
   color: white;
   border-color: #ff6347;
 }
-
 /* End of recipe */
 
 /* Pick of the week */
