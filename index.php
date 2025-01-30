@@ -13,29 +13,33 @@
 
 <body>
   <?php include 'nav.php'; ?>
-  <div id="loading-spinner">
+  <!-- // TODO: comment out the following 3 lines -->
+  <!-- <div id="loading-spinner">
     <div class="spinner"></div>
-  </div>
+  </div> -->
 
   <div class="page-container">
-    <!-- Join now Line -->
+    <!-- #region Join now Line -->
     <div class="join-container">
       <button class="join-btn" id="js-join-btn">Join Now</button>
       <div class="join-text">Join our Foodies Community Today!</div>
       <div class="login-text">Already a member? <span class="login-btn" id="js-login-btn">Log in</span></div>
     </div>
-    <!-- End of Join now -->
+    <!-- #endregion -->
 
     <!-- // TODO: need to add News Feed -->
 
-    <!-- Recipe Section -->
+    <!-- #region Recipe Section -->
     <h2 class="title-texts">Integrated News Feed</h2>
     <div class="recipe-container">
       <div class="recipe-image-first">
         <img src="https://stefaniaskitchenette.com/wp-content/uploads/2024/07/Carbonara-5.webp" alt="image">
         <div class="recipe-detail">
-          <div class="recipe-title">Ultimate spaghetti carbonara recipe</div>
-          <div class="recipe-description">Discover how to make traditional spaghetti carbonara. This classic Italian pasta dish combines a silky cheese sauce with crisp pancetta and black pepper.</div>
+          <div class="recipe-title">Spaghetti Carbonara</div>
+          <div class="recipe-description">A classic Italian pasta dish.</div>
+          <div class="recipe-ingredients">
+            Spaghetti, eggs, Parmesan cheese, pancetta, garlic, black pepper
+          </div>
         </div>
       </div>
 
@@ -43,10 +47,10 @@
 
         <div>The Lastest Recipe Cards</div>
         <div class="recipe-small-card">
-          <div><img src="./img/01.jpg" alt=""></div>
+          <div><img src="https://forkfulofplants.com/wp-content/uploads/2021/02/Vegan-Mexican-Bowl-24-500x375.jpg" alt=""></div>
           <div class="card-detail">
-            <div>Title</div>
-            <div>Description</div>
+            <div>Vegan Buddha Bowl</div>
+            <div>A healthy and colorful vegan meal.</div>
           </div>
         </div>
 
@@ -69,9 +73,10 @@
     </div>
     <div class="recipe-show-everything" onclick="location.href='./recipes.php'">
       <button id="js-recipe-show-everything" class="recipe-show-everything-btn">Show Me Everything</button>
-    </div> <!-- End of Recipe Section -->
+    </div> 
+    <!-- #endregion of Recipe Section -->
 
-    <!-- Pick of the week -->
+    <!-- #region Pick of the week -->
     <div class="pick-container">
       <div class="pick-card">
         <h3>PICK OF THE WEEK</h3>
@@ -85,7 +90,8 @@
         <img src="./img/01.jpg" alt="image">
       </div>
 
-    </div> <!-- End of pick of the week -->
+    </div> 
+    <!-- #endregion of pick of the week -->
 
     <!-- Culinary Trend Section -->
     <div class="culinary-container">

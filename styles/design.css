@@ -1,3 +1,4 @@
+/* #region General Section */
 :root {
   --primary-color: #ff6347;
   --secondary-color: #001f3f;
@@ -51,20 +52,24 @@
 .page-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .title-texts {
   text-align: center;
   margin-top: 10px;
 }
+/* #endregion */
 
-/* Join Now Line */
+/* #region Join Now Line */
 .join-container {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 16px;
   height: 40px;
+  width: 100%;
   background-color: rgb(192, 192, 192);
 }
 
@@ -99,10 +104,9 @@
 .login-btn:hover {
   text-decoration: none;
 }
+/* #endregion */
 
-/* End of Join Now Line */
-
-/* Recipe Section */
+/* #region Recipe Section */
 .recipe-container {
   display: flex;
   flex-direction: row;
@@ -198,16 +202,15 @@
   color: white;
   border-color: #ff6347;
 }
-/* End of recipe */
+/* #endregion */
 
-/* Pick of the week */
+/* #region Pick of the week */
 .pick-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   height: 400px;
-  /* max-height: 400px; */
 }
 
 .pick-card {
@@ -249,10 +252,9 @@
   border: 20px solid #cccccc;
   padding: 8px;
 }
+/* #endregion */
 
-/* End of pick of the week */
-
-/* Culinary Trend Section */
+/* #region Culinary Trend Section */
 .culinary-container {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -292,10 +294,9 @@
   justify-content: space-evenly;
   align-items: center;
 }
+/* #endregion */
 
-/* End of Culinary Trend Section */
-
-/* Brief Indroduction Section */
+/* #region Brief Indroduction Section */
 .intro-container {
   display: flex;
   flex-direction: row;
@@ -438,10 +439,9 @@
   font-size: 16px;
   font-weight: 600;
 }
+/* #endregion */
 
-/* End of Brief Indroduction Section */
-
-/* Upcoming Cooking Events Section */
+/* #region Upcoming Cooking Events Section */
 .cooking-event-header {
   margin-top: 50px;
   margin-left: 50px;
@@ -512,14 +512,9 @@
 .carousel-btn-next {
   right: 10px;
 }
+/* #endregion */
 
-/* End of Upcoming Cooking Events Section */
-
-
-
-
-
-/* Modal Background */
+/* #region Modal Background */
 .modal {
   display: none;
   position: fixed;
@@ -605,12 +600,21 @@ form button {
 form button:hover {
   background-color: #e55347;
 }
+/* #endregion */
 
-/* Media Query */
+/* #region Media Query */
 @media(max-width: 800px) {
   /* body {
     width: 100%;
   } */
+
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    height: auto;
+  }
 
   .pick-container {
     display: flex;
@@ -625,6 +629,7 @@ form button:hover {
     align-items: center;
     gap: 20px;
     width: 100%;
+    height: auto;
   }
 
   .intro-container h3 {
@@ -654,6 +659,7 @@ form button:hover {
   .brief-intro-container {
     width: 100%;
     max-width: 100%;
+    height: auto;
   }
 
   .intro-header {
@@ -667,10 +673,13 @@ form button:hover {
 
   .recipe-container {
     gap: 10px;
+    margin-bottom: 20px;
+    margin-top: 0;
   }
 
-  .join-container {
-    flex-direction: column;
-    gap: 10px;
+  .recipe-show-everything {
+    margin-bottom: 100px;
+    margin-top: 10px;
   }
 }
+/* #endregion */
