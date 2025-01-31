@@ -40,9 +40,19 @@
       </div>
 
       <div class="recipe-latest-cards">
-
+        <?php $recipes = include('fetch_recipes.php'); ?>
         <div>The Lastest Recipe Cards</div>
+        <?php for($recipe = 1; $recipe <= 3; $recipe++):  ?>
         <div class="recipe-small-card">
+          <div><img src="<?php echo htmlspecialchars($recipes[$recipe]['image_path']); ?>" alt=""></div>
+          <div class="card-detail">
+            <div><?php echo htmlspecialchars($recipes[$recipe]['title']); ?></div>
+            <div><?php echo htmlspecialchars($recipes[$recipe]['description']); ?></div>
+          </div>
+        </div>
+        <?php endfor; ?>
+
+        <!-- <div class="recipe-small-card">
           <div><img src="./img/01.jpg" alt=""></div>
           <div class="card-detail">
             <div>Title</div>
@@ -56,15 +66,7 @@
             <div>Title</div>
             <div>Description</div>
           </div>
-        </div>
-
-        <div class="recipe-small-card">
-          <div><img src="./img/01.jpg" alt=""></div>
-          <div class="card-detail">
-            <div>Title</div>
-            <div>Description</div>
-          </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="recipe-show-everything" onclick="location.href='./recipes.php'">
@@ -340,7 +342,7 @@
       if ($attemptsResult->num_rows > 0) {
         $attemptsRow = $attemptsResult->fetch_assoc();
 
-        if ($attemptsRow['attempts'] >= 5) {
+        if ($attemptsRow['attempts'] >= 3) {
           echo "<script>alert('Too many failed login attempts. Try again later.');</script>";
           exit();
         }
