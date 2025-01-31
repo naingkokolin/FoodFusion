@@ -12,7 +12,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT title, description, image_path FROM recipes";
+$sql = "SELECT title, description, ingredients, instructions, cuisine_type, dietary_preferences, cooking_difficulty, image_path FROM recipes";
 $result = $conn->query($sql);
 
 $recipes = []; // Initialize an empty array to store recipes

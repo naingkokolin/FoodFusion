@@ -31,9 +31,13 @@
 
     <!-- #region Recipe Section -->
     <h2 class="title-texts">Integrated News Feed</h2>
+    <?php
+    $recipes = include('fetch_recipes.php');
+    $random = rand(0, 9);
+    ?>
     <div class="recipe-container">
       <div class="recipe-image-first">
-        <img src="https://stefaniaskitchenette.com/wp-content/uploads/2024/07/Carbonara-5.webp" alt="image">
+        <img src="<?php echo htmlspecialchars($recipes[$random]['image_path']); ?>" alt="Recipe" class="recipe-main-image">
         <div class="recipe-detail">
           <div class="recipe-title">Spaghetti Carbonara</div>
           <div class="recipe-description">A classic Italian pasta dish.</div>
@@ -44,38 +48,22 @@
       </div>
 
       <div class="recipe-latest-cards">
-        <?php $recipes = include('fetch_recipes.php'); ?>
-        <div>The Lastest Recipe Cards</div>
-        <?php for($recipe = 1; $recipe <= 3; $recipe++):  ?>
-        <div class="recipe-small-card">
-          <div><img src="<?php echo htmlspecialchars($recipes[$recipe]['image_path']); ?>" alt=""></div>
-          <div class="card-detail">
-            <div><?php echo htmlspecialchars($recipes[$recipe]['title']); ?></div>
-            <div><?php echo htmlspecialchars($recipes[$recipe]['description']); ?></div>
+        <div class="recipe-cards-text">The Lastest Recipe Cards</div>
+        <?php for ($recipe = 1; $recipe <= 3; $recipe++):  ?>
+          <div class="recipe-small-card">
+            <?php $count = rand(1, 9); ?>
+            <div><img src="<?php echo htmlspecialchars($recipes[$count]['image_path']); ?>" alt="Recipe Image"></div>
+            <div class="card-detail">
+              <div class="recipe-title"><?php echo htmlspecialchars($recipes[$count]['title']); ?></div>
+              <div class="recipe-description"><?php echo htmlspecialchars($recipes[$count]['description']); ?></div>
+            </div>
           </div>
-        </div>
         <?php endfor; ?>
-
-        <!-- <div class="recipe-small-card">
-          <div><img src="./img/01.jpg" alt=""></div>
-          <div class="card-detail">
-            <div>Title</div>
-            <div>Description</div>
-          </div>
-        </div>
-
-        <div class="recipe-small-card">
-          <div><img src="./img/01.jpg" alt=""></div>
-          <div class="card-detail">
-            <div>Title</div>
-            <div>Description</div>
-          </div>
-        </div> -->
       </div>
     </div>
     <div class="recipe-show-everything" onclick="location.href='./recipes.php'">
       <button id="js-recipe-show-everything" class="recipe-show-everything-btn">Show Me Everything</button>
-    </div> 
+    </div>
     <!-- #endregion of Recipe Section -->
 
     <!-- #region Pick of the week -->
@@ -89,10 +77,10 @@
       </div>
 
       <div class="pick-image">
-        <img src="./img/01.jpg" alt="image">
+        <img src="https://minimalistbaker.com/wp-content/uploads/2022/12/Mushroom-stew-9.jpg" alt="image">
       </div>
 
-    </div> 
+    </div>
     <!-- #endregion of pick of the week -->
 
     <!-- Culinary Trend Section -->
