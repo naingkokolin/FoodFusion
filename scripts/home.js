@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const cookieConsent = document.getElementById('cookie-consent');
   const acceptCookiesBtn = document.getElementById('accept-cookies');
 
+  const seeMoreBtn = document.getElementById('see-more-btn');
+  const culinaryCards = document.querySelectorAll('.culinary-card');
+
   const ls = localStorage.getItem('first-visit');
 
   if (acceptCookiesBtn && cookieConsent) {
@@ -18,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // TODO: add cookie consent to the home page (index.html)
 
   const jsJoinBtn = document.getElementById('js-join-btn');
-  const loginBtn = document.getElementById('js-login-btn'); 
+  const loginBtn = document.getElementById('js-login-btn');
 
   const modal = document.getElementById('joinModal');
   const closeBtn = document.getElementById('closeBtn');
@@ -43,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Close modal if clicked outside of the modal content
   window.addEventListener('click', (e) => {
     if (e.target == modal) {
-      modal.style.display = 'none'; 
+      modal.style.display = 'none';
     }
   });
 
@@ -52,6 +55,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Switch to Login form
   loginTab.addEventListener('click', login);
+
+  for (let i = 4; i < culinaryCards.length; i++) {
+    culinaryCards[i].style.display = 'none';
+  }
+
+  seeMoreBtn.addEventListener('click', function () {
+    for (let i = 4; i < culinaryCards.length; i++) {
+      culinaryCards[i].style.display = 'flex';
+    }
+
+    seeMoreBtn.style.display = 'none';
+  });
 });
 
 function signUp() {
@@ -78,9 +93,9 @@ function moveCarousel(step) {
   index += step;
   if (index < 0) index = 0;
   if (index > cards.length - 2) index = cards.length - 2;
-  carousel.style.transform = `translateX(${-index * cardWidth}px)`; 
+  carousel.style.transform = `translateX(${-index * cardWidth}px)`;
 }
 
-window.addEventListener('load', () => {
-  document.getElementById('loading-spinner').style.display = 'none';
-});
+function trendClick(trendId) {
+  console.log(trendId);
+}

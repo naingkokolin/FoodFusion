@@ -13,10 +13,6 @@
 
 <body>
   <?php include 'nav.php'; ?>
-  <!-- // TODO: comment out the following 3 lines -->
-  <!-- <div id="loading-spinner">
-    <div class="spinner"></div>
-  </div> -->
 
   <div class="page-container">
     <!-- #region Join now Line -->
@@ -85,50 +81,19 @@
 
     <!-- Culinary Trend Section -->
     <div class="culinary-container">
-      <div class="culinary-card">
-        <div class="culinary-image">
-          <img src="./img/a-02.png" alt="Culinary">
+      <?php $culinary_trends = include('fetch_culinary.php'); ?>
+      <?php for ($trend = 0; $trend <count($culinary_trends); $trend++): ?>
+        <div class="culinary-card">
+          <div class="culinary-image">
+            <img id="js-culinary-img" src="<?php echo htmlspecialchars($culinary_trends[$trend]['image_path']); ?>" alt="Culinary">
+          </div>
+          <div class="culinary-detail">
+            <div id="js-culinary-name" class="culinary-name"><?php echo htmlspecialchars($culinary_trends[$trend]['trend_name']); ?></div>
+            <div id="js-culinary-description" class="culinary-description"><?php echo htmlspecialchars($culinary_trends[$trend]['description']); ?></div>
+          </div>
         </div>
-        <div class="culinary-detail">
-          <div class="culinary-type">Soup</div>
-          <div class="culinary-name">Tomato Soup</div>
-          <button>See Detail</button>
-        </div>
-      </div>
-
-      <div class="culinary-card">
-        <div class="culinary-image">
-          <img src="./img/a-02.png" alt="Culinary">
-        </div>
-        <div class="culinary-detail">
-          <div class="culinary-type">Soup</div>
-          <div class="culinary-name">Tomato Soup</div>
-          <button>See Detail</button>
-        </div>
-      </div>
-
-      <div class="culinary-card">
-        <div class="culinary-image">
-          <img src="./img/a-02.png" alt="Culinary">
-        </div>
-        <div class="culinary-detail">
-          <div class="culinary-type">Soup</div>
-          <div class="culinary-name">Tomato Soup</div>
-          <button>See Detail</button>
-        </div>
-      </div>
-
-      <div class="culinary-card">
-        <div class="culinary-image">
-          <img src="./img/a-02.png" alt="Culinary">
-        </div>
-        <div class="culinary-detail">
-          <div class="culinary-type">Soup</div>
-          <div class="culinary-name">Tomato Soup</div>
-          <button>See Detail</button>
-        </div>
-      </div>
-
+      <?php endfor; ?>
+      <button id="see-more-btn" class="see-more-btn">See More</button>
     </div>
     <!-- End of Culinary Trend Section -->
 
@@ -146,7 +111,7 @@
           <div>
             <h4>A Brief Introduction</h4>
           </div>
-          <div><button class="see-more-btn" onclick="location.href='./about-us.php'">See More>>></button></div>
+          <div><button class="about-us-see-more-btn" onclick="location.href='./about-us.php'">See More>>></button></div>
         </div>
         <div class="team-member">
           <div class="member-card">

@@ -284,35 +284,114 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+  position: relative;
 }
 
 .culinary-card {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   gap: 20px;
   width: 100%;
   max-width: 600px;
   height: 200px;
+  /* Fixed height for the card */
   border: 8px solid #ccc;
+  border-radius: 12px;
+  /* Rounded corners */
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  /* Ensure nothing overflows the card */
 }
 
+.culinary-card:hover {
+  transform: translateY(-5px);
+  /* Lift effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* Stronger shadow on hover */
+}
+
+/* Culinary Image */
 .culinary-image {
-  /* border: 8px solid #cccccc; */
-  padding: 4px;
+  flex: 1;
+  height: 100%;
+  /* Make the image container take full height of the card */
+  border-radius: 8px;
+  /* Rounded corners for the image container */
+  overflow: hidden;
+  /* Ensure the image stays within the container */
 }
 
 .culinary-image img {
-  width: 300px;
+  width: 100%;
+  /* Make the image fill the container */
   height: 100%;
+  /* Make the image fill the container */
   object-fit: cover;
+  /* Ensure the image covers the area without distortion */
+  border-radius: 8px;
+  /* Rounded corners for the image */
 }
 
+/* Culinary Details */
 .culinary-detail {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
+  /* Align text to the left */
+  padding: 0 16px;
+  /* Add some padding */
+}
+
+.culinary-name {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #333;
+  /* Dark text color */
+}
+
+.culinary-description {
+  font-size: 1rem;
+  color: #666;
+  /* Medium gray text color */
+  margin: 0;
+}
+
+.see-more-btn {
+  position: absolute;
+  bottom: -50px;
+  /* Position below the container */
+  right: 0;
+  background-color: #ff6347;
+  /* Coral color */
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  /* Rounded corners */
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.see-more-btn:hover {
+  background-color: #ff4500;
+  /* Darker coral on hover */
+  transform: scale(1.05);
+  /* Slightly enlarge on hover */
+}
+
+.see-more-btn:active {
+  transform: scale(0.95);
+  /* Slightly shrink on click */
 }
 /* #endregion */
 
@@ -377,7 +456,7 @@
   width: 100%;
 }
 
-.see-more-btn {
+.about-us-see-more-btn {
   border: none;
   padding: 8px;
   background-color: transparent;
@@ -389,7 +468,7 @@
   max-width: 100%;
 }
 
-.see-more-btn:hover {
+.about-us-see-more-btn:hover {
   transform: scale(1.1);
 }
 

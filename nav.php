@@ -25,6 +25,10 @@
   <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
 </div>
 
+<div id="loading-spinner">
+  <div class="spinner"></div>
+</div>
+
 <script>
   const logoBtn = document.getElementById('js-logo');
   logoBtn.addEventListener('click', () => {
@@ -58,5 +62,9 @@
       navElement.style.color = "red";
       navElement.style.fontWeight = 700;
     }
+  });
+
+  window.addEventListener('load', () => {
+    document.getElementById('loading-spinner').style.display = 'none';
   });
 </script>
