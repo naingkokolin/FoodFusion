@@ -269,19 +269,17 @@
       $currentTime = time();
 
       // Fetch failed login attempts
-      $attemptsSql = "SELECT attempts, last_attempt FROM login_attempts WHERE email = '$email'";
+      $attemptsSql = "SELECT wrong_attempts, last_login_time FROM user WHERE email = '$email'";
       $attemptsResult = $conn->query($attemptsSql);
 
-      if (
-        $attemptsResult->num_rows > 0
-      ) {
+      if ($attemptsResult->num_rows > 0) {
         $attemptsRow = $attemptsResult->fetch_assoc();
-        $attempts = $attemptsRow['attempts'];
-        $lastAttempt = $attemptsRow['last_attempt'];
+        $wrong_attempts = $attemptsRow['wrong_attempts'];
+        $last_login_time = strtotime($attemptsRow['last_login_time']);
 
         // Check if the user is locked out
-        if ($attempts >= 3 && ($currentTime - $lastAttempt) < $lockoutTime) {
-          $remainingTime = $lockoutTime - ($currentTime - $lastAttempt);
+        if ($wrong_attempts >= 3 && ($currentTime - $last_login_time) < $lockoutTime) {
+          $remainingTime = $lockoutTime - ($currentTime - $last_login_time);
           echo "<script>
                         document.getElementById('js-fail-attempt').innerHTML = 'Too many failed attempts. Try again in ' + Math.floor($remainingTime / 60) + ' minutes ' + ($remainingTime % 60) + ' seconds.';
                         document.querySelector('#loginForm button[type=\"submit\"]').disabled = true;
@@ -295,11 +293,7 @@
       if (password_verify($password, $user['password'])) {
         // Login successful: Reset failed attempts and set session variables
         $conn->query("DELETE FROM login_attempts WHERE email = '$email'");
-        $_SESSION['user'] = [
-          'first_name' => $user['firstname'],
-          'last_name' => $user['lastname'],
-          'email' => $user['email']
-        ];
+        $_SESSION['user'] = $firstName;
         echo "<script>alert('Login successful!');</script>";
       } else {
         // Increment failed attempts
@@ -340,7 +334,9 @@
     // Insert new user into the database
     $sql = "INSERT INTO user (firstname, lastname, email, password) VALUES ('$firstName', '$lastName', '$email', '$password')";
     if ($conn->query($sql) === TRUE) {
-      echo "<script>alert('Signup successful! Please login.');</script>";
+      echo "<script>alert('Signup successful!');
+            windows.location.href='index.php';</script>";
+      $_SESSION['user'] = $firstName;
     } else {
       echo "<script>alert('Error: " . $conn->error . "');</script>";
     }
