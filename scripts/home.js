@@ -16,27 +16,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (ls) cookieConsent.style.display = 'none';
   }
-  // });
 
-  // TODO: add cookie consent to the home page (index.html)
-
+  // Modal and Login/Signup Functionality
   const jsJoinBtn = document.getElementById('js-join-btn');
   const loginBtn = document.getElementById('js-login-btn');
-
   const modal = document.getElementById('joinModal');
   const closeBtn = document.getElementById('closeBtn');
   const signUpTab = document.getElementById('signUpTab');
   const loginTab = document.getElementById('loginTab');
+  const signUpForm = document.getElementById('signUpForm');
+  const loginForm = document.getElementById('loginForm');
 
+  // Open modal for Sign Up
   jsJoinBtn.addEventListener('click', () => {
     modal.style.display = 'block';
     signUp();
   });
 
+  // Open modal for Login
   loginBtn.addEventListener('click', () => {
     modal.style.display = 'block';
     login();
   });
+
+  // Open modal for Login from navbar
+  function openLoginModal() {
+    modal.style.display = 'block';
+    login();
+  }
 
   // Close modal when "X" is clicked
   closeBtn.addEventListener('click', () => {
@@ -56,35 +63,64 @@ document.addEventListener('DOMContentLoaded', () => {
   // Switch to Login form
   loginTab.addEventListener('click', login);
 
+  // Culinary Cards "See More" Functionality
   for (let i = 4; i < culinaryCards.length; i++) {
     culinaryCards[i].style.display = 'none';
   }
 
   seeMoreBtn.addEventListener('click', function () {
-    for (let i = 4; i < culinaryCards.length; i++) {
-      culinaryCards[i].style.display = 'flex';
+    if (seeMoreBtn.textContent === 'See More') {
+      // Show all cards
+      for (let i = 4; i < culinaryCards.length; i++) {
+        culinaryCards[i].style.display = 'flex'; // Use 'flex' to match the card's display style
+      }
+      // Change button text to "See Less"
+      seeMoreBtn.textContent = 'See Less';
+    } else {
+      // Hide all cards beyond the first 4
+      for (let i = 4; i < culinaryCards.length; i++) {
+        culinaryCards[i].style.display = 'none';
+      }
+      // Change button text to "See More"
+      seeMoreBtn.textContent = 'See More';
     }
-
-    seeMoreBtn.style.display = 'none';
   });
 });
 
+// Function to switch to Sign Up form
 function signUp() {
+  const signUpForm = document.getElementById('signUpForm');
+  const loginForm = document.getElementById('loginForm');
+  const signUpTab = document.getElementById('signUpTab');
+  const loginTab = document.getElementById('loginTab');
+
   signUpForm.style.display = 'block';
   loginForm.style.display = 'none';
   signUpTab.classList.add('active');
   loginTab.classList.remove('active');
 }
 
+// Function to switch to Login form
 function login() {
+  const signUpForm = document.getElementById('signUpForm');
+  const loginForm = document.getElementById('loginForm');
+  const signUpTab = document.getElementById('signUpTab');
+  const loginTab = document.getElementById('loginTab');
+
   signUpForm.style.display = 'none';
   loginForm.style.display = 'block';
   loginTab.classList.add('active');
   signUpTab.classList.remove('active');
 }
-// End of login/sign up
 
-// for carousel (Upcoming Cooking Events)
+// Function to open the modal and switch to the login form
+function openLoginModal() {
+  const modal = document.getElementById('joinModal');
+  modal.style.display = 'block';
+  login(); // Switch to the login form
+}
+
+// Carousel Functionality
 let index = 0;
 function moveCarousel(step) {
   const carousel = document.getElementById("carousel");
@@ -96,6 +132,25 @@ function moveCarousel(step) {
   carousel.style.transform = `translateX(${-index * cardWidth}px)`;
 }
 
-function trendClick(trendId) {
-  console.log(trendId);
+// Countdown for failed login attempts
+function startCountdown(seconds) {
+  const failAttemptElement = document.getElementById('js-fail-attempt');
+  const loginButton = document.querySelector('#loginForm button[type="submit"]');
+
+  let remainingTime = seconds;
+
+  const interval = setInterval(() => {
+    const minutes = Math.floor(remainingTime / 60);
+    const seconds = remainingTime % 60;
+
+    failAttemptElement.innerHTML = `Too many failed attempts. Try again in ${minutes} m: ${seconds} s!`;
+
+    if (remainingTime <= 0) {
+      clearInterval(interval);
+      failAttemptElement.innerHTML = '';
+      loginButton.disabled = false;
+    }
+
+    remainingTime--;
+  }, 1000);
 }

@@ -88,6 +88,40 @@
   cursor: pointer;
 }
 
+.user-logout-container {
+  display: flex;
+  align-items: center;
+}
+
+.user-name,
+.login {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  transition: all 0.15s;
+}
+
+.user-name:hover,
+.login:hover {
+  color: #ff6347;
+  transform: translate(0px, 1px);
+}
+
+.logout {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  transition: all 0.15s;
+  margin-left: 10px;
+}
+
+.logout:hover {
+  color: #ff6347;
+  transform: translate(0px, 1px);
+}
+
 @media (max-width: 1048px) {
   .navbar ul {
     display: none;

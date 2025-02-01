@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php
+session_start();
+if (isset($_SESSION['user'])) {
+  session_regenerate_id(true);
+}
+?>
 <link rel="stylesheet" href="./styles/nav.css">
 
 <div class="nav-header-container">
@@ -19,7 +24,17 @@
       <li><a href="./culinary-resource.php" class="culinary">Culinary Resource</a></li>
       <li><a href="./educational-resource.php" class="education">Educational Resource</a></li>
       <li><a href="./contact-us.php" class="contact">Contact Us</a></li>
-      <!-- // TODO: add username with SESSION in nav bar -->
+      <!-- Dynamic Login/User Name -->
+      <li>
+        <?php if (isset($_SESSION['user'])): ?>
+          <div class="user-logout-container">
+            <a href="./profile.php" class="user-name"><?php echo htmlspecialchars($_SESSION['user']['first_name']); ?></a>
+            <a href="./logout.php" class="logout">Logout</a>
+          </div>
+        <?php else: ?>
+          <a href="javascript:void(0);" class="login" onclick="openLoginModal()">Login</a>
+        <?php endif; ?>
+      </li>
     </ul>
   </div>
   <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
@@ -56,7 +71,6 @@
   let titles = Object.entries(pages);
 
   titles.forEach(([key, value]) => {
-
     if (pageTitle.textContent === key) {
       let navElement = document.querySelector(`.${value}`);
       navElement.style.color = "red";

@@ -296,24 +296,19 @@
   width: 100%;
   max-width: 600px;
   height: 200px;
-  /* Fixed height for the card */
   border: 8px solid #ccc;
   border-radius: 12px;
-  /* Rounded corners */
   padding: 16px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
-  /* Ensure nothing overflows the card */
 }
 
 .culinary-card:hover {
   transform: translateY(-5px);
-  /* Lift effect on hover */
+  cursor: pointer;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  /* Stronger shadow on hover */
 }
 
 /* Culinary Image */
@@ -371,7 +366,7 @@
   right: 0;
   background-color: #ff6347;
   /* Coral color */
-  color: black;
+  color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 25px;

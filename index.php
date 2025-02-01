@@ -80,9 +80,10 @@
     <!-- #endregion of pick of the week -->
 
     <!-- Culinary Trend Section -->
+    <h2>Culinary Trends...</h2>
     <div class="culinary-container">
       <?php $culinary_trends = include('fetch_culinary.php'); ?>
-      <?php for ($trend = 0; $trend <count($culinary_trends); $trend++): ?>
+      <?php for ($trend = 0; $trend < count($culinary_trends); $trend++): ?>
         <div class="culinary-card">
           <div class="culinary-image">
             <img id="js-culinary-img" src="<?php echo htmlspecialchars($culinary_trends[$trend]['image_path']); ?>" alt="Culinary">
@@ -247,98 +248,108 @@
   <?php
   include('db.php');
 
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $conn = new mysqli("localhost", "root", "", "foodfusion");
+  // Handle Login Form Submission
+  if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
+    $email = filter_input(INPUT_POST, 'loginEmail', FILTER_SANITIZE_EMAIL);
+    $password = filter_input(
+      INPUT_POST,
+      'loginPassword',
+      FILTER_SANITIZE_STRING
+    );
 
-    // Check connection
-    if ($conn->connect_error) {
-      die("Database connection failed: " . $conn->connect_error);
-    }
+    // Fetch user from the database
+    $sql = "SELECT * FROM user WHERE email = '$email'";
+    $result = $conn->query($sql);
 
-    $showLgoinForm = false;
-    $lockoutMessage = "";
+    if ($result->num_rows > 0) {
+      $user = $result->fetch_assoc();
 
-    // For Sign Up
-    if (isset($_POST["signUp"])) {
-      $firstName = htmlspecialchars($_POST["firstName"]);
-      $lastName = htmlspecialchars($_POST["lastName"]);
-      $email = htmlspecialchars($_POST["email"]);
-      $password = htmlspecialchars($_POST["password"]);
-
-      $checkEmail = "SELECT * FROM user WHERE email = '$email'";
-      $result = $conn->query($checkEmail);
-
-      if ($result->num_rows > 0) {
-        echo "<script>alert('This email is already registered!');</script>";
-      } else {
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-        $sql = "INSERT INTO user (firstname, lastname, email, password) VALUES ('$firstName', '$lastName', '$email', '$hashedPassword')";
-
-        if ($conn->query($sql) === TRUE) {
-          echo "<script>alert('New record created successfully');</script>";
-        } else {
-          echo "<script>alert('Error: " . $sql . "<br>" . $conn->error . "');</script>";
-        }
-      }
-    }
-
-    // For Login
-    if (isset($_POST["login"])) {
-      $email = htmlspecialchars($_POST["loginEmail"]);
-      $password = htmlspecialchars($_POST["loginPassword"]);
-
-      $checkAttempts = "SELECT * FROM login_attempts WHERE email = '$email'";
-      $attemptsResult = $conn->query($checkAttempts);
-
-      $query = $conn->prepare("SELECT attempts, last_attempt FROM fail_login_attempts WHERE email = ?");
-      $query->bind_param("s", $loginEmail);
-      $query->execute();
-      $result = $query->get_result();
-
-      $lockoutDuration = 180;
+      // Check if the user is locked out
+      $lockoutTime = 180; // 3 minutes in seconds
       $currentTime = time();
 
-      if ($attemptsResult->num_rows > 0) {
-        $attemptsRow = $attemptsResult->fetch_assoc();
+      // Fetch failed login attempts
+      $attemptsSql = "SELECT attempts, last_attempt FROM login_attempts WHERE email = '$email'";
+      $attemptsResult = $conn->query($attemptsSql);
 
-        if ($attemptsRow['attempts'] >= 3) {
-          echo "<script>alert('Too many failed login attempts. Try again later.');</script>";
+      if (
+        $attemptsResult->num_rows > 0
+      ) {
+        $attemptsRow = $attemptsResult->fetch_assoc();
+        $attempts = $attemptsRow['attempts'];
+        $lastAttempt = $attemptsRow['last_attempt'];
+
+        // Check if the user is locked out
+        if ($attempts >= 3 && ($currentTime - $lastAttempt) < $lockoutTime) {
+          $remainingTime = $lockoutTime - ($currentTime - $lastAttempt);
+          echo "<script>
+                        document.getElementById('js-fail-attempt').innerHTML = 'Too many failed attempts. Try again in ' + Math.floor($remainingTime / 60) + ' minutes ' + ($remainingTime % 60) + ' seconds.';
+                        document.querySelector('#loginForm button[type=\"submit\"]').disabled = true;
+                        startCountdown($remainingTime);
+                      </script>";
           exit();
         }
-      } else {
-        $conn->query("INSERT INTO login_attempts (email, attempts) VALUES ('$email', 0)");
       }
 
-      $sql = "SELECT * FROM user WHERE email = '$email'";
-      $result = $conn->query($sql);
-
-      if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $failAttempts = $row['fail_attempts'];
-        if (password_verify($password, $row['password'])) {
-          $conn->query("UPDATE login_attempts SET attempts = 0 WHERE email = '$email'");
-          echo "<script>alert('Login successful');</script>";
+      // Verify password
+      if (password_verify($password, $user['password'])) {
+        // Login successful: Reset failed attempts and set session variables
+        $conn->query("DELETE FROM login_attempts WHERE email = '$email'");
+        $_SESSION['user'] = [
+          'first_name' => $user['firstname'],
+          'last_name' => $user['lastname'],
+          'email' => $user['email']
+        ];
+        echo "<script>alert('Login successful!');</script>";
+      } else {
+        // Increment failed attempts
+        if ($attemptsResult->num_rows > 0) {
+          $conn->query("UPDATE login_attempts SET attempts = attempts + 1, last_attempt = $currentTime WHERE email = '$email'");
         } else {
-          $conn->query("UPDATE login_attempts SET attempts = attempts + 1 WHERE email = '$email'");
-          echo "<script>alert('Incorrect password');</script>";
-          $showLgoinForm = true;
+          $conn->query("INSERT INTO login_attempts (email, attempts, last_attempt) VALUES ('$email', 1, $currentTime)");
         }
-      } else {
-        echo "<script>alert('Email not registered');</script>";
-        $showLgoinForm = true;
+
+        // Check if the user is now locked out
+        $attemptsSql = "SELECT attempts FROM login_attempts WHERE email = '$email'";
+        $attemptsResult = $conn->query($attemptsSql);
+        $attemptsRow = $attemptsResult->fetch_assoc();
+        $attempts = $attemptsRow['attempts'];
+
+        if ($attempts >= 3) {
+          echo "<script>
+                        document.getElementById('js-fail-attempt').innerHTML = 'Too many failed attempts. Try again in 3 minutes.';
+                        document.querySelector('#loginForm button[type=\"submit\"]').disabled = true;
+                        startCountdown($lockoutTime);
+                      </script>";
+        } else {
+          echo "<script>alert('Incorrect password!');</script>";
+        }
       }
+    } else {
+      echo "<script>alert('Email not registered!');</script>";
     }
-    $conn->close();
   }
+
+  // Handle Signup Form Submission
+  if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signUp'])) {
+    $firstName = htmlspecialchars($_POST['firstName']);
+    $lastName = htmlspecialchars($_POST['lastName']);
+    $email = htmlspecialchars($_POST['email']);
+    $password = password_hash(htmlspecialchars($_POST['password']), PASSWORD_BCRYPT);
+
+    // Insert new user into the database
+    $sql = "INSERT INTO user (firstname, lastname, email, password) VALUES ('$firstName', '$lastName', '$email', '$password')";
+    if ($conn->query($sql) === TRUE) {
+      echo "<script>alert('Signup successful! Please login.');</script>";
+    } else {
+      echo "<script>alert('Error: " . $conn->error . "');</script>";
+    }
+  }
+
+
   ?>
 
   <script src="./scripts/home.js"></script>
 </body>
 
 </html>
-
-<!-- 
-To inspire and empower individuals to embrace home cooking and culinary
-creativity by providing a vibrant platform for sharing recipes, culinary tips,
-and fostering a supportive community of food enthusiasts worldwide.      
--->
