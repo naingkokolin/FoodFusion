@@ -152,44 +152,25 @@
 
     <!-- Upcoming Cooking Events Section  -->
     <h2 class="cooking-event-header">Upcoming Cooking Events</h2>
+    <?php $events = include('fetch_events.php'); ?>
     <div class="cooking-event-container">
       <button class="carousel-btn-prev" onclick="moveCarousel(-1)"><img src="./icons/icons8-less-than-50.png" alt="Left Arrow"></button>
       <div class="carousel" id="carousel">
-        <div class="card">
-          <img src="https://via.placeholder.com/250x150" alt="">
-          <div class="info">
-            <h4>The Goof-Proof Way to Proof Yeast</h4>
-            <p>By Julia Yang</p>
+
+        <?php for ($event = 0; $event < count($events); $event++): ?>
+          <div class="card">
+            <img src="<?php echo htmlspecialchars($events[$event]['image_path']); ?>" alt="<?php echo htmlspecialchars($events[$event]['title']); ?>">
+            <div class="info">
+              <h4><?php echo htmlspecialchars($events[$event]['title']); ?></h4>
+              <p><?php echo htmlspecialchars($events[$event]['description']); ?></p>
+              <div class="event-details">
+                <p><strong>Date:</strong> <?php echo htmlspecialchars($events[$event]['date']); ?></p>
+                <p><strong>Location:</strong> <?php echo htmlspecialchars($events[$event]['location']); ?></p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/250x150" alt="">
-          <div class="info">
-            <h4>How to Mince Garlic 6 Ways</h4>
-            <p>By Julia Yang</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/250x150" alt="">
-          <div class="info">
-            <h4>How to Make Buttermilk</h4>
-            <p>By Julia Yang</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/250x150" alt="">
-          <div class="info">
-            <h4>How to Measure Flour Correctly</h4>
-            <p>By Julia Yang</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/250x150" alt="">
-          <div class="info">
-            <h4>How to Measure Flour Correctly</h4>
-            <p>By Julia Yang</p>
-          </div>
-        </div>
+        <?php endfor; ?>
+
       </div>
       <button class="carousel-btn-next" onclick="moveCarousel(1)"><img src="./icons/icons8-greater-than-50.png" alt="Right Arrow"></button>
     </div>

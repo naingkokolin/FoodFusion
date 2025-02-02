@@ -540,11 +540,13 @@
   margin-top: 50px;
   margin-left: 50px;
   text-align: start;
+  font-size: 2rem;
+  color: #001f3f;
 }
 
 .cooking-event-container {
   position: relative;
-  width: 80%;
+  width: 90%;
   margin: auto;
   overflow: hidden;
   background: white;
@@ -565,6 +567,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  flex: 0 0 auto;
 }
 
 .card img {
@@ -574,10 +577,29 @@
 }
 
 .card .info {
-  padding: 10px;
+  padding: 15px;
   background: #001f3f;
   color: white;
   text-align: left;
+}
+
+.card .info h4 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+.card .info p {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+}
+
+.card .info .event-details {
+  margin-top: 10px;
+}
+
+.card .info .event-details p {
+  margin: 5px 0;
+  font-size: 0.8rem;
 }
 
 .carousel-btn-prev,
@@ -585,18 +607,19 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: white;
+  background: rgba(0, 0, 0, 0.5);
   border: none;
   cursor: pointer;
-  padding: 0px;
-  border-radius: 20%;
+  padding: 10px;
+  border-radius: 50%;
   z-index: 10;
 }
 
 .carousel-btn-prev img,
 .carousel-btn-next img {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
+  filter: invert(1);
 }
 
 .carousel-btn-prev {
@@ -605,6 +628,40 @@
 
 .carousel-btn-next {
   right: 10px;
+}
+
+@media (max-width: 768px) {
+  .cooking-event-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .card {
+    min-width: 200px;
+  }
+
+  .card .info h4 {
+    font-size: 1rem;
+  }
+
+  .card .info p {
+    font-size: 0.8rem;
+  }
+
+  .card .info .event-details p {
+    font-size: 0.7rem;
+  }
+
+  .carousel-btn-prev,
+  .carousel-btn-next {
+    padding: 5px;
+  }
+
+  .carousel-btn-prev img,
+  .carousel-btn-next img {
+    width: 20px;
+    height: 20px;
+  }
 }
 /* #endregion */
 
