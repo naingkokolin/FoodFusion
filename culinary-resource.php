@@ -4,9 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title class="page-title">Culinary Resources</title>
+  <title>Culinary Resources</title>
   <link rel="shortcut icon" href="./icons/icons8-cooking-16.png" type="image/x-icon">
   <link rel="stylesheet" href="./styles/culinary-resource.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -16,50 +17,67 @@
   </header>
 
   <!-- Culinary Resources Section -->
-  <section id="resources">
-    <div class="container">
-      <h1>Culinary Resources</h1>
-      <p>Enhance your cooking skills with the following downloadable recipe cards, cooking tutorials, and instructional videos.</p>
+  <header>
+    <h1>Culinary Resources</h1>
+    <p>Enhance your cooking skills with downloadable recipe cards, cooking tutorials, and instructional videos.</p>
+  </header>
 
-      <!-- Downloadable Recipe Cards -->
-      <div class="resources-category">
-        <h2 class="culinary-titles">Downloadable Recipe Cards</h2>
-        <ul>
-          <li><a href="#">Classic Pancakes Recipe Card (PDF)</a></li>
-          <li><a href="#">Homemade Pizza Dough Recipe Card (PDF)</a></li>
-          <li><a href="#">Vegetarian Stir Fry Recipe Card (PDF)</a></li>
-        </ul>
+  <!-- Main Content -->
+  <main>
+    <section class="resource-category">
+      <h2>Downloadable Recipe Cards</h2>
+      <div class="resource-grid">
+        <div class="resource-card">
+          <img src="images/pancakes.jpg" alt="Classic Pancakes">
+          <h3>Classic Pancakes</h3>
+          <a href="downloads/pancakes.pdf" download class="download-btn">Download PDF</a>
+        </div>
+        <div class="resource-card">
+          <img src="images/pizza-dough.jpg" alt="Homemade Pizza Dough">
+          <h3>Homemade Pizza Dough</h3>
+          <a href="downloads/pizza-dough.pdf" download class="download-btn">Download PDF</a>
+        </div>
+        <div class="resource-card">
+          <img src="images/stir-fry.jpg" alt="Vegetarian Stir Fry">
+          <h3>Vegetarian Stir Fry</h3>
+          <a href="downloads/stir-fry.pdf" download class="download-btn">Download PDF</a>
+        </div>
       </div>
+    </section>
 
-      <!-- Cooking Tutorials -->
-      <div class="resources-category">
-        <h2 class="culinary-titles">Cooking Tutorials</h2>
-        <ul>
-          <li><a href="#">Knife Skills Tutorial (Video)</a></li>
-          <li><a href="#">How to Make the Perfect Omelette (Video)</a></li>
-          <li><a href="#">Baking Tips for Beginners (Video)</a></li>
-        </ul>
+    <section class="resource-category">
+      <h2>Cooking Tutorials</h2>
+      <div class="resource-grid">
+        <div class="resource-card">
+          <video controls>
+            <source src="videos/knife-skills.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <h3>Knife Skills Tutorial</h3>
+          <a href="downloads/knife-skills.mp4" download class="download-btn">Download Video</a>
+        </div>
+        <div class="resource-card">
+          <video controls>
+            <source src="videos/omelette.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <h3>Perfect Omelette</h3>
+          <a href="downloads/omelette.mp4" download class="download-btn">Download Video</a>
+        </div>
+        <div class="resource-card">
+          <video controls>
+            <source src="videos/baking-tips.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <h3>Baking Tips</h3>
+          <a href="downloads/baking-tips.mp4" download class="download-btn">Download Video</a>
+        </div>
       </div>
-
-      <!-- Kitchen Hacks -->
-      <div class="resources-category">
-        <h2 class="culinary-titles">Kitchen Hacks</h2>
-        <ul>
-          <li><a href="#">How to Save Time in the Kitchen (Article)</a></li>
-          <li><a href="#">Tips for Organizing Your Kitchen (Article)</a></li>
-          <li><a href="#">How to Use Leftovers Creatively (Article)</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer>
-    <div class="social-links">
-      <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
-    </div>
-    <p>&copy; 2024 FoodFusion. All rights reserved.</p>
-  </footer>
+   <?php include("footer.php"); ?>
 
   <script src="./scripts/culinary-resource.js"></script>
 </body>

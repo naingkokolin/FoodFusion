@@ -222,6 +222,9 @@
       </div>
     </div>
 
+    <!-- Cookies Consent -->
+    <?php include('cookies-consent.php'); ?>
+
   </div> <!-- end of page container -->
 
   <!-- // TODO: ADD FOOTER -->
