@@ -26,10 +26,10 @@ if (isset($_SESSION['user'])) {
       <li><a href="./contact-us.php" class="contact">Contact Us</a></li>
       <!-- Dynamic Login/User Name -->
       <li>
-        <?php if (isset($_SESSION['user']) && is_array($_SESSION['user']) && isset($_SESSION['user']['first_name'])): ?>
+        <?php if (isset($_SESSION['user'])): ?>
           <div class="user-logout-container">
             <a href="./profile.php" class="user-name">
-              <?php echo htmlspecialchars((string) $_SESSION['user']['first_name']); ?>
+              <?php echo htmlspecialchars($_SESSION['user']); ?>
             </a>
             <a href="./logout.php" class="logout">Logout</a>
           </div>

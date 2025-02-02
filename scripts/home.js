@@ -133,24 +133,28 @@ function moveCarousel(step) {
 }
 
 // Countdown for failed login attempts
-function startCountdown(seconds) {
+function startCountdown(remainingTime) {
   const failAttemptElement = document.getElementById('js-fail-attempt');
-  const loginButton = document.querySelector('#loginForm button[type="submit"]');
+  const loginButton = document.getElementById('loginBtn');
 
-  let remainingTime = seconds;
+  function updateCountdown() {
+    if (remainingTime > 0) {
+      let minutes = Math.floor(remainingTime / 60);
+      let seconds = remainingTime % 60;
 
-  const interval = setInterval(() => {
-    const minutes = Math.floor(remainingTime / 60);
-    const seconds = remainingTime % 60;
+      // Update the countdown message
+      failAttemptElement.innerHTML = `Too many failed attempts. Try again in ${minutes} minutes ${seconds} seconds.`;
+      remainingTime--;
 
-    failAttemptElement.innerHTML = `Too many failed attempts. Try again in ${minutes} m: ${seconds} s!`;
-
-    if (remainingTime <= 0) {
-      clearInterval(interval);
-      failAttemptElement.innerHTML = '';
-      loginButton.disabled = false;
+      // Update the countdown every second
+      setTimeout(updateCountdown, 1000);
+    } else {
+      // Countdown is over
+      failAttemptElement.innerHTML = ''; // Clear the message
+      loginButton.disabled = false; // Re-enable the login button
     }
+  }
 
-    remainingTime--;
-  }, 1000);
+  // Start the countdown
+  updateCountdown();
 }

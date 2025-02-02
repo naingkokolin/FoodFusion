@@ -13,6 +13,7 @@
 
 <body>
   <?php include 'nav.php'; ?>
+  <script src="./scripts/home.js"></script>
 
   <div class="page-container">
     <!-- #region Join now Line -->
@@ -234,7 +235,7 @@
             <input type="password" id="loginPassword" name="loginPassword" required>
             <p class="fail-attempt" id="js-fail-attempt"></p>
 
-            <button type="submit" name="login">Login</button>
+            <button type="submit" name="login" id="loginBtn">Login</button>
           </form>
         </div>
       </div>
@@ -248,6 +249,16 @@
   <?php
   include('db.php');
 
+  if (!isset($_SESSION['failed_attempts'])) {
+    $_SESSION['failed_attempts'] = 0;
+  }
+
+  if (!isset($_SESSION['lockout_time'])) {
+    $_SESSION['lockout_time'] = 0;
+  }
+  $lockoutTime = 180;
+  $currentTime = time();
+
   // Handle Login Form Submission
   if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
     $email = filter_input(INPUT_POST, 'loginEmail', FILTER_SANITIZE_EMAIL);
@@ -256,6 +267,7 @@
       'loginPassword',
       FILTER_SANITIZE_STRING
     );
+    echo "<script>console.log('Email: $email, Password: $password');</script>";
 
     // Fetch user from the database
     $sql = "SELECT * FROM user WHERE email = '$email'";
@@ -264,59 +276,55 @@
     if ($result->num_rows > 0) {
       $user = $result->fetch_assoc();
 
-      // Check if the user is locked out
-      $lockoutTime = 180; // 3 minutes in seconds
-      $currentTime = time();
-
-      // Fetch failed login attempts
-      $attemptsSql = "SELECT wrong_attempts, last_login_time FROM user WHERE email = '$email'";
-      $attemptsResult = $conn->query($attemptsSql);
-
-      if ($attemptsResult->num_rows > 0) {
-        $attemptsRow = $attemptsResult->fetch_assoc();
-        $wrong_attempts = $attemptsRow['wrong_attempts'];
-        $last_login_time = strtotime($attemptsRow['last_login_time']);
-
-        // Check if the user is locked out
-        if ($wrong_attempts >= 3 && ($currentTime - $last_login_time) < $lockoutTime) {
-          $remainingTime = $lockoutTime - ($currentTime - $last_login_time);
-          echo "<script>
-                        document.getElementById('js-fail-attempt').innerHTML = 'Too many failed attempts. Try again in ' + Math.floor($remainingTime / 60) + ' minutes ' + ($remainingTime % 60) + ' seconds.';
-                        document.querySelector('#loginForm button[type=\"submit\"]').disabled = true;
-                        startCountdown($remainingTime);
-                      </script>";
-          exit();
-        }
-      }
-
       // Verify password
       if (password_verify($password, $user['password'])) {
         // Login successful: Reset failed attempts and set session variables
-        $conn->query("DELETE FROM login_attempts WHERE email = '$email'");
-        $_SESSION['user'] = $firstName;
+        $_SESSION['failed_attempts'] = 0;
+        $_SESSION['lockout_time'] = 0;
         echo "<script>alert('Login successful!');</script>";
+        $firstName = $user['firstname'];
+        $_SESSION['user'] = $firstName;
       } else {
-        // Increment failed attempts
-        if ($attemptsResult->num_rows > 0) {
-          $conn->query("UPDATE login_attempts SET attempts = attempts + 1, last_attempt = $currentTime WHERE email = '$email'");
-        } else {
-          $conn->query("INSERT INTO login_attempts (email, attempts, last_attempt) VALUES ('$email', 1, $currentTime)");
-        }
+        // Login failed: Increment failed attempts
+        $_SESSION['failed_attempts']++;
 
-        // Check if the user is now locked out
-        $attemptsSql = "SELECT attempts FROM login_attempts WHERE email = '$email'";
-        $attemptsResult = $conn->query($attemptsSql);
-        $attemptsRow = $attemptsResult->fetch_assoc();
-        $attempts = $attemptsRow['attempts'];
-
-        if ($attempts >= 3) {
+        if ($_SESSION['failed_attempts'] >= 3) {
+          $remainingTime = $lockoutTime - ($currentTime - $lastAttempt);
           echo "<script>
-                        document.getElementById('js-fail-attempt').innerHTML = 'Too many failed attempts. Try again in 3 minutes.';
-                        document.querySelector('#loginForm button[type=\"submit\"]').disabled = true;
-                        startCountdown($lockoutTime);
-                      </script>";
+            alert('Too many failed attempts. Try again in 3 minutes.');
+            document.getElementById('js-fail-attempt').innerHTML = 'Too many failed attempts. Try again in 3 minutes.';
+            document.getElementById('loginBtn').disabled = true;
+            startCountdown($lockoutTime);
+            console.log('start countdown');
+
+            function startCountdown(remainingTime) {
+              const failAttemptElement = document.getElementById('js-fail-attempt');
+              const loginButton = document.getElementById('loginBtn');
+
+              function updateCountdown() {
+                if (remainingTime > 0) {
+                  let minutes = Math.floor(remainingTime / 60);
+                  let seconds = remainingTime % 60;
+
+                  failAttemptElement.innerHTML = 'Too many failed attempts. Try again in ' + minutes + ' m: ' + seconds + ' s!';
+                  remainingTime--;
+                  setTimeout(updateCountdown, 1000);
+                } else {
+                  failAttemptElement.innerHTML = '';
+                  loginButton.disabled = false; 
+                  console.log('time up');
+                  
+                }
+              }
+              updateCountdown();
+            }
+            </script>";
+          $lockoutTime = 0;
+          $_SESSION['lockout_time'] = $currentTime;
+          $_SESSION['failed_attempts'] = 0;
         } else {
           echo "<script>alert('Incorrect password!');</script>";
+          echo "<script>window.location.href='index.php';</script>";
         }
       }
     } else {
@@ -335,7 +343,7 @@
     $sql = "INSERT INTO user (firstname, lastname, email, password) VALUES ('$firstName', '$lastName', '$email', '$password')";
     if ($conn->query($sql) === TRUE) {
       echo "<script>alert('Signup successful!');
-            windows.location.href='index.php';</script>";
+            window.location.href='index.php';</script>";
       $_SESSION['user'] = $firstName;
     } else {
       echo "<script>alert('Error: " . $conn->error . "');</script>";
@@ -344,8 +352,6 @@
 
 
   ?>
-
-  <script src="./scripts/home.js"></script>
 </body>
 
 </html>
