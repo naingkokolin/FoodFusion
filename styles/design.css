@@ -6,6 +6,21 @@
   --text-color: #333;
 }
 
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Prompt';
+  src: url('../fonts/Prompt-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Titillium';
+  src: url(../fonts/TitilliumWeb-Regular.ttf);
+}
+
 .body {
   width: 100%;
   margin: 0;
@@ -13,8 +28,10 @@
   overflow: hidden;
   line-height: 1.6;
   background-color: var(--background-color);
-  color: var(--text-color);
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f9f9f9;
+  color: --var(text-color);
 }
 
 #loading-spinner {
@@ -60,6 +77,7 @@
   text-align: center;
   margin-top: 10px;
 }
+
 /* #endregion */
 
 /* #region Join Now Line */
@@ -104,6 +122,7 @@
 .login-btn:hover {
   text-decoration: none;
 }
+
 /* #endregion */
 
 /* #region Recipe Section */
@@ -116,29 +135,24 @@
   column-gap: 50px;
 }
 
-/* .recipe-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-} */
-
 .recipe-image-first {
-  padding: 10px;
-  border-radius: 8px;
+  padding: 20px;
+  border-radius: 12px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   max-width: 600px;
   width: 100%;
-  border: 1px solid black;
-  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .recipe-main-image {
   max-width: 300px;
   width: 50%;
   height: auto;
+  border-radius: 8px;
 }
 
 .recipe-detail {
@@ -149,14 +163,20 @@
 }
 
 .recipe-title {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  color: #444;
+}
+
+.recipe-description {
+  font-size: 16px;
+  color: #666;
   text-align: center;
 }
 
-.recipe-title, 
-.recipe-description {
-  text-align: center;
+.recipe-ingredients {
+  color: red;
 }
 
 .recipe-latest-cards {
@@ -164,14 +184,16 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  border: 1px solid black;
-  border-radius: 8px;
-  padding: 4px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .recipe-cards-text {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
+  color: #444;
 }
 
 .recipe-small-card {
@@ -180,16 +202,19 @@
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
-  border: 1px dashed black;
+  background-color: #fff;
   border-radius: 8px;
   gap: 16px;
-  padding: 4px;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .recipe-small-card img {
   width: 200px;
   height: 120px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .card-detail {
@@ -207,10 +232,10 @@
 }
 
 .recipe-show-everything-btn {
-  background-color: transparent;
-  color: black;
-  padding: 10px;
-  border: 1px solid black;
+  background-color: #ff6347;
+  color: white;
+  padding: 12px 24px;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
@@ -218,10 +243,11 @@
 }
 
 .recipe-show-everything-btn:hover {
-  background-color: #ff6347;
-  color: white;
-  border-color: #ff6347;
+  background-color: white;
+  color: #ff6347;
+  border: 0.1px solid #ff6347;
 }
+
 /* #endregion */
 
 /* #region Pick of the week */
@@ -272,6 +298,7 @@
   border: 20px solid #cccccc;
   padding: 8px;
 }
+
 /* #endregion */
 
 /* #region Culinary Trend Section */
@@ -388,6 +415,7 @@
   transform: scale(0.95);
   /* Slightly shrink on click */
 }
+
 /* #endregion */
 
 /* #region Brief Indroduction Section */
@@ -533,6 +561,7 @@
   font-size: 16px;
   font-weight: 600;
 }
+
 /* #endregion */
 
 /* #region Upcoming Cooking Events Section */
@@ -663,6 +692,7 @@
     height: 20px;
   }
 }
+
 /* #endregion */
 
 /* #region Modal Background */
@@ -751,6 +781,7 @@ form button {
 form button:hover {
   background-color: #e55347;
 }
+
 /* #endregion */
 
 /* #region Media Query */
@@ -833,4 +864,5 @@ form button:hover {
     margin-top: 10px;
   }
 }
+
 /* #endregion */

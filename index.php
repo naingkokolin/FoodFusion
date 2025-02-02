@@ -48,7 +48,7 @@
         <div class="recipe-cards-text">The Lastest Recipe Cards</div>
         <?php for ($recipe = 1; $recipe <= 3; $recipe++):  ?>
           <div class="recipe-small-card">
-            <?php $count = rand(1, 9); ?>
+            <?php $count = rand(0, count($recipes) - 1); ?>
             <div><img src="<?php echo htmlspecialchars($recipes[$count]['image_path']); ?>" alt="Recipe Image"></div>
             <div class="card-detail">
               <div class="recipe-title"><?php echo htmlspecialchars($recipes[$count]['title']); ?></div>
