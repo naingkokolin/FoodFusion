@@ -15,6 +15,7 @@
   }
 
   .footer-container {
+    margin-top: 20px;
     bottom: 0;
     width: 100%;
     min-width: 300px;
@@ -40,14 +41,14 @@
     align-items: flex-start;
   }
 
-  img {
+  .footer-container img {
     max-width: 100px;
     height: auto;
   }
 
-  .link-section {}
+  /* .link-section {}
 
-  .policy-section {}
+  .policy-section {} */
 
   .social-links ul {
     display: flex;
@@ -66,11 +67,11 @@
     transform: scale(1.2);
   }
 
-  li {
+  .footer-container li {
     list-style-type: none;
   }
 
-  a {
+  .footer-container  a {
     text-decoration: none;
   }
 
@@ -97,6 +98,7 @@
         <li><a href="https://x.com/?lang=en"><img src="./icons/icons8-twitter-48.png" alt="Twitter"></a></li>
       </ul>
     </div>
+    <div></div>
   </div>
 
   <div class="link-section">

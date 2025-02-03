@@ -1,16 +1,11 @@
 /* About Us Section */
-body {
-  height: 100%;
-  width: 100%;
-}
-
 #about-us {
   padding: 10px 20px;
   background: #fff;
 }
 
 #about-us .container {
-  max-width: 880px;
+  max-width: 800px;
   margin: 0 auto;
   text-align: center;
 }
@@ -38,27 +33,21 @@ body {
 .team-section {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   margin-top: 20px;
-  width: 100%;
-  height: auto;
-  gap: 20px;
 }
 
 .team-member {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  background-color: yellow;
-  height: auto;
+  flex: 1 1 250px;
+  margin: 15px;
+  text-align: center;
 }
 
 .team-member img {
+  border-radius: 50%;
   width: 150px;
   height: 150px;
-  border-radius: 50%;
+  margin-bottom: 10px;
 }
 
 .team-member h3 {
@@ -69,11 +58,4 @@ body {
 .team-member p {
   font-size: 1rem;
   color: #333;
-}
-
-@media(max-width: 768px) {
-  .team-section {
-    display: flex;
-    flex-direction: column;
-  }
 }
