@@ -24,8 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeBtn = document.getElementById('closeBtn');
   const signUpTab = document.getElementById('signUpTab');
   const loginTab = document.getElementById('loginTab');
-  const signUpForm = document.getElementById('signUpForm');
-  const loginForm = document.getElementById('loginForm');
 
   // Open modal for Sign Up
   jsJoinBtn.addEventListener('click', () => {
@@ -86,6 +84,134 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+const signUpForm = document.getElementById('signUpBtn');
+const loginForm = document.getElementById('loginBtn');
+
+// signUpForm.addEventListener('submit', (event) => {
+//   const firstName = document.getElementById('firstName').value;
+//   const lastName = document.getElementById('lastName').value;
+//   const email = document.getElementById('email').value;
+//   const password = document.getElementById('password').value;
+
+//   let isValid = true;
+
+//   if (firstName.length < 4) {
+//     document.getElementById('firstNameError').textContent = "First name must be at least 4 letters.";
+//     isValid = false;
+//   } else {
+//     document.getElementById('firstNameError').textContent = "";
+//   }
+
+//   if (lastName.length < 4) {
+//     document.getElementById('lastNameError').textContent = "Last name must be at least 4 letters.";
+//     isValid = false;
+//   } else {
+//     document.getElementById('lastNameError').textContent = "";
+//   }
+
+//   if (!isValidEmail(email)) {
+//     document.getElementById('emailError').textContent = "Invalid email format.";
+//     isValid = false;
+//   } else {
+//     document.getElementById('emailError').textContent = "";
+//   }
+
+//   if (!isValidPassword(password)) {
+//     document.getElementById('passwordError').textContent = "Password must be at least 8 characters and include 1 uppercase, 1 lowercase, 1 number, and 1 special character.";
+//     isValid = false;
+//   } else {
+//     document.getElementById('passwordError').textContent = "";
+//   }
+
+//   if (!isValid) {
+//     event.preventDefault(); // Prevent form submission if validation fails
+//   }
+// });
+
+function signUpCheck() {
+  const firstName = document.getElementById('firstName').value;
+  const lastName = document.getElementById('lastName').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  let isValid = true;
+
+  if (firstName.length < 4) {
+    document.getElementById('firstNameError').textContent = "First name must be at least 4 letters.";
+    isValid = false;
+  } else {
+    document.getElementById('firstNameError').textContent = "";
+  }
+
+  if (lastName.length < 4) {
+    document.getElementById('lastNameError').textContent = "Last name must be at least 4 letters.";
+    isValid = false;
+  } else {
+    document.getElementById('lastNameError').textContent = "";
+  }
+
+  if (!isValidEmail(email)) {
+    document.getElementById('emailError').textContent = "Invalid email format.";
+    isValid = false;
+  } else {
+    document.getElementById('emailError').textContent = "";
+  }
+
+  if (!isValidPassword(password)) {
+    document.getElementById('passwordError').textContent = "Password must be at least 8 characters and include 1 uppercase, 1 lowercase, 1 number, and 1 special character.";
+    isValid = false;
+  } else {
+    document.getElementById('passwordError').textContent = "";
+  }
+
+  if (!isValid) {
+    preventDefault(); // Prevent form submission if validation fails
+  }
+}
+
+// Login Form Validation (Email only for this example)
+// loginForm.addEventListener('submit', (event) => {
+//   const loginEmail = document.getElementById('loginEmail').value;
+//   let isLoginValid = true;
+
+//   if (!isValidEmail(loginEmail)) {
+//     document.getElementById('loginEmailError').textContent = "Invalid email format.";
+//     isLoginValid = false;
+//   } else {
+//     document.getElementById('loginEmailError').textContent = "";
+//   }
+
+//   if (!isLoginValid) {
+//     event.preventDefault();
+//   }
+// });
+
+function loginCheck() {
+  const loginEmail = document.getElementById('loginEmail').value;
+  let isLoginValid = true;
+
+  if (!isValidEmail(loginEmail)) {
+    document.getElementById('loginEmailError').textContent = "Invalid email format.";
+    isLoginValid = false;
+  } else {
+    document.getElementById('loginEmailError').textContent = "";
+  }
+
+  if (!isLoginValid) {
+    preventDefault();
+  }
+}
+
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+function isValidPassword(password) {
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  return passwordRegex.test(password);
+}
 
 // Function to switch to Sign Up form
 function signUp() {

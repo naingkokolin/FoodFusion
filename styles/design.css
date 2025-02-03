@@ -708,7 +708,6 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Modal Content */
 .modal-content {
   background-color: #fff;
   margin: 10% auto;
@@ -718,6 +717,12 @@
   max-width: 400px;
   border-radius: 8px;
   position: relative;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
 /* Close Button */

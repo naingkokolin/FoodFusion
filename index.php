@@ -181,42 +181,46 @@
       <div class="modal-content">
         <span class="close-btn" id="closeBtn">&times;</span>
         <h2>Join FoodFusion</h2>
-        <!-- Tabs for Sign Up and Login -->
+
         <div class="form-tabs">
           <button class="tab-link active" id="signUpTab">Sign Up</button>
           <button class="tab-link" id="loginTab">Login</button>
         </div>
 
-        <!-- Sign Up Form -->
         <div class="form-container" id="signUpForm">
           <form action="./index.php" method="POST" id="signUp">
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" required>
+            <div class="error" id="firstNameError"></div>
 
             <label for="lastName">Last Name:</label>
             <input type="text" id="lastName" name="lastName" required>
+            <div class="error" id="lastNameError"></div>
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
+            <div class="error" id="emailError"></div>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
+            <div class="error" id="passwordError"></div>
 
-            <button type="submit" name="signUp">Sign Up</button>
+            <button type="submit" name="signUp" id="signUpBtn" onclick="signUpCheck()">Sign Up</button>
           </form>
         </div>
 
-        <!-- Login Form -->
         <div class="form-container" id="loginForm" style="display:none;">
           <form action="./index.php" method="POST" id="login">
             <label for="loginEmail">Email:</label>
             <input type="email" id="loginEmail" name="loginEmail" required>
+            <div class="error" id="loginEmailError"></div>
 
             <label for="loginPassword">Password:</label>
             <input type="password" id="loginPassword" name="loginPassword" required>
+            <div class="error" id="loginPasswordError"></div>
             <p class="fail-attempt" id="js-fail-attempt"></p>
 
-            <button type="submit" name="login" id="loginBtn">Login</button>
+            <button type="submit" name="login" id="loginBtn" onclick="loginCheck()">Login</button>
           </form>
         </div>
       </div>
@@ -227,7 +231,6 @@
 
   </div> <!-- end of page container -->
 
-  <!-- // TODO: ADD FOOTER -->
   <?php include 'footer1.php'; ?>
 
   <?php
@@ -239,6 +242,10 @@
 
   if (!isset($_SESSION['lockout_time'])) {
     $_SESSION['lockout_time'] = 0;
+  }
+
+  if(!isset($_SESSION['user_id'])) {
+    $_SESSION['user_id'] = 0;
   }
   $lockoutTime = 180;
   $currentTime = time();
@@ -268,6 +275,7 @@
         echo "<script>alert('Login successful!');</script>";
         $firstName = $user['firstname'];
         $_SESSION['user'] = $firstName;
+        $_SESSION['user_id'] = $user['userID'];
       } else {
         // Login failed: Increment failed attempts
         $_SESSION['failed_attempts']++;
@@ -329,6 +337,16 @@
       echo "<script>alert('Signup successful!');
             window.location.href='index.php';</script>";
       $_SESSION['user'] = $firstName;
+
+      $sql = "SELECT * FROM user WHERE email = '$email'";
+      $result = $conn->query($sql);
+
+      if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+
+        $_SESSION['user_id'] = $user['userID'];
+      }
+
     } else {
       echo "<script>alert('Error: " . $conn->error . "');</script>";
     }

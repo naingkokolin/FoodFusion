@@ -71,8 +71,14 @@
     list-style-type: none;
   }
 
-  .footer-container  a {
+  .footer-container a {
     text-decoration: none;
+    transition: all 0.15s;
+  }
+
+  .footer-container a:hover {
+    color: red;
+    font-size: 15px;
   }
 
   @media(max-width: 768px) {
