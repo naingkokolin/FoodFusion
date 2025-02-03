@@ -77,7 +77,7 @@
   </main>
 
   <!-- Footer -->
-  <?php include("footer.php"); ?>
+  <?php include("footer1.php"); ?>
 
   <script src="./scripts/culinary-resource.js"></script>
 </body>

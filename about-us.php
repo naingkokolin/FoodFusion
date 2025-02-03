@@ -41,11 +41,7 @@
           <h3>Julia</h3>
           <p>Head Chef & Page Designer</p>
         </div>
-        <!-- <div class="team-member">
-          <img src="https://via.placeholder.com/150" alt="Team Member">
-          <h3>Emily Brown</h3>
-          <p>Recipe Developer & Blogger</p>
-        </div> -->
+        
       </div>
     </div>
   </section>

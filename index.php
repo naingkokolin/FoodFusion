@@ -228,7 +228,7 @@
   </div> <!-- end of page container -->
 
   <!-- // TODO: ADD FOOTER -->
-  <?php include 'footer.php'; ?>
+  <?php include 'footer1.php'; ?>
 
   <?php
   include('db.php');

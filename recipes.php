@@ -77,7 +77,7 @@
   </section>
 
   <!-- Footer -->
-  <?php include("footer.php"); ?>
+  <?php include("footer1.php"); ?>
 
   <script src="./scripts/recipes.js"></script>
 </body>

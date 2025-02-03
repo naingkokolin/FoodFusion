@@ -40,13 +40,7 @@
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="social-links">
-      <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
-    </div>
-    <p>&copy; 2024 FoodFusion. All rights reserved.</p>
-  </footer>
-
+  <?php include('footer1.php'); ?>
   <script src="./scripts/contact-us.js"></script>
 </body>
 

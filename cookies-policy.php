@@ -71,7 +71,7 @@
 
   <p>If you have any questions about this Cookie Policy, please contact us at: <a href="mailto:naingkokolin.mst@gmail.com">MAIL</a></p>
 
-  <p>Effective Date: [Date]</p>
+  <p>Effective Date: Jan-31-2025</p>
 
 </body>
 

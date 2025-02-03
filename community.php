@@ -63,7 +63,7 @@
     </div>
     <p>&copy; 2024 FoodFusion. All rights reserved.</p>
   </footer> -->
-  <?php include("footer.php"); ?>
+  <?php include("footer1.php"); ?>
 
   <script src="./scripts/community.js"></script>
 </body>

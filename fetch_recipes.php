@@ -1,8 +1,6 @@
 <?php
 require_once('db.php');
 
-// $sql = "SELECT title, description, ingredients, instructions, cuisine_type, dietary_preferences, cooking_difficulty, image_path FROM recipes";
-
 $sql = "SELECT * FROM recipes";
 
 $result = $conn->query($sql);

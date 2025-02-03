@@ -42,9 +42,9 @@ if (isset($_SESSION['user'])) {
   <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
 </div>
 
-<!-- <div id="loading-spinner">
+<div id="loading-spinner">
   <div class="spinner"></div>
-</div> -->
+</div>
 
 <script>
   const logoBtn = document.getElementById('js-logo');
