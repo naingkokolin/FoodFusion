@@ -1,6 +1,8 @@
 /* General Styles */
+
+
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: '', sans-serif;
   background-color: #f4f4f4;
   color: #333;
   margin: 0;
@@ -11,7 +13,7 @@ body {
 header {
   background-color: #ff6347;
   color: white;
-  padding: 40px 20px;
+  /* padding: 40px 20px; */
   text-align: center;
 }
 

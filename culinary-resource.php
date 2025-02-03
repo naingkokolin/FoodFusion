@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Culinary Resources</title>
+  <title class="page-title">Culinary Resources</title>
   <link rel="shortcut icon" href="./icons/icons8-cooking-16.png" type="image/x-icon">
   <link rel="stylesheet" href="./styles/culinary-resource.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -77,7 +77,7 @@
   </main>
 
   <!-- Footer -->
-   <?php include("footer.php"); ?>
+  <?php include("footer.php"); ?>
 
   <script src="./scripts/culinary-resource.js"></script>
 </body>
