@@ -1,27 +1,33 @@
-// Handle form submission
-document.getElementById('recipe-form').addEventListener('submit', function (e) {
-  e.preventDefault();
+// Fetch and display posts from the server
+function loadPosts() {
+  fetch('fetch_posts.php')
+    .then(response => response.json())
+    .then(data => {
+      const contributions = document.getElementById('contributions');
+      contributions.innerHTML = ''; // Clear existing posts
+      data.forEach(post => {
+        const recipeCard = document.createElement('div');
+        recipeCard.classList.add('recipe-card');
+        recipeCard.innerHTML = `
+          <h3>${post.title}</h3>
+          <p><strong>Description:</strong> ${post.description}</p>
+          <p><strong>Ingredients:</strong> ${post.ingredients}</p>
+          <p><strong>Steps:</strong> ${post.steps}</p>
+          <div class="reactions">
+            <button><i class="fas fa-thumbs-up"></i></button>
+            <button><i class="fas fa-thumbs-down"></i></button>
+            <button><i class="fas fa-comment"></i></button>
+          </div>
+          <div class="comments">
+            <textarea placeholder="Add a comment"></textarea>
+            <button>Comment</button>
+          </div>
+        `;
+        contributions.appendChild(recipeCard);
+      });
+    })
+    .catch(error => console.error('Error loading posts:', error));
+}
 
-  // Get the form data
-  const title = document.getElementById('recipe-title').value;
-  const description = document.getElementById('recipe-description').value;
-  const ingredients = document.getElementById('recipe-ingredients').value;
-  const steps = document.getElementById('recipe-steps').value;
-
-  // Create a new recipe card
-  const recipeCard = document.createElement('div');
-  recipeCard.classList.add('recipe-card');
-
-  recipeCard.innerHTML = `
-    <h3>${title}</h3>
-    <p><strong>Description:</strong> ${description}</p>
-    <p><strong>Ingredients:</strong> ${ingredients}</p>
-    <p><strong>Steps:</strong> ${steps}</p>
-  `;
-
-  // Append the new card to the contributions section
-  document.querySelector('.contributions').prepend(recipeCard);
-
-  // Reset the form
-  document.getElementById('recipe-form').reset();
-});
+// Load posts when the page loads
+document.addEventListener('DOMContentLoaded', loadPosts);
