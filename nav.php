@@ -33,8 +33,6 @@ if (isset($_SESSION['user'])) {
             </a>
             <a href="./logout.php" class="logout">Logout</a>
           </div>
-        <?php else: ?>
-          <a href="javascript:void(0);" class="login" onclick="openLoginModal()">Login</a>
         <?php endif; ?>
       </li>
     </ul>

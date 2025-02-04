@@ -258,7 +258,6 @@
       'loginPassword',
       FILTER_SANITIZE_STRING
     );
-    echo "<script>console.log('Email: $email, Password: $password');</script>";
 
     // Fetch user from the database
     $sql = "SELECT * FROM user WHERE email = '$email'";

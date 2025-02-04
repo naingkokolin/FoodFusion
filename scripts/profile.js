@@ -34,6 +34,9 @@
 //   }
 // });
 
+const editForm = document.getElementById('editForm');
+editForm.addEventListener('submit', updateCheck);
+
 function updateCheck() {
   const firstName = document.getElementById('firstName').value;
   const lastName = document.getElementById('lastName').value;
@@ -62,12 +65,9 @@ function updateCheck() {
     document.getElementById('emailError').textContent = "";
   }
 
-  if (!isValid) {
+  if (isValid == false) {
     preventDefault();
-  }
-
-  console.log("Update checking!!!");
-  
+  }  
 }
 
 function isValidEmail(email) {
@@ -75,20 +75,17 @@ function isValidEmail(email) {
   return emailRegex.test(email);
 }
 
-
-//
-
-function togglePasswordVisibility() {
-  const passwordDisplay = document.getElementById('passwordDisplay');
-  const eyeIcon = document.getElementById('eyeIcon');
-  if (passwordDisplay.textContent === '••••••••') {
-    passwordDisplay.textContent = '<?php echo $password; ?>';
-    eyeIcon.textContent = '👁️';
-  } else {
-    passwordDisplay.textContent = '••••••••';
-    // eyeIcon.textContent = '&#128065;';
-  }
-}
+// function togglePasswordVisibility() {
+//   const passwordDisplay = document.getElementById('passwordDisplay');
+//   const eyeIcon = document.getElementById('eyeIcon');
+//   if (passwordDisplay.textContent === '••••••••') {
+//     passwordDisplay.textContent = '<?php echo $password; ?>';
+//     eyeIcon.textContent = '👁️';
+//   } else {
+//     passwordDisplay.textContent = '••••••••';
+//     // eyeIcon.textContent = '&#128065;';
+//   }
+// }
 
 // Open modal
 function openModal() {

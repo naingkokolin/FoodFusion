@@ -6,7 +6,7 @@ include 'db.php';
 // Fetch user data (assuming you have a user_id in the session)
 if (isset($_SESSION['user_id'])) {
   $user_id = $_SESSION['user_id'];
-  $sql = "SELECT firstName, lastName, email, password FROM user WHERE userID = $user_id"; // Replace 'users' with your table name
+  $sql = "SELECT firstName, lastName, email, password FROM user WHERE userID = $user_id";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
@@ -30,11 +30,10 @@ if (isset($_POST['update'])) {
   $newLastName = $_POST['lastName'];
   $newEmail = $_POST['email'];
 
-  // Perform validation (similar to your signup validation) here
+  // Perform validation (similar to your signup validation) here  
 
-  $update_sql = "UPDATE users SET firstName = '$newFirstName', lastName = '$newLastName', email = '$newEmail' WHERE id = $user_id";
+  $update_sql = "UPDATE user SET firstName = '$newFirstName', lastName = '$newLastName', email = '$newEmail' WHERE UserID = $user_id";
   if ($conn->query($update_sql) === TRUE) {
-    // Update successful, refresh the page or display a success message
     header("Location: profile.php"); // Refresh the page
     exit;
   } else {
@@ -61,11 +60,6 @@ $conn->close();
   <p><strong>First Name:</strong> <span id="firstNameDisplay"><?php echo $firstName; ?></span></p>
   <p><strong>Last Name:</strong> <span id="lastNameDisplay"><?php echo $lastName; ?></span></p>
   <p><strong>Email:</strong> <span id="emailDisplay"><?php echo $email; ?></span></p>
-  <p class="password-container">
-    <strong>Password:</strong>
-    <span id="passwordDisplay">••••••••</span>
-    <span class="eye-icon" id="eyeIcon" onclick="togglePasswordVisibility()">&#128065;</span>
-  </p>
 
   <button id="editBtn" onclick="openModal()">Edit Profile</button>
 
@@ -74,7 +68,7 @@ $conn->close();
     <div class="modal-content">
       <span class="close-btn" id="modalCloseBtn" onclick="closeModal()">&times;</span>
       <h2>Edit Profile</h2>
-      <form method="post" action="profile.php">
+      <form method="post" action="profile.php" id="editForm">
         <label for="firstName">First Name:</label>
         <input type="text" name="firstName" id="firstName" value="<?php echo $firstName; ?>" required>
         <div class="error" id="firstNameError"></div>
@@ -87,7 +81,7 @@ $conn->close();
         <input type="email" name="email" id="email" value="<?php echo $email; ?>" required>
         <div class="error" id="emailError"></div>
 
-        <button type="submit" class="update-btn" onclick="updateCheck()">Update</button>
+        <button type="submit" name="update" class="update-btn" id="js-update-btn">Update</button>
       </form>
     </div>
   </div>
