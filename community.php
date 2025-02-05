@@ -7,6 +7,8 @@
   <title class="page-title">Community Cookbook</title>
   <link rel="shortcut icon" href="./icons/icons8-community-16.png" type="image/x-icon">
   <link rel="stylesheet" href="./styles/community.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
@@ -23,20 +25,23 @@
       <p>Share your favorite recipes, tips, and culinary experiences with the FoodFusion community.</p>
 
       <!-- Share Recipe Form -->
-      <div class="share-recipe">
+      <div class="share-post">
         <h2>Share Your Recipe</h2>
-        <form id="recipe-form" action="submit_recipe.php" method="POST">
-          <label for="recipe-title">Recipe Title:</label>
-          <input type="text" id="recipe-title" name="recipe-title" placeholder="Enter recipe title" required>
+        <form id="post-form" action="submit_post.php" method="POST">
+          <label for="post-title">Recipe Title:</label>
+          <input type="text" id="recipe-title" name="post-title" placeholder="Enter recipe title" required>
 
-          <label for="recipe-description">Description:</label>
-          <textarea id="recipe-description" name="recipe-description" placeholder="Enter recipe description" required></textarea>
+          <label for="post-description">Description:</label>
+          <textarea id="post-description" name="post-description" placeholder="Enter recipe description" required></textarea>
 
-          <label for="recipe-ingredients">Ingredients:</label>
-          <textarea id="recipe-ingredients" name="recipe-ingredients" placeholder="Enter ingredients" required></textarea>
+          <label for="post-ingredients">Ingredients:</label>
+          <textarea id="post-ingredients" name="post-ingredients" placeholder="Enter ingredients" required></textarea>
 
-          <label for="recipe-steps">Cooking Steps:</label>
-          <textarea id="recipe-steps" name="recipe-steps" placeholder="Enter cooking steps" required></textarea>
+          <label for="post-steps">Cooking Steps:</label>
+          <textarea id="post-steps" name="post-steps" placeholder="Enter cooking steps" required></textarea>
+
+          <label for="post-image">Image:</label>
+          <textarea name="post-image" id="post-image" placeholder="Enter the copy link for image" required></textarea>
 
           <button type="submit">Share Your Idea</button>
         </form>
@@ -45,7 +50,7 @@
       <!-- Recent Contributions -->
       <h2>Recent Contributions</h2>
       <div class="contributions" id="contributions">
-        <!-- Posts will be dynamically loaded here -->
+        
       </div>
     </div>
   </section>

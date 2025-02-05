@@ -1,33 +1,36 @@
-// Fetch and display posts from the server
-function loadPosts() {
-  fetch('fetch_posts.php')
-    .then(response => response.json())
-    .then(data => {
-      const contributions = document.getElementById('contributions');
-      contributions.innerHTML = ''; // Clear existing posts
-      data.forEach(post => {
-        const recipeCard = document.createElement('div');
-        recipeCard.classList.add('recipe-card');
-        recipeCard.innerHTML = `
-          <h3>${post.title}</h3>
-          <p><strong>Description:</strong> ${post.description}</p>
-          <p><strong>Ingredients:</strong> ${post.ingredients}</p>
-          <p><strong>Steps:</strong> ${post.steps}</p>
-          <div class="reactions">
-            <button><i class="fas fa-thumbs-up"></i></button>
-            <button><i class="fas fa-thumbs-down"></i></button>
-            <button><i class="fas fa-comment"></i></button>
-          </div>
-          <div class="comments">
-            <textarea placeholder="Add a comment"></textarea>
-            <button>Comment</button>
-          </div>
-        `;
-        contributions.appendChild(recipeCard);
-      });
-    })
-    .catch(error => console.error('Error loading posts:', error));
-}
+$(document).ready(function () {
+  $('#post-form').submit(function (event) {
+    event.preventDefault();
 
-// Load posts when the page loads
-document.addEventListener('DOMContentLoaded', loadPosts);
+    $.ajax({
+      type: 'POST',
+      url: 'submit_post.php',
+      data: $(this).serialize(),
+      success: function (response) {
+        console.log(response);
+        $('#post-form')[0].reset();
+        loadPosts(); // Refresh posts after successful submission
+        alert("Recipe shared successfully!");
+      },
+      error: function (error) {
+        console.error("Error submitting post:", error);
+        alert("Error sharing post. Please try again.");
+      }
+    });
+  });
+
+  function loadPosts() {
+    $.ajax({
+      url: 'fetch_posts.php', // PHP file to fetch and format posts (see below)
+      dataType: 'html', // Expect HTML back from the server
+      success: function (data) {
+        $('#contributions').html(data); // Update the contributions div with the received HTML
+      },
+      error: function (error) {
+        console.error('Error loading posts:', error);
+      }
+    });
+  }
+
+  loadPosts(); // Initial load of posts
+});
