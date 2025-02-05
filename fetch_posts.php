@@ -22,8 +22,21 @@ if ($result->num_rows > 0) {
     echo "</div>";
 
     echo "<div class='comments'>";
-    echo "<textarea placeholder='Add a comment'></textarea>";
-    echo "<button>Comment</button>";
+    echo "<textarea name='content' placeholder='Add a comment...'></textarea>";
+    echo "<button onclick='postComment(this, " . $row['post_id'] . ")'>Comment</button>";
+    echo "<div class='comment-list'>";
+
+    $post_id = $row['post_id'];
+    $comments_query = "SELECT * FROM comments WHERE post_id = $post_id ORDER BY created_at ASC";
+    $comments_result = $conn->query($comments_query);
+
+    if ($comments_result->num_rows > 0) {
+      while ($comment_row = $comments_result->fetch_assoc()) {
+        echo "<div class='comment-item'>" . $comment_row['content'] . "</div>";
+      }
+    }
+
+    echo "</div>";
     echo "</div>";
 
     echo "</div>";

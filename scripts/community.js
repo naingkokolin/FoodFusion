@@ -10,7 +10,7 @@ $(document).ready(function () {
         console.log(response);
         $('#post-form')[0].reset();
         loadPosts(); // Refresh posts after successful submission
-        alert("Recipe shared successfully!");
+        alert("Post shared successfully!");
       },
       error: function (error) {
         console.error("Error submitting post:", error);
@@ -21,15 +21,65 @@ $(document).ready(function () {
 
   function loadPosts() {
     $.ajax({
-      url: 'fetch_posts.php', // PHP file to fetch and format posts (see below)
-      dataType: 'html', // Expect HTML back from the server
+      url: 'fetch_posts.php',
+      dataType: 'html',
       success: function (data) {
-        $('#contributions').html(data); // Update the contributions div with the received HTML
+        $('#contributions').html(data); 
+        $('.comments button').click(function () {
+          const postId = $(this).attr('data-post-id');
+          postComment(this, postId);
+        });
       },
       error: function (error) {
         console.error('Error loading posts:', error);
       }
     });
+  }
+
+  function postComment(button, post_id) {
+    const commentText = button.previousElementSibling.value;
+
+    if (commentText.trim() === "") {
+      alert("Please enter a comment before posting.");
+      return;
+    }
+
+    $.ajax({
+      type: 'POST',
+      url: 'submit_comment.php',
+      data: {
+        post_id: post_id,
+        content: commentText
+      },
+      success: function (response) {
+        console.log(response);
+        button.previousElementSibling.value = "";
+        loadPosts();
+
+        // const commentElement = document.createElement("div");
+        // commentElement.classList.add("comment-item");
+        // commentElement.textContent = commentText;
+
+        // const commentList = button.nextElementSibling;
+        // commentList.appendChild(commentElement);
+        // button.previousElementSibling.value = "";
+
+        alert("Comment posted!");
+      }, 
+      error: function (error) {
+        console.error("Error submitting comment:", error);
+        alert("Error posting comment. Please try again.");
+      }
+    });
+
+    const commentElement = document.createElement("div");
+    commentElement.classList.add("comment-item");
+    commentElement.textContent = commentText;
+
+    const commentList = button.nextElementSibling;
+    commentList.appendChild(commentElement);
+    
+    button.previousElementSibling.value = "";
   }
 
   loadPosts(); // Initial load of posts
