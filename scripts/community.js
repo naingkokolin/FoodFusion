@@ -63,8 +63,6 @@ $(document).ready(function () {
         button.previousElementSibling.value = "";
 
         loadPosts();
-
-        alert("Comment posted!");
       }, 
       error: function (error) {
         console.error("Error submitting comment:", error);

@@ -1,5 +1,10 @@
 <?php
 require 'db.php';
+session_start();
+
+if (!isset($_SESSION['post_id'])) {
+  $_SESSION['post_id'] = 0;
+}
 
 // Fetch posts
 $result = $conn->query("SELECT * FROM community ORDER BY created_at DESC");
@@ -22,8 +27,9 @@ if ($result->num_rows > 0) {
     echo "</div>";
 
     echo "<div class='comments'>";
-    echo "<form method='POST' action='submit_comment.php'>";
+    echo "<form method='POST'>";
     echo "<textarea name='content' placeholder='Add a comment...'></textarea>";
+    echo "<input type='hidden' name='post_id' value='" . $row['post_id'] . "'>";
     echo "<button type='submit'>Comment</button>";
     echo "</form>";
     echo "<div class='comment-list'>";
