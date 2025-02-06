@@ -5,22 +5,76 @@
 }
 
 .nav-header-container {
-  background-color: rgb(228, 218, 218);
-  height: 50px;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  column-gap: 30px;
+  justify-content: space-between;
   align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  /* Adjust as needed */
+  border-bottom: 1px solid #ddd;
+  /* Adjust as needed */
+}
+
+/* Centered Logo and Header Text */
+.header-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Space between logo and text */
 }
 
 .header-text {
-  font-size: 18px;
+  font-size: 24px;
+  /* Adjust as needed */
+  font-weight: bold;
+  color: #333;
+  /* Adjust as needed */
 }
 
 .logo-img {
-  width: 40px;
+  width: 50px;
+  /* Adjust as needed */
   height: auto;
+}
+
+/* User Account Container (Aligned to the Right) */
+.user-logout-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  /* Space between user name and logout */
+}
+
+.user-name {
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+}
+
+.logout {
+  font-size: 16px;
+  /* Adjust as needed */
+  color: #333;
+  /* Adjust as needed */
+  text-decoration: none;
+}
+
+.logout:hover {
+  color: #f00;
+  /* Adjust as needed */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-header-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .user-logout-container {
+    margin-top: 10px;
+  }
 }
 
 .navbar {
@@ -32,7 +86,7 @@
   color: black;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 1;
 }
 
 .logo {

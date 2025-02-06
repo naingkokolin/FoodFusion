@@ -34,6 +34,7 @@ if (isset($_POST['update'])) {
 
   $update_sql = "UPDATE user SET firstName = '$newFirstName', lastName = '$newLastName', email = '$newEmail' WHERE UserID = $user_id";
   if ($conn->query($update_sql) === TRUE) {
+    $_SESSION['user'] = $newFirstName;
     header("Location: profile.php"); // Refresh the page
     exit;
   } else {

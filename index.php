@@ -188,7 +188,7 @@
         </div>
 
         <div class="form-container" id="signUpForm">
-          <form action="./index.php" method="POST" id="signUp">
+          <form action="./index.php" method="POST" id="signUpForm">
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" required>
             <div class="error" id="firstNameError"></div>
@@ -205,12 +205,12 @@
             <input type="password" id="password" name="password" required>
             <div class="error" id="passwordError"></div>
 
-            <button type="submit" name="signUp" id="signUpBtn" onclick="signUpCheck()">Sign Up</button>
+            <button type="submit" name="signUp" id="signUpBtn" onclick="signUpCheck(event)">Sign Up</button>
           </form>
         </div>
 
         <div class="form-container" id="loginForm" style="display:none;">
-          <form action="./index.php" method="POST" id="login">
+          <form action="./index.php" method="POST" id="loginForm">
             <label for="loginEmail">Email:</label>
             <input type="email" id="loginEmail" name="loginEmail" required>
             <div class="error" id="loginEmailError"></div>
@@ -220,7 +220,7 @@
             <div class="error" id="loginPasswordError"></div>
             <p class="fail-attempt" id="js-fail-attempt"></p>
 
-            <button type="submit" name="login" id="loginBtn" onclick="loginCheck()">Login</button>
+            <button type="submit" name="login" id="loginBtn" onclick="loginCheck(event)">Login</button>
           </form>
         </div>
       </div>
@@ -247,6 +247,7 @@
   if(!isset($_SESSION['user_id'])) {
     $_SESSION['user_id'] = 0;
   }
+
   $lockoutTime = 180;
   $currentTime = time();
 
@@ -272,8 +273,8 @@
         $_SESSION['failed_attempts'] = 0;
         $_SESSION['lockout_time'] = 0;
         echo "<script>alert('Login successful!');</script>";
-        $firstName = $user['firstname'];
-        $_SESSION['user'] = $firstName;
+        $_SESSION['user'] = $user['firstname'];
+        header('nav.php');
         $_SESSION['user_id'] = $user['userID'];
       } else {
         // Login failed: Increment failed attempts
@@ -332,7 +333,7 @@
 
     // Insert new user into the database
     $sql = "INSERT INTO user (firstname, lastname, email, password) VALUES ('$firstName', '$lastName', '$email', '$password')";
-    if ($conn->query($sql) === TRUE) {
+    if ($conn->query($sql) === TRUE ) {
       echo "<script>alert('Signup successful!');
             window.location.href='index.php';</script>";
       $_SESSION['user'] = $firstName;

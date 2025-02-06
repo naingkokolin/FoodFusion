@@ -7,8 +7,20 @@ if (isset($_SESSION['user'])) {
 <link rel="stylesheet" href="./styles/nav.css">
 
 <div class="nav-header-container">
-  <div class="header-text">Food Fusion</div>
-  <img src="./img/logo1.png" alt="Logo" class="logo-img">
+
+  <div class="header-logo-container">
+    <div class="header-text">Food Fusion</div>
+    <img src="./img/logo1.png" alt="Logo" class="logo-img">
+  </div>
+
+  <?php if (isset($_SESSION['user'])): ?>
+    <div class="user-logout-container">
+      <a href="./profile.php" class="user-name">
+        <?php echo htmlspecialchars($_SESSION['user']); ?>
+      </a>
+      <a href="./logout.php" class="logout">Logout</a>
+    </div>
+  <?php endif; ?>
 </div>
 
 <div class="navbar">
@@ -24,17 +36,6 @@ if (isset($_SESSION['user'])) {
       <li><a href="./culinary-resource.php" class="culinary">Culinary Resource</a></li>
       <li><a href="./educational-resource.php" class="education">Educational Resource</a></li>
       <li><a href="./contact-us.php" class="contact">Contact Us</a></li>
-      <!-- Dynamic Login/User Name -->
-      <li>
-        <?php if (isset($_SESSION['user'])): ?>
-          <div class="user-logout-container">
-            <a href="./profile.php" class="user-name">
-              <?php echo htmlspecialchars($_SESSION['user']); ?>
-            </a>
-            <a href="./logout.php" class="logout">Logout</a>
-          </div>
-        <?php endif; ?>
-      </li>
     </ul>
   </div>
   <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>

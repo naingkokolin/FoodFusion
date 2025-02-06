@@ -85,8 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-const signUpForm = document.getElementById('signUpBtn');
-const loginForm = document.getElementById('loginBtn');
+const signUpForm = document.getElementById('signUpForm');
+const loginForm = document.getElementById('loginForm');
 
 // signUpForm.addEventListener('submit', (event) => {
 //   const firstName = document.getElementById('firstName').value;
@@ -129,7 +129,9 @@ const loginForm = document.getElementById('loginBtn');
 //   }
 // });
 
-function signUpCheck() {
+let isSuccess = false;
+
+function signUpCheck(event) {
   const firstName = document.getElementById('firstName').value;
   const lastName = document.getElementById('lastName').value;
   const email = document.getElementById('email').value;
@@ -166,7 +168,7 @@ function signUpCheck() {
   }
 
   if (!isValid) {
-    preventDefault(); // Prevent form submission if validation fails
+    event.preventDefault();
   }
 }
 
@@ -187,7 +189,7 @@ function signUpCheck() {
 //   }
 // });
 
-function loginCheck() {
+function loginCheck(event) {
   const loginEmail = document.getElementById('loginEmail').value;
   let isLoginValid = true;
 
@@ -199,7 +201,8 @@ function loginCheck() {
   }
 
   if (!isLoginValid) {
-    preventDefault();
+    event.preventDefault();
+
   }
 }
 
