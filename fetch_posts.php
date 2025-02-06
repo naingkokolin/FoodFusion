@@ -22,8 +22,10 @@ if ($result->num_rows > 0) {
     echo "</div>";
 
     echo "<div class='comments'>";
+    echo "<form method='POST' action='submit_comment.php'>";
     echo "<textarea name='content' placeholder='Add a comment...'></textarea>";
-    echo "<button onclick='postComment(this, " . $row['post_id'] . ")'>Comment</button>";
+    echo "<button type='submit'>Comment</button>";
+    echo "</form>";
     echo "<div class='comment-list'>";
 
     $post_id = $row['post_id'];

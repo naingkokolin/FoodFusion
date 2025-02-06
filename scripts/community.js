@@ -28,6 +28,7 @@ $(document).ready(function () {
         $('.comments button').click(function () {
           const postId = $(this).attr('data-post-id');
           postComment(this, postId);
+          alert("commentttttt");
         });
       },
       error: function (error) {
@@ -53,16 +54,15 @@ $(document).ready(function () {
       },
       success: function (response) {
         console.log(response);
+        const commentElement = document.createElement("div");
+        commentElement.classList.add("comment-item");
+        commentElement.textContent = commentText;
+
+        const commentList = button.nextElementSibling;
+        commentList.appendChild(commentElement);
         button.previousElementSibling.value = "";
+
         loadPosts();
-
-        // const commentElement = document.createElement("div");
-        // commentElement.classList.add("comment-item");
-        // commentElement.textContent = commentText;
-
-        // const commentList = button.nextElementSibling;
-        // commentList.appendChild(commentElement);
-        // button.previousElementSibling.value = "";
 
         alert("Comment posted!");
       }, 
@@ -72,14 +72,14 @@ $(document).ready(function () {
       }
     });
 
-    const commentElement = document.createElement("div");
-    commentElement.classList.add("comment-item");
-    commentElement.textContent = commentText;
+    // const commentElement = document.createElement("div");
+    // commentElement.classList.add("comment-item");
+    // commentElement.textContent = commentText;
 
-    const commentList = button.nextElementSibling;
-    commentList.appendChild(commentElement);
+    // const commentList = button.nextElementSibling;
+    // commentList.appendChild(commentElement);
     
-    button.previousElementSibling.value = "";
+    // button.previousElementSibling.value = "";
   }
 
   loadPosts(); // Initial load of posts
