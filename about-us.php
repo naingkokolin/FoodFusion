@@ -5,17 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title class="page-title">About Us</title>
-  <link rel="shortcut icon" href="./icons/icons8-about-us-16.png" type="image/x-icon">
+  <link rel="shortcut icon" href="./img/logo1.png" type="image/x-icon">
   <link rel="stylesheet" href="styles/about-us.css">
 </head>
 
 <body>
-  <!-- Header -->
   <header>
     <?php include("nav.php"); ?>
   </header>
 
-  <!-- About Us Section -->
   <section id="about-us">
     <div class="container">
       <h1>About FoodFusion</h1>
@@ -47,7 +45,7 @@
   </section>
 
   <!-- Footer -->
-   <?php include('footer1.php'); ?>
+   <?php include('footer.php'); ?>
   <script src="scripts.js"></script>
 </body>
 

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title class="page-title">Community Cookbook</title>
-  <link rel="shortcut icon" href="./icons/icons8-community-16.png" type="image/x-icon">
+  <link rel="shortcut icon" href="./img/logo1.png" type="image/x-icon">
   <link rel="stylesheet" href="./styles/community.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -13,18 +13,15 @@
 </head>
 
 <body>
-  <!-- Header -->
   <header>
     <?php include("nav.php"); ?>
   </header>
 
-  <!-- Community Cookbook Section -->
   <section id="community">
     <div class="container">
       <h1>Community Cookbook</h1>
       <p>Share your favorite recipes, tips, and culinary experiences with the FoodFusion community.</p>
 
-      <!-- Share Recipe Form -->
       <div class="share-post">
         <h2>Share Your Recipe</h2>
         <form id="post-form" action="submit_post.php" method="POST">
@@ -47,7 +44,6 @@
         </form>
       </div>
 
-      <!-- Recent Contributions -->
       <h2>Recent Contributions</h2>
       <div class="contributions" id="contributions">
         
@@ -55,7 +51,7 @@
     </div>
   </section>
 
-  <?php include("footer1.php"); ?>
+  <?php include("footer.php"); ?>
 
   <script src="./scripts/community.js"></script>
 </body>

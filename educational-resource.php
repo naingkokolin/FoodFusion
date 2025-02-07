@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title class="page-title">Educational Resources</title>
-  <link rel="shortcut icon" href="./icons/icons8-file-download-16.png" type="image/x-icon">
+  <link rel="shortcut icon" href="./img/logo1.png" type="image/x-icon">
   <link rel="stylesheet" href="./styles/culinary-resource.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -63,7 +63,7 @@
   </main>
 
   <!-- Footer -->
-  <?php include("footer1.php"); ?>
+  <?php include("footer.php"); ?>
 
   <script src="./scripts/culinary-resource.js"></script>
 </body>

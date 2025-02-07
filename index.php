@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title class="page-title">Food Fusion</title>
-  <link rel="stylesheet" href="./styles/design.css">
-  <!-- <link rel="stylesheet" href="./styles/style.css"> -->
-  <link rel="icon" href="./icons/icons8-home-16.png" type="image/x-icon">
+  <!-- <link rel="stylesheet" href="./styles/design.css"> -->
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="icon" href="./img/logo1.png" type="image/x-icon">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
@@ -245,7 +245,7 @@
 
   </div> <!-- end of page container -->
 
-  <?php include 'footer1.php'; ?>
+  <?php include 'footer.php'; ?>
 
   <?php
   include('db.php');

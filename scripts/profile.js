@@ -1,39 +1,3 @@
-// const passwordDisplay = document.getElementById('passwordDisplay');
-// const eyeIcon = document.getElementById('eyeIcon');
-// const editBtn = document.getElementById('editBtn');
-// const editModal = document.getElementById('editModal');
-// const modalCloseBtn = document.getElementById('modalCloseBtn');
-// const firstNameDisplay = document.getElementById('firstNameDisplay');
-// const lastNameDisplay = document.getElementById('lastNameDisplay');
-// const emailDisplay = document.getElementById('emailDisplay');
-
-// let passwordVisible = false;
-
-// eyeIcon.addEventListener('click', () => {
-//   passwordVisible = !passwordVisible;
-//   if (passwordVisible) {
-//     passwordDisplay.textContent = "<?php echo $password; ?>"; // Show actual password (consider security implications)
-//     eyeIcon.textContent = '&#128064;'; // Closed eye icon
-//   } else {
-//     passwordDisplay.textContent = "••••••••"; // Masked password
-//     eyeIcon.textContent = '&#128065;'; // Open eye icon
-//   }
-// });
-
-// editBtn.addEventListener('click', () => {
-//   editModal.style.display = "block";
-// });
-
-// modalCloseBtn.addEventListener('click', () => {
-//   editModal.style.display = "none";
-// });
-
-// window.addEventListener('click', (event) => {
-//   if (event.target == editModal) {
-//     editModal.style.display = "none";
-//   }
-// });
-
 const editForm = document.getElementById('editForm');
 editForm.addEventListener('submit', updateCheck);
 
@@ -75,18 +39,6 @@ function isValidEmail(email) {
   return emailRegex.test(email);
 }
 
-// function togglePasswordVisibility() {
-//   const passwordDisplay = document.getElementById('passwordDisplay');
-//   const eyeIcon = document.getElementById('eyeIcon');
-//   if (passwordDisplay.textContent === '••••••••') {
-//     passwordDisplay.textContent = '<?php echo $password; ?>';
-//     eyeIcon.textContent = '👁️';
-//   } else {
-//     passwordDisplay.textContent = '••••••••';
-//     // eyeIcon.textContent = '&#128065;';
-//   }
-// }
-
 // Open modal
 function openModal() {
   const modal = document.getElementById('editModal');
@@ -106,6 +58,3 @@ window.onclick = function (event) {
     modal.style.display = 'none';
   }
 };
-
-// TODO: fix update form disappear error
-// TODO: fix onclick to addeventlistener in home.js

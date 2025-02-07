@@ -6,7 +6,6 @@ if (!isset($_SESSION['post_id'])) {
   $_SESSION['post_id'] = 0;
 }
 
-// Fetch posts
 $result = $conn->query("SELECT * FROM community ORDER BY created_at DESC");
 
 if ($result->num_rows > 0) {
@@ -17,8 +16,7 @@ if ($result->num_rows > 0) {
     echo "<p><strong>Ingredients:</strong> " . $row['ingredients'] . "</p>";
     echo "<p><strong>Steps</strong> " . $row['steps'] . "</p>";
 
-    // Corrected the typo here: src instead of scr
-    echo "<img src='" . $row['image_url'] . "' alt='" . $row['title'] . "'/>";  // Corrected line
+    echo "<img src='" . $row['image_url'] . "' alt='" . $row['title'] . "'/>";
 
     echo "<div class='reactions'>";
     echo "<button><i class='fas fa-thumbs-up'></i></button>";

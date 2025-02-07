@@ -9,7 +9,7 @@ $(document).ready(function () {
       success: function (response) {
         console.log(response);
         $('#post-form')[0].reset();
-        loadPosts(); // Refresh posts after successful submission
+        loadPosts();
         alert("Post shared successfully!");
       },
       error: function (error) {
@@ -69,16 +69,7 @@ $(document).ready(function () {
         alert("Error posting comment. Please try again.");
       }
     });
-
-    // const commentElement = document.createElement("div");
-    // commentElement.classList.add("comment-item");
-    // commentElement.textContent = commentText;
-
-    // const commentList = button.nextElementSibling;
-    // commentList.appendChild(commentElement);
-    
-    // button.previousElementSibling.value = "";
   }
 
-  loadPosts(); // Initial load of posts
+  loadPosts();
 });

@@ -1,9 +1,7 @@
 <?php
 session_start();
-// Database connection (replace with your credentials)
 include 'db.php';
 
-// Fetch user data (assuming you have a user_id in the session)
 if (isset($_SESSION['user_id'])) {
   $user_id = $_SESSION['user_id'];
   $sql = "SELECT firstName, lastName, email, password FROM user WHERE userID = $user_id";
