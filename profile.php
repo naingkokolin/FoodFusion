@@ -1,7 +1,9 @@
 <?php
 session_start();
+// Database connection (replace with your credentials)
 include 'db.php';
 
+// Fetch user data (assuming you have a user_id in the session)
 if (isset($_SESSION['user_id'])) {
   $user_id = $_SESSION['user_id'];
   $sql = "SELECT firstName, lastName, email, password FROM user WHERE userID = $user_id";
@@ -59,8 +61,16 @@ $conn->close();
   <p><strong>First Name:</strong> <span id="firstNameDisplay"><?php echo $firstName; ?></span></p>
   <p><strong>Last Name:</strong> <span id="lastNameDisplay"><?php echo $lastName; ?></span></p>
   <p><strong>Email:</strong> <span id="emailDisplay"><?php echo $email; ?></span></p>
+  <p class="password-container">
+    <strong>Password:</strong>
+    <span id="passwordDisplay">••••••••</span>
+    <span class="eye-icon" id="eyeIcon" onclick="togglePasswordVisibility()">&#128065;</span>
+  </p>
 
   <button id="editBtn" onclick="openModal()">Edit Profile</button>
+  <br><br><br>
+
+  <button onclick="window.location.href='index.php'">Back to Home Page</button>
 
   <!-- Edit Profile Modal -->
   <div id="editModal" class="modal">
@@ -80,8 +90,13 @@ $conn->close();
         <input type="email" name="email" id="email" value="<?php echo $email; ?>" required>
         <div class="error" id="emailError"></div>
 
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" value="<?php echo $password; ?>" required>
+        <div class="error" id="passwordError"></div>
+
         <button type="submit" name="update" class="update-btn" id="js-update-btn">Update</button>
       </form>
+
     </div>
   </div>
 </body>

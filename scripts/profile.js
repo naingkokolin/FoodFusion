@@ -1,57 +1,39 @@
-const editForm = document.getElementById('editForm');
-editForm.addEventListener('submit', updateCheck);
+document.getElementById('editForm').addEventListener('submit', function (event) {
+  const firstName = document.querySelector('[name="firstName"]').value;
+  const lastName = document.querySelector('[name="lastName"]').value;
+  const email = document.querySelector('[name="email"]').value;
 
-function updateCheck() {
-  const firstName = document.getElementById('firstName').value;
-  const lastName = document.getElementById('lastName').value;
-  const email = document.getElementById('email').value;
-
-  let isValid = true;
-
-  if (firstName.length < 4) {
-    document.getElementById('firstNameError').textContent = "First name must be at least 4 letters.";
-    isValid = false;
-  } else {
-    document.getElementById('firstNameError').textContent = "";
+  if (firstName.length < 4 || lastName.length < 4) {
+    alert("First and last name must be at least 4 characters.");
+    event.preventDefault();
   }
+});
 
-  if (lastName.length < 4) {
-    document.getElementById('lastNameError').textContent = "Last name must be at least 4 letters.";
-    isValid = false;
-  } else {
-    document.getElementById('lastNameError').textContent = "";
-  }
+// function togglePasswordVisibility() {
+//   const passwordDisplay = document.getElementById('passwordDisplay');
+//   const eyeIcon = document.getElementById('eyeIcon');
+//   if (passwordDisplay.textContent === '••••••••') {
+//     passwordDisplay.textContent = '<?php echo $password; ?>';
+//     eyeIcon.textContent = '👁️';
+//   } else {
+//     passwordDisplay.textContent = '••••••••';
+//     // eyeIcon.textContent = '&#128065;';
+//   }
+// }
 
-  if (!isValidEmail(email)) {
-    document.getElementById('emailError').textContent = "Invalid email format.";
-    isValid = false;
-  } else {
-    document.getElementById('emailError').textContent = "";
-  }
-
-  if (isValid == false) {
-    preventDefault();
-  }  
+function togglePassword() {
+  const passwordField = document.getElementById("password");
+  passwordField.type = passwordField.type === "password" ? "text" : "password";
 }
 
-function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
-// Open modal
 function openModal() {
-  const modal = document.getElementById('editModal');
-  modal.style.display = 'block';
+  document.getElementById('editModal').style.display = 'block';
 }
 
-// Close modal
 function closeModal() {
-  const modal = document.getElementById('editModal');
-  modal.style.display = 'none';
+  document.getElementById('editModal').style.display = 'none';
 }
 
-// Close modal when clicking outside
 window.onclick = function (event) {
   const modal = document.getElementById('editModal');
   if (event.target === modal) {

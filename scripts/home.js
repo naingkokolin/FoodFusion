@@ -2,9 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const cookieConsent = document.getElementById('cookie-consent');
   const acceptCookiesBtn = document.getElementById('accept-cookies');
 
-  const seeMoreBtn = document.getElementById('see-more-btn');
-  const culinaryCards = document.querySelectorAll('.culinary-card');
-
   const ls = localStorage.getItem('first-visit');
 
   if (acceptCookiesBtn && cookieConsent) {
@@ -51,24 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
   signUpTab.addEventListener('click', signUp);
 
   loginTab.addEventListener('click', login);
-
-  for (let i = 4; i < culinaryCards.length; i++) {
-    culinaryCards[i].style.display = 'none';
-  }
-
-  seeMoreBtn.addEventListener('click', function () {
-    if (seeMoreBtn.textContent === 'See More') {
-      for (let i = 4; i < culinaryCards.length; i++) {
-        culinaryCards[i].style.display = 'flex';
-      }
-      seeMoreBtn.textContent = 'See Less';
-    } else {
-      for (let i = 4; i < culinaryCards.length; i++) {
-        culinaryCards[i].style.display = 'none';
-      }
-      seeMoreBtn.textContent = 'See More';
-    }
-  });
 });
 
 const signUpForm = document.getElementById('signUpForm');

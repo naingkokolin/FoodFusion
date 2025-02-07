@@ -20,9 +20,22 @@ p {
   margin: 10px 0;
 }
 
+/* Profile Container */
+.container {
+  max-width: 500px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: auto;
+}
+
+/* Password Toggle */
 .password-container {
   position: relative;
   display: inline-block;
+  width: 100%;
 }
 
 .eye-icon {
@@ -39,6 +52,7 @@ p {
   color: #ff6347;
 }
 
+/* Buttons */
 button {
   background-color: #ff6347;
   color: white;
@@ -54,7 +68,7 @@ button:hover {
   background-color: #e5533d;
 }
 
-/* Modal Styles */
+/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -79,6 +93,7 @@ button:hover {
   animation: slideIn 0.3s ease;
 }
 
+/* Close Button */
 .close-btn {
   position: absolute;
   top: 10px;

@@ -109,7 +109,6 @@
           </div>
         </div>
       <?php endfor; ?>
-      <button id="see-more-btn" class="see-more-btn">See More</button>
     </div>
     <!-- End of Culinary Trend Section -->
 
@@ -218,6 +217,7 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
             <div class="error" id="passwordError"></div>
+            <div class="password-reset" id="js-password-reset"></div>
 
             <button type="submit" name="signUp" id="signUpBtn" onclick="signUpCheck(event)">Sign Up</button>
           </form>
@@ -328,6 +328,8 @@
           $lockoutTime = 0;
           $_SESSION['lockout_time'] = $currentTime;
           $_SESSION['failed_attempts'] = 0;
+
+
         } else {
           echo "<script>alert('Incorrect password!');</script>";
           echo "<script>window.location.href='index.php';</script>";
