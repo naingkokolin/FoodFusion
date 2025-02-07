@@ -18,7 +18,7 @@
 
 @font-face {
   font-family: Titillium;
-  src: url(../fonts/TitilliumWeb-Regular.ttf);
+  src: url('../fonts/TitilliumWeb-Regular.ttf');
 }
 
 .body {
@@ -175,8 +175,14 @@
   text-align: center;
 }
 
-.recipe-ingredients {
-  color: red;
+.recipe-ingredients, 
+.recipe-instructions,
+.recipe-type,
+.recipe-dietary {
+  margin-top: 10px;
+  color: #666;
+  float: left;
+  margin-left: 10px;
 }
 
 .recipe-latest-cards {

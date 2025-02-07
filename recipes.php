@@ -64,7 +64,9 @@
             data-difficulty="<?php echo htmlspecialchars($recipe['cooking_difficulty']); ?>">
             <img src="<?php echo htmlspecialchars($recipe['image_path']); ?>" alt="<?php echo htmlspecialchars($recipe['title']); ?>">
             <h3><?php echo htmlspecialchars($recipe['title']); ?></h3>
-            <p><?php echo htmlspecialchars($recipe['description']); ?></p>
+            <p><strong>Description: </strong><?php echo htmlspecialchars($recipe['description']); ?></p>
+            <p><strong>Ingredients: </strong><?php echo htmlspecialchars($recipe['ingredients']); ?></p>
+            <p><strong>Instructions: </strong><?php echo htmlspecialchars($recipe['instructions']); ?></p>
             <div class="recipe-details">
               <p><strong>Cuisine:</strong> <?php echo htmlspecialchars($recipe['cuisine_type']); ?></p>
               <p><strong>Diet:</strong> <?php echo htmlspecialchars($recipe['dietary_preferences']); ?></p>

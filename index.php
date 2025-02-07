@@ -17,11 +17,14 @@
 
   <div class="page-container">
     <!-- #region Join now Line -->
-    <div class="join-container">
-      <button class="join-btn" id="js-join-btn">Join Now</button>
-      <div class="join-text">Join our Foodies Community Today!</div>
-      <div class="login-text">Already a member? <span class="login-btn" id="js-login-btn">Log in</span></div>
-    </div>
+
+    <?php if (!isset($_SESSION['user'])): ?>
+      <div class="join-container">
+        <button class="join-btn" id="js-join-btn">Join Now</button>
+        <div class="join-text">Join our Foodies Community Today!</div>
+        <div class="login-text">Already a member? <span class="login-btn" id="js-login-btn">Log in</span></div>
+      </div>
+    <?php endif; ?>
     <!-- #endregion -->
 
     <!-- // TODO: need to add News Feed -->
@@ -36,10 +39,21 @@
       <div class="recipe-image-first">
         <img src="<?php echo htmlspecialchars($recipes[$random]['image_path']); ?>" alt="Recipe" class="recipe-main-image">
         <div class="recipe-detail">
-          <div class="recipe-title">Spaghetti Carbonara</div>
-          <div class="recipe-description">A classic Italian pasta dish.</div>
+          <div class="recipe-title">
+            <?php echo htmlspecialchars($recipes[$random]['title']); ?>
+          </div>
+          <div class="recipe-description"><strong><?php echo htmlspecialchars($recipes[$random]['description']); ?></strong></div>
           <div class="recipe-ingredients">
-            Spaghetti, eggs, Parmesan cheese, pancetta, garlic, black pepper
+            <strong>Ingredients:</strong><?php echo htmlspecialchars($recipes[$random]['ingredients']); ?>
+          </div>
+          <div class="recipe-instructions">
+            <strong>Instruction:</strong><?php echo htmlspecialchars($recipes[$random]['instructions']); ?>
+          </div>
+          <div class="recipe-type">
+            <strong>Cuisine Type: </strong><?php echo htmlspecialchars($recipes[$random]['cuisine_type']); ?>
+          </div>
+          <div class="recipe-dietary">
+            <strong>Dietary Preferences: </strong><?php echo htmlspecialchars($recipes[$random]['dietary_preferences']); ?>
           </div>
         </div>
       </div>
@@ -244,7 +258,7 @@
     $_SESSION['lockout_time'] = 0;
   }
 
-  if(!isset($_SESSION['user_id'])) {
+  if (!isset($_SESSION['user_id'])) {
     $_SESSION['user_id'] = 0;
   }
 
@@ -272,9 +286,9 @@
         // Login successful: Reset failed attempts and set session variables
         $_SESSION['failed_attempts'] = 0;
         $_SESSION['lockout_time'] = 0;
-        echo "<script>alert('Login successful!');</script>";
         $_SESSION['user'] = $user['firstname'];
-        header('nav.php');
+        echo "<script>alert('Login successful!');</script>";
+        echo "<script>window.location.href = 'index.php';</script>";
         $_SESSION['user_id'] = $user['userID'];
       } else {
         // Login failed: Increment failed attempts
@@ -333,7 +347,7 @@
 
     // Insert new user into the database
     $sql = "INSERT INTO user (firstname, lastname, email, password) VALUES ('$firstName', '$lastName', '$email', '$password')";
-    if ($conn->query($sql) === TRUE ) {
+    if ($conn->query($sql) === TRUE) {
       echo "<script>alert('Signup successful!');
             window.location.href='index.php';</script>";
       $_SESSION['user'] = $firstName;
@@ -346,7 +360,6 @@
 
         $_SESSION['user_id'] = $user['userID'];
       }
-
     } else {
       echo "<script>alert('Error: " . $conn->error . "');</script>";
     }

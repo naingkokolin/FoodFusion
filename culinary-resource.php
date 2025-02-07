@@ -25,53 +25,37 @@
   <!-- Main Content -->
   <main>
     <section class="resource-category">
+      <?php $pdfs = require 'fetch_culinary_pdf.php'; ?>
       <h2>Downloadable Recipe Cards</h2>
       <div class="resource-grid">
-        <div class="resource-card">
-          <img src="images/pancakes.jpg" alt="Classic Pancakes">
-          <h3>Classic Pancakes</h3>
-          <a href="downloads/pancakes.pdf" download class="download-btn">Download PDF</a>
-        </div>
-        <div class="resource-card">
-          <img src="images/pizza-dough.jpg" alt="Homemade Pizza Dough">
-          <h3>Homemade Pizza Dough</h3>
-          <a href="downloads/pizza-dough.pdf" download class="download-btn">Download PDF</a>
-        </div>
-        <div class="resource-card">
-          <img src="images/stir-fry.jpg" alt="Vegetarian Stir Fry">
-          <h3>Vegetarian Stir Fry</h3>
-          <a href="downloads/stir-fry.pdf" download class="download-btn">Download PDF</a>
-        </div>
+
+        <?php for ($pdf = 0; $pdf < count($pdfs); $pdf++): ?>
+          <div class="resource-card">
+            <img src="<?php echo htmlspecialchars($pdfs[$pdf]['thumbnail_path']); ?>" alt="Recipe Card PDF">
+            <h3><?php echo htmlspecialchars($pdfs[$pdf]['title']); ?></h3>
+            <a href="<?php echo htmlspecialchars($pdfs[$pdf]['file_path']); ?>" download class="download-btn">Download PDF</a>
+          </div>
+        <?php endfor; ?>
+
       </div>
     </section>
 
     <section class="resource-category">
-      <h2>Cooking Tutorials</h2>
+      <?php $videos = require('fetch_culinary_video.php'); ?>
+      <h2>Culinary Resources</h2>
       <div class="resource-grid">
-        <div class="resource-card">
-          <video controls>
-            <source src="videos/knife-skills.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <h3>Knife Skills Tutorial</h3>
-          <a href="downloads/knife-skills.mp4" download class="download-btn">Download Video</a>
-        </div>
-        <div class="resource-card">
-          <video controls>
-            <source src="videos/omelette.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <h3>Perfect Omelette</h3>
-          <a href="downloads/omelette.mp4" download class="download-btn">Download Video</a>
-        </div>
-        <div class="resource-card">
-          <video controls>
-            <source src="videos/baking-tips.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <h3>Baking Tips</h3>
-          <a href="downloads/baking-tips.mp4" download class="download-btn">Download Video</a>
-        </div>
+
+        <?php for ($video = 0; $video < count($videos); $video++): ?>
+          <div class="resource-card">
+            <video controls>
+              <source src="./<?php echo htmlspecialchars($videos[$video]['file_path']); ?>" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <h3><?php echo htmlspecialchars($videos[$video]['title']); ?></h3>
+            <a href="<?php echo htmlspecialchars($videos[$video]['file_path']); ?>" download class="download-btn">Download Video</a>
+          </div>
+        <?php endfor; ?>
+
       </div>
     </section>
   </main>
