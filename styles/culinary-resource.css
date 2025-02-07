@@ -58,6 +58,11 @@ main {
   overflow: hidden;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .resource-card:hover {
@@ -73,7 +78,8 @@ main {
   border-bottom: 2px solid #ff6347;
 }
 
-.resource-card h3 {
+.resource-card h3,
+.resource-card p {
   font-size: 1.3rem;
   margin: 15px 0;
   color: #333;

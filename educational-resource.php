@@ -33,6 +33,7 @@
           <div class="resource-card">
             <img src="<?php echo htmlspecialchars($pdfs[$pdf]['thumbnail_path']); ?>" alt="Recipe Card PDF">
             <h3><?php echo htmlspecialchars($pdfs[$pdf]['title']); ?></h3>
+            <p><strong>Description: </strong><?php echo htmlspecialchars($pdfs[$pdf]['description']); ?></p>
             <a href="<?php echo htmlspecialchars($pdfs[$pdf]['file_path']); ?>" download class="download-btn">Download PDF</a>
           </div>
         <?php endfor; ?>
@@ -52,6 +53,7 @@
               Your browser does not support the video tag.
             </video>
             <h3><?php echo htmlspecialchars($videos[$video]['title']); ?></h3>
+            <p><strong>Description: </strong><?php echo htmlspecialchars($videos[$video]['description']); ?></p>
             <a href="<?php echo htmlspecialchars($videos[$video]['file_path']); ?>" download class="download-btn">Download Video</a>
           </div>
         <?php endfor; ?>
