@@ -1,16 +1,14 @@
 <?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accept_cookies'])) {
+  setcookie('cookie_accepted', 'true', time() + (86400 * 1), "/");
+  header("Location: " . $_SERVER['PHP_SELF']);
+  exit();
+}
 
 if (!isset($_COOKIE['cookie_accepted'])) {
   $showBanner = true;
 } else {
   $showBanner = false;
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accept_cookies'])) {
-  setcookie('cookie_accepted', 'true', time() + (86400 * 30), "/");
-  $showBanner = false;
-  header("Location: " . $_SERVER['PHP_SELF']);
-  exit();
 }
 ?>
 <!DOCTYPE html>
@@ -92,20 +90,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accept_cookies'])) {
     </div>
   <?php endif; ?>
 
-  <script>
+  <!-- <script>
     const cookieBanner = document.getElementById('cookie-banner');
-
-    function acceptCookies() {
-      localStorage.setItem('cookie_accepted', 'true');
-      cookieBanner.classList.add('hidden');
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      if (localStorage.getItem('cookie_accepted') === 'true') {
+    if (cookieBanner) {
+      const acceptButton = cookieBanner.querySelector('button');
+      acceptButton.addEventListener('click', () => {
         cookieBanner.classList.add('hidden');
-      }
-    });
-  </script>
+      });
+    }
+  </script> -->
 </body>
 
 </html>

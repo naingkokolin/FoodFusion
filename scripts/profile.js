@@ -9,18 +9,6 @@ document.getElementById('editForm').addEventListener('submit', function (event) 
   }
 });
 
-// function togglePasswordVisibility() {
-//   const passwordDisplay = document.getElementById('passwordDisplay');
-//   const eyeIcon = document.getElementById('eyeIcon');
-//   if (passwordDisplay.textContent === '••••••••') {
-//     passwordDisplay.textContent = '<?php echo $password; ?>';
-//     eyeIcon.textContent = '👁️';
-//   } else {
-//     passwordDisplay.textContent = '••••••••';
-//     // eyeIcon.textContent = '&#128065;';
-//   }
-// }
-
 function togglePassword() {
   const passwordField = document.getElementById("password");
   passwordField.type = passwordField.type === "password" ? "text" : "password";

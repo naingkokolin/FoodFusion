@@ -12,6 +12,9 @@
 </head>
 
 <body>
+  <!-- Cookies Consent -->
+  <?php include('cookies-consent.php'); ?>
+
   <?php include 'nav.php'; ?>
   <script src="./scripts/home.js"></script>
 
@@ -26,8 +29,6 @@
       </div>
     <?php endif; ?>
     <!-- #endregion -->
-
-    <!-- // TODO: need to add News Feed -->
 
     <!-- #region Recipe Section -->
     <h2 class="title-texts">Integrated News Feed</h2>
@@ -240,9 +241,6 @@
       </div>
     </div>
 
-    <!-- Cookies Consent -->
-    <?php include('cookies-consent.php'); ?>
-
   </div> <!-- end of page container -->
 
   <?php include 'footer.php'; ?>
@@ -328,8 +326,6 @@
           $lockoutTime = 0;
           $_SESSION['lockout_time'] = $currentTime;
           $_SESSION['failed_attempts'] = 0;
-
-
         } else {
           echo "<script>alert('Incorrect password!');</script>";
           echo "<script>window.location.href='index.php';</script>";
@@ -345,7 +341,7 @@
     $firstName = htmlspecialchars($_POST['firstName']);
     $lastName = htmlspecialchars($_POST['lastName']);
     $email = htmlspecialchars($_POST['email']);
-    $password = password_hash(htmlspecialchars($_POST['password']), PASSWORD_BCRYPT);
+    $password = password_hash(htmlspecialchars($_POST['password']), PASSWORD_BCRYPT, ['cost' => 12]);
 
     // Insert new user into the database
     $sql = "INSERT INTO user (firstname, lastname, email, password) VALUES ('$firstName', '$lastName', '$email', '$password')";
