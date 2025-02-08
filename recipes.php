@@ -79,7 +79,7 @@
   </section>
 
   <!-- Footer -->
-  <?php include("footer1.php"); ?>
+  <?php include("footer.php"); ?>
 
   <script src="./scripts/recipes.js"></script>
 </body>

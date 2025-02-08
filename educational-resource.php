@@ -43,7 +43,7 @@
 
     <section class="resource-category">
       <?php $videos = require('fetch_resource_video.php'); ?>
-      <h2>Culinary Resources</h2>
+      <h2>Resources Videos</h2>
       <div class="resource-grid">
 
         <?php for ($video = 0; $video < count($videos); $video++): ?>
