@@ -23,15 +23,23 @@
 
       <!-- Contact Form -->
       <div class="contact-form">
-        <form id="contact-form">
-          <label for="full-name">Full Name:</label>
-          <input type="text" id="full-name" placeholder="Enter your full name" required>
+        <form id="contact-form" action="submit_contact.php" method="POST">
+          <label for="fullName">Full Name:</label>
+          <input type="text" id="full-name" name="fullName" placeholder="Enter your full name" required>
 
           <label for="email">Email:</label>
-          <input type="email" id="email" placeholder="Enter your email address" required>
+          <input type="email" name="email" id="email" placeholder="Enter your email address" required>
+
+          <label for="type">Type:</label>
+          <div class="custom-select">
+            <select id="type" name="type" required>
+              <option value="Request Form">Request Form</option>
+              <option value="Feedback">Feedback</option>
+            </select>
+          </div>
 
           <label for="message">Message:</label>
-          <textarea id="message" placeholder="Enter your message" required></textarea>
+          <textarea name="message" id="message" placeholder="Enter your message" required></textarea>
 
           <button type="submit">Send Message</button>
         </form>
