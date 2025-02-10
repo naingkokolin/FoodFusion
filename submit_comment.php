@@ -6,15 +6,14 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // $post_id = $_POST['post_id'];
-  $post_id = $_POST['post_id'];
+  $recipe_id = $_POST['recipe_id'];
   $content = $_POST['content'];
   $user_id = $_SESSION['user_id'];
 
-  echo "<script>alert('In submit comment php file');</script>";
+  var_dump($recipe_id, $content, $user_id);
 
-  $stmt = $conn->prepare("INSERT INTO comments (post_id, userID, content) VALUES (?, ?, ?)");
-  $stmt->bind_param("iis", $post_id, $user_id, $content);
+  $stmt = $conn->prepare("INSERT INTO comments (recipe_id, content, userID) VALUES (?, ?, ?)");
+  $stmt->bind_param("isi", $recipe_id, $content, $user_id);
 
   if ($stmt->execute()) {
   } else {

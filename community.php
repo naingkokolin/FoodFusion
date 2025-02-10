@@ -34,8 +34,17 @@
           <label for="post-ingredients">Ingredients:</label>
           <textarea id="post-ingredients" name="post-ingredients" placeholder="Enter ingredients" required></textarea>
 
-          <label for="post-steps">Cooking Steps:</label>
-          <textarea id="post-steps" name="post-steps" placeholder="Enter cooking steps" required></textarea>
+          <label for="post-instruction">Instruction:</label>
+          <textarea id="post-instruction" name="post-instruction" placeholder="Enter instruction" required></textarea>
+
+          <label for="cuisine_type">Cuisine Type:</label>
+          <input type="text" id="cuisine_type" name="cuisine_type" placeholder="Enter cuisine type" required>
+
+          <label for="dietary_preference">Dietary Preference:</label>
+          <input type="text" id="dietary_preference" name="dietary_preference" placeholder="Enter dietary preference" required>
+
+          <label for="cooking_difficulty">Cooking Difficulty:</label>
+          <input type="text" id="cooking_difficulty" name="cooking_difficulty" placeholder="Enter cooking difficulty" required>
 
           <label for="post-image">Image:</label>
           <textarea name="post-image" id="post-image" placeholder="Enter the copy link for image" required></textarea>
@@ -46,7 +55,7 @@
 
       <h2>Recent Contributions</h2>
       <div class="contributions" id="contributions">
-        
+
       </div>
     </div>
   </section>

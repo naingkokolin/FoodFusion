@@ -1,6 +1,6 @@
 <?php
 require_once 'db.php';
-$sql = "SELECT * FROM educational_resources WHERE resource_type = 'pdf'";
+$sql = "SELECT * FROM resources WHERE file_type = 'pdf' AND resource_type = 'education';";
 $result_resources = $conn->query($sql);
 
 $resource_pdfs = [];

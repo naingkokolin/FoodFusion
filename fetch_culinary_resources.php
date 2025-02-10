@@ -1,6 +1,6 @@
 <?php
 require_once 'db.php';
-$sql = "SELECT * FROM culinary_resources";
+$sql = "SELECT * FROM resources";
 $result_resources = $conn->query($sql);
 
 $culinary_resources = [];

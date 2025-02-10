@@ -31,7 +31,7 @@
 
         <?php for ($pdf = 0; $pdf < count($pdfs); $pdf++): ?>
           <div class="resource-card">
-            <img src="<?php echo htmlspecialchars($pdfs[$pdf]['thumbnail_path']); ?>" alt="Recipe Card PDF">
+            <img src="<?php echo htmlspecialchars($pdfs[$pdf]['image_url']); ?>" alt="Recipe Card PDF">
             <h3><?php echo htmlspecialchars($pdfs[$pdf]['title']); ?></h3>
             <p><strong>Description: </strong><?php echo htmlspecialchars($pdfs[$pdf]['description']); ?></p>
             <a href="<?php echo htmlspecialchars($pdfs[$pdf]['file_path']); ?>" download class="download-btn">Download PDF</a>

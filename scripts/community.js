@@ -19,17 +19,18 @@ $(document).ready(function () {
     });
   });
 
+  $('#contributions').on('click', '.comments button', function (event) {
+    event.preventDefault();
+    const recipe_id = $(this).data('recipe_id');
+    postComment(this, recipe_id);
+  });
+
   function loadPosts() {
     $.ajax({
       url: 'fetch_posts.php',
       dataType: 'html',
       success: function (data) {
         $('#contributions').html(data); 
-        $('.comments button').click(function () {
-          const postId = $(this).attr('data-post-id');
-          postComment(this, postId);
-          alert("commentttttt");
-        });
       },
       error: function (error) {
         console.error('Error loading posts:', error);
@@ -37,30 +38,30 @@ $(document).ready(function () {
     });
   }
 
-  function postComment(button, post_id) {
-    const commentText = button.previousElementSibling.value;
+  function postComment(button, recipe_id) {
+    const commentText = button.previousElementSibling.value.trim();
 
     if (commentText.trim() === "") {
       alert("Please enter a comment before posting.");
       return;
     }
 
+    console.log(commentText);
+
     $.ajax({
       type: 'POST',
       url: 'submit_comment.php',
       data: {
-        post_id: post_id,
+        recipe_id: recipe_id,
         content: commentText
       },
       success: function (response) {
-        console.log(response);
-        const commentElement = document.createElement("div");
-        commentElement.classList.add("comment-item");
-        commentElement.textContent = commentText;
-
-        const commentList = button.nextElementSibling;
-        commentList.appendChild(commentElement);
-        button.previousElementSibling.value = "";
+        // if (response === "success") {
+        //   alert("Comment added successfully.");
+        //   loadPosts();
+        // } else {
+        //   alert("Failed to add comment.");
+        // }
 
         loadPosts();
       }, 

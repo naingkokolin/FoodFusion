@@ -1,6 +1,6 @@
 <?php
 require_once 'db.php';
-$sql = "SELECT * FROM culinary_resources WHERE resource_type = 'video'";
+$sql = "SELECT * FROM resources WHERE file_type = 'video' AND resource_type = 'culinary';";
 $result_resources = $conn->query($sql);
 
 $resource_videos = [];

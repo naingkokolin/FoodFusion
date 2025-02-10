@@ -2,11 +2,11 @@
 require 'db.php';
 session_start();
 
-if (!isset($_SESSION['post_id'])) {
-  $_SESSION['post_id'] = 0;
+if (!isset($_SESSION['recipe_id'])) {
+  $_SESSION['recipe_id'] = 0;
 }
 
-$result = $conn->query("SELECT * FROM community ORDER BY created_at DESC");
+$result = $conn->query("SELECT * FROM recipes ORDER BY created_at DESC");
 
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
@@ -14,9 +14,8 @@ if ($result->num_rows > 0) {
     echo "<h3>" . $row['title'] . "</h3>";
     echo "<p><strong>Description:</strong> " . $row['description'] . "</p>";
     echo "<p><strong>Ingredients:</strong> " . $row['ingredients'] . "</p>";
-    echo "<p><strong>Steps</strong> " . $row['steps'] . "</p>";
 
-    echo "<img src='" . $row['image_url'] . "' alt='" . $row['title'] . "'/>";
+    echo "<img src='" . $row['image_path'] . "' alt='" . $row['title'] . "'/>";
 
     echo "<div class='reactions'>";
     echo "<button><i class='fas fa-thumbs-up'></i></button>";
@@ -27,13 +26,13 @@ if ($result->num_rows > 0) {
     echo "<div class='comments'>";
     echo "<form method='POST'>";
     echo "<textarea name='content' placeholder='Add a comment...'></textarea>";
-    echo "<input type='hidden' name='post_id' value='" . $row['post_id'] . "'>";
-    echo "<button type='submit'>Comment</button>";
+    // echo "<input type='hidden' name='recipe_id' value='" . $row['recipe_id'] . "'>";
+    echo "<button type='submit' data-recipe_id='" . $row['recipe_id'] . "'>Comment</button>";
     echo "</form>";
     echo "<div class='comment-list'>";
 
-    $post_id = $row['post_id'];
-    $comments_query = "SELECT * FROM comments WHERE post_id = $post_id ORDER BY created_at ASC";
+    $recipe_id = $row['recipe_id'];
+    $comments_query = "SELECT * FROM comments WHERE recipe_id = $recipe_id ORDER BY created_at ASC";
     $comments_result = $conn->query($comments_query);
 
     if ($comments_result->num_rows > 0) {
