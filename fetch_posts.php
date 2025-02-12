@@ -26,7 +26,6 @@ if ($result->num_rows > 0) {
     echo "<div class='comments'>";
     echo "<form method='POST'>";
     echo "<textarea name='content' placeholder='Add a comment...'></textarea>";
-    // echo "<input type='hidden' name='recipe_id' value='" . $row['recipe_id'] . "'>";
     echo "<button type='submit' data-recipe_id='" . $row['recipe_id'] . "'>Comment</button>";
     echo "</form>";
     echo "<div class='comment-list'>";
@@ -49,5 +48,3 @@ if ($result->num_rows > 0) {
 } else {
   echo "No Community Post Found!!!";
 }
-
-?>
