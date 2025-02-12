@@ -18,8 +18,8 @@ if ($result->num_rows > 0) {
     echo "<img src='" . $row['image_path'] . "' alt='" . $row['title'] . "'/>";
 
     echo "<div class='reactions'>";
-    echo "<button class='js-like-btn' data-recipe_id='" . $row['recipe_id'] . "><i class='fas fa-thumbs-up'></i></button>";
-    echo "<button class='js-dislike-btn' data-recipe_id='" . $row['recipe_id'] . "><i class='fas fa-thumbs-down'></i></button>";
+    echo "<button class='js-like-btn'><i class='fas fa-thumbs-up'></i></button>";
+    echo "<button class='js-dislike-btn'><i class='fas fa-thumbs-down'></i></button>";
     echo "<button><i class='fas fa-comment'></i></button>";
     echo "</div>";
 
