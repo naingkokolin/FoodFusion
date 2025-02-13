@@ -85,7 +85,7 @@
         <h2>Cozy White Bean Mushroom Stew</h2>
         <p>Cozy, creamy white bean and mushroom stew with potatoes and herbs. An easy 1 pot entry perfect for cooler weather, Vegan, gluten-free and SO delicious.</p>
         <h5>By Sara Dickerman and Marissa Lippert</h5>
-        <button>VIEW RECIPE</button>
+        <button onclick="window.location.href='recipes.php'">VIEW RECIPE</button>
       </div>
 
       <div class="pick-image">
@@ -96,7 +96,7 @@
     <!-- #endregion of pick of the week -->
 
     <!-- Culinary Trend Section -->
-    <h2>Culinary Trends...</h2>
+    <h2 style="margin-top: 40px;">Culinary Trends...</h2>
     <div class="culinary-container">
       <?php $culinary_trends = include('fetch_culinary.php'); ?>
       <?php for ($trend = 0; $trend < count($culinary_trends); $trend++): ?>
@@ -234,6 +234,7 @@
             <input type="password" id="loginPassword" name="loginPassword" required>
             <div class="error" id="loginPasswordError"></div>
             <p class="fail-attempt" id="js-fail-attempt"></p>
+            <p class="reset-password" id="js-reset-password"></p>
 
             <button type="submit" name="login" id="loginBtn" onclick="loginCheck(event)">Login</button>
           </form>
@@ -297,6 +298,7 @@
           echo "<script>
             alert('Too many failed attempts. Try again in 3 minutes.');
             document.getElementById('js-fail-attempt').innerHTML = 'Too many failed attempts. Try again in 3 minutes.';
+            const resetPassword = document.getElementById('js-reset-password');
             document.getElementById('loginBtn').disabled = true;
             startCountdown($lockoutTime);
             console.log('start countdown');
@@ -317,10 +319,17 @@
                   failAttemptElement.innerHTML = '';
                   loginButton.disabled = false; 
                   console.log('time up');
-                  
+                  resetPassword.style.color = '#ff6347';
+                  resetPassword.style.cursor = 'pointer';
+                  resetPassword.innerHTML = 'Reset Password';
                 }
               }
               updateCountdown();
+
+              resetPassword.addEventListener('click', () => {
+                console.log('password reset');
+                window.location.href='profile.php';
+              });
             }
             </script>";
           $lockoutTime = 0;

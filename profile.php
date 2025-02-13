@@ -26,21 +26,58 @@ if (isset($_SESSION['user_id'])) {
 
 // Handle update form submission
 if (isset($_POST['update'])) {
-  $newFirstName = $_POST['firstName'];
-  $newLastName = $_POST['lastName'];
-  $newEmail = $_POST['email'];
+  $newFirstName = htmlspecialchars($_POST['firstName']);
+  $newLastName = htmlspecialchars($_POST['lastName']);
+  $newEmail = htmlspecialchars($_POST['email']);
+  $hashedPassword =
+  password_hash(htmlspecialchars($_POST['password']), PASSWORD_BCRYPT, ['cost' => 12]);
 
   // Perform validation (similar to your signup validation) here  
 
-  $update_sql = "UPDATE user SET firstName = '$newFirstName', lastName = '$newLastName', email = '$newEmail' WHERE UserID = $user_id";
+  $update_sql = "UPDATE user SET firstname = '$newFirstName', lastname = '$newLastName', email = '$newEmail', `password` = '$hashedPassword' WHERE userID = $user_id";
   if ($conn->query($update_sql) === TRUE) {
     $_SESSION['user'] = $newFirstName;
-    header("Location: profile.php"); // Refresh the page
+    header("Location: profile.php");
     exit;
   } else {
     echo "Error updating record: " . $conn->error;
   }
 }
+
+// if (isset($_POST['update'])) {
+//   $newFirstName = htmlspecialchars($_POST['firstName']);
+//   $newLastName = htmlspecialchars($_POST['lastName']);
+//   $newEmail = htmlspecialchars($_POST['email']);
+
+
+//   $stmt = $conn->prepare("UPDATE user SET firstName = ?, lastName = ?, email = ? WHERE userID = ?");
+//   $stmt->bind_param("sssi", $newFirstName, $newLastName, $newEmail, $user_id);
+
+//   if ($stmt->execute()) {
+//     $_SESSION['user'] = $newFirstName;
+//     header("Location: profile.php");
+//     exit;
+//   } else {
+//     echo "Error updating record: " . $stmt->error;
+//   }
+
+//   $stmt->close();
+
+//   if (!empty($_POST['password'])) {
+//     $newPassword = $_POST['password'];
+//     $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+
+//     $stmt = $conn->prepare("UPDATE user SET password = ? WHERE userID = ?");
+//     $stmt->bind_param("si", $hashedPassword, $user_id);
+
+//     if ($stmt->execute()) {
+//       echo "Password Updated.";
+//     } else {
+//       echo "Error updating password: " . $stmt->error;
+//     }
+//     $stmt->close();
+//   }
+// }
 
 $conn->close();
 ?>
