@@ -18,15 +18,23 @@ if ($result->num_rows > 0) {
     echo "<img src='" . $row['image_path'] . "' alt='" . $row['title'] . "'/>";
 
     echo "<div class='reactions'>";
-    echo "<button class='js-like-btn'><i class='fas fa-thumbs-up'></i></button>";
-    echo "<button class='js-dislike-btn'><i class='fas fa-thumbs-down'></i></button>";
-    echo "<button><i class='fas fa-comment'></i></button>";
+    if (isset($_SESSION['user'])) {
+      echo "<button id='js-like-btn' class='js-like-btn'><i class='fas fa-thumbs-up'></i></button>";
+      echo "<button id='js-dislike-btn' class='js-dislike-btn'><i class='fas fa-thumbs-down'></i></button>";
+      echo "<button><i class='fas fa-comment'></i></button>";
+    } else {
+      echo "<p>You need to Login to LIKE and Comment!</p>";
+    }
     echo "</div>";
 
     echo "<div class='comments'>";
     echo "<form method='POST'>";
     echo "<textarea name='content' placeholder='Add a comment...'></textarea>";
-    echo "<button type='submit' data-recipe_id='" . $row['recipe_id'] . "'>Comment</button>";
+    if (isset($_SESSION['user'])) {
+      echo "<button id='js-comment-btn' type='submit' data-recipe_id='" . $row['recipe_id'] . "'>Comment</button>";
+    } else {
+      echo "<script>document.getElementById('js-comment-btn').disabled = true;</script>";
+    }
     echo "</form>";
     echo "<div class='comment-list'>";
 

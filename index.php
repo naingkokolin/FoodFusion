@@ -261,7 +261,7 @@
     $_SESSION['user_id'] = 0;
   }
 
-  $lockoutTime = 10;
+  $lockoutTime = 180;
   $currentTime = time();
 
   // Handle Login Form Submission
