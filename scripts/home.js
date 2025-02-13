@@ -48,6 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
   signUpTab.addEventListener('click', signUp);
 
   loginTab.addEventListener('click', login);
+
+  // window.onclick = function (event) {
+  //   const modal = document.getElementById('js-reset-modal');
+  //   if (event.target === modal) {
+  //     modal.style.display = 'none';
+  //   }
+  // };
+
 });
 
 const signUpForm = document.getElementById('signUpForm');

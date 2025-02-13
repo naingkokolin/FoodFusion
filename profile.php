@@ -1,9 +1,7 @@
 <?php
 session_start();
-// Database connection (replace with your credentials)
 include 'db.php';
 
-// Fetch user data (assuming you have a user_id in the session)
 if (isset($_SESSION['user_id'])) {
   $user_id = $_SESSION['user_id'];
   $sql = "SELECT firstName, lastName, email, password FROM user WHERE userID = $user_id";
@@ -30,9 +28,7 @@ if (isset($_POST['update'])) {
   $newLastName = htmlspecialchars($_POST['lastName']);
   $newEmail = htmlspecialchars($_POST['email']);
   $hashedPassword =
-  password_hash(htmlspecialchars($_POST['password']), PASSWORD_BCRYPT, ['cost' => 12]);
-
-  // Perform validation (similar to your signup validation) here  
+    password_hash(htmlspecialchars($_POST['password']), PASSWORD_BCRYPT, ['cost' => 12]);
 
   $update_sql = "UPDATE user SET firstname = '$newFirstName', lastname = '$newLastName', email = '$newEmail', `password` = '$hashedPassword' WHERE userID = $user_id";
   if ($conn->query($update_sql) === TRUE) {
@@ -43,41 +39,6 @@ if (isset($_POST['update'])) {
     echo "Error updating record: " . $conn->error;
   }
 }
-
-// if (isset($_POST['update'])) {
-//   $newFirstName = htmlspecialchars($_POST['firstName']);
-//   $newLastName = htmlspecialchars($_POST['lastName']);
-//   $newEmail = htmlspecialchars($_POST['email']);
-
-
-//   $stmt = $conn->prepare("UPDATE user SET firstName = ?, lastName = ?, email = ? WHERE userID = ?");
-//   $stmt->bind_param("sssi", $newFirstName, $newLastName, $newEmail, $user_id);
-
-//   if ($stmt->execute()) {
-//     $_SESSION['user'] = $newFirstName;
-//     header("Location: profile.php");
-//     exit;
-//   } else {
-//     echo "Error updating record: " . $stmt->error;
-//   }
-
-//   $stmt->close();
-
-//   if (!empty($_POST['password'])) {
-//     $newPassword = $_POST['password'];
-//     $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-
-//     $stmt = $conn->prepare("UPDATE user SET password = ? WHERE userID = ?");
-//     $stmt->bind_param("si", $hashedPassword, $user_id);
-
-//     if ($stmt->execute()) {
-//       echo "Password Updated.";
-//     } else {
-//       echo "Error updating password: " . $stmt->error;
-//     }
-//     $stmt->close();
-//   }
-// }
 
 $conn->close();
 ?>

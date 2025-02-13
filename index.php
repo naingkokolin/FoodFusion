@@ -261,7 +261,7 @@
     $_SESSION['user_id'] = 0;
   }
 
-  $lockoutTime = 180;
+  $lockoutTime = 10;
   $currentTime = time();
 
   // Handle Login Form Submission
@@ -328,10 +328,58 @@
 
               resetPassword.addEventListener('click', () => {
                 console.log('password reset');
-                window.location.href='profile.php';
+                document.getElementById('js-reset-modal').style.display='block';
               });
             }
             </script>";
+          echo "
+          <div id='js-reset-modal' class='reset-modal'>
+            <div class='modal-content'>
+            <form action='reset_password.php' method='POST' class='reset-password-form'>
+              <label for='email'>Email: </label>
+              <input type='text' name='email' id='email'>
+
+              <label for='password'>Password: </label>
+              <input type='password' name='password' id='password'>
+              
+              <button type='submit' name='reset' class='reset-btn' id='js-reset-btn'>Reset</button>
+            </form>
+            </div>
+          </div>
+
+          window.onclick = function (event) {
+            const modal = document.getElementById('js-reset-modal');
+            if (event.target === modal) {
+              modal.style.display = 'none';
+            }
+          };
+
+          <style>
+            .reset-modal {
+              display: none;
+              position: fixed;
+              z-index: 1000;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              overflow: auto;
+              background-color: rgba(0, 0, 0, 0.5);
+              animation: fadeIn 0.3s ease;
+            }
+            .modal-content {
+              background-color: #fff;
+              margin: 10% auto;
+              padding: 20px;
+              border-radius: 8px;
+              width: 90%;
+              max-width: 400px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+              animation: slideIn 0.3s ease;
+          }
+          </style>
+          ";
+          
           $lockoutTime = 0;
           $_SESSION['lockout_time'] = $currentTime;
           $_SESSION['failed_attempts'] = 0;
